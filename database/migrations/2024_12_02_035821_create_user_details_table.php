@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('user_details', function (Blueprint $table) {
-            $table->id('user_id');
+            $table->bigInteger('user_id')->unsigned()->unique();
             $table->date("dob");
             $table->char('gender', 2);
             $table->string('phone', 20);
             $table->string('birth_place')->nullable();
             $table->string('nationality')->nullable();
             $table->string('current_address')->nullable();
-            $table->char('postcode',10)->nullable();
             $table->string('town')->nullable();
+            $table->char('postcode',10)->nullable();
             $table->date('living_since')->nullable();
             $table->char('ni_number', 20)->nullable();
             /** Emergence Contact Details */
