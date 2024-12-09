@@ -75,7 +75,7 @@ class Recruitment_Form_Controller extends Controller
             $det->birth_place = $request->user_birth_place;
             $det->nationality = $request->user_nationality;
             $det->current_address = $request->user_current_address;
-            $det->town = $request->user_town;
+            $det->city = $request->user_city;
             $det->postcode = $request->user_postcode;
             $det->living_since = $request->user_living_since;
             $det->ni_number = $request->user_ni_number;

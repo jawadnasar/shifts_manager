@@ -88,24 +88,29 @@
             value="{{ old('user_current_address', isset($udata) ? $udata->current_address : '') }}" required>
     </div>
     <div class="form-group">
-        <label for="user_town">Town</label>
-        <input type="text" class="form-control" id="user_town" name="user_town"
-            value="{{ old('user_town', isset($udata) ? $udata->town : '') }}" required>
+        <label for="user_city">City</label>
+        <input type="text" class="form-control" id="user_city" name="user_city"
+            value="{{ old('user_city', isset($udata) ? $udata->city : '') }}" required>
     </div>
     <div class="form-group">
         <label for="user_postcode">Postcode</label>
         <input type="text" class="form-control" id="user_postcode" name="user_postcode"
             value="{{ old('user_postcode', isset($udata) ? $udata->postcode : '') }}" required>
     </div>
-    <div class="form-group">
+    {{-- <div class="form-group">
         <label for="user_living_since">Living Since</label>
         <input type="date" class="form-control" id="user_living_since" name="user_living_since" max="{{ now()->toDateString() }}" 
             value="{{ old('user_living_since', isset($udata) ? $udata->living_since : '') }}" required>
-    </div>
+    </div> --}}
     <div class="form-group">
         <label for="user_ni_number">NI Number</label>
         <input type="text" class="form-control" id="user_ni_number" name="user_ni_number"
             value="{{ old('user_ni_number', isset($udata) ? $udata->ni_number : '') }}" required>
+    </div>
+    <div class="form-group">
+        <label for="user_share_code">Share code</label>
+        <input type="text" class="form-control" id="user_share_code" name="user_share_code"
+            value="{{ old('user_share_code', isset($udata) ? $udata->user_share_code : '') }}" required>
     </div>
     <div>
         <h5>Emergency Contact</h5>
