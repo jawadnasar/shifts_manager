@@ -28,4 +28,10 @@ class User_Details extends Model
             // $model->updated_by = auth()->user()->id;
         });
     }
+
+    /** Relationship to user */
+    public function relate_user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
