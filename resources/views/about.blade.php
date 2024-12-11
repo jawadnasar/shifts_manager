@@ -24,7 +24,7 @@
         <div class="col-md-6 px-0">
           <div class="img_container">
             <div class="img-box">
-              <img src="{{ asset('front-theme/images/guard.jpg') }}" alt="" />
+              <img src="{{ asset('front-theme/images/uk_guard.GIF') }}" alt="" />
             </div>
           </div>
         </div>

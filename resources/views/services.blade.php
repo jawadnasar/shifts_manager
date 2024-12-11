@@ -94,13 +94,15 @@
         </div>
     </div>
 
+   
+
     <div class="row align-items-center mb-3">
         <div class="col-md-6">
-            <img src="{{ asset('front-theme/images/shopping_mall.png') }}" alt="Reception" class="img-fluid rounded">
+            <img src="{{ asset('front-theme/images/mall_security.png') }}" alt="Reception" class="img-fluid rounded">
         </div>
         <div class="col-md-6">
             <h2 class="mb-3">Shopping Malls</h2>
-            <p>
+           <p>
             TRK Protectors is a leading security company dedicated to ensuring the safety and peace of mind for individuals and businesses alike. With a team of highly trained and experienced professionals, we offer a comprehensive range of security solutions tailore …..
             </p>
             <div class="mt-3">

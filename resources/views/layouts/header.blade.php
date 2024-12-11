@@ -60,6 +60,9 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{{ route('blog') }}">Blog</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('apply') }}">Apply</a>
+                </li>
               </ul>
             </div>
           </nav>
@@ -76,18 +79,19 @@
               <div class="row">
                 <div class="col-md-7">
                   <div class="detail-box">
-                    <h1>
-                      Your Saftey <br>
-                      <span>
-                        Our Responsibility
-                      </span>
-                    </h1>
-                    <p>
-                        Safeguarding your world with unwavering security expertise?
-                    </p>
+                  <h1>
+                    Securing Your <br>
+                    <span>
+                      Peace of Mind
+                    </span>
+                  </h1>
+                  <p>
+                    Dedicated to delivering top-notch security services you can trust.
+                  </p>
+
                     <div class="btn-box">
-                      <a href="" class="btn-1"> Read more </a>
-                      <a href="" class="btn-2">Request A Quote</a>
+                      <a href="{{ route('services')}}" class="btn-1"> Read more </a>
+                      <a href="{{ route('contact')}}" class="btn-2">Contact Us</a>
                     </div>
                   </div>
                 </div>
@@ -100,17 +104,18 @@
                 <div class="col-md-7">
                   <div class="detail-box">
                     <h1>
-                      Your Saftey <br>
+                      Your Security <br>
                       <span>
-                        Our Responsibility
+                        Our Commitment
                       </span>
                     </h1>
                     <p>
-                    Safeguarding your world with unwavering security expertise?
+                      Delivering unmatched protection and peace of mind for a safer tomorrow.
                     </p>
+
                     <div class="btn-box">
-                      <a href="" class="btn-1"> Read more </a>
-                      <a href="" class="btn-2">Request A Quote</a>
+                      <a href="{{ route('services')}}" class="btn-1"> Read more </a>
+                      <a href="{{ route('contact')}}" class="btn-2">Contact Us</a>
                     </div>
                   </div>
                 </div>
@@ -122,18 +127,18 @@
               <div class="row">
                 <div class="col-md-7">
                   <div class="detail-box">
-                    <h1>
-                      Your Saftey <br>
-                      <span>
-                        Our Responsibility
-                      </span>
-                    </h1>
-                    <p>
-                    Safeguarding your world with unwavering security expertise?
-                    </p>
+                  <h1>
+                    Protecting You <br>
+                    <span>
+                      At Every Step
+                    </span>
+                  </h1>
+                  <p>
+                    Providing reliable and comprehensive security solutions tailored to your needs.
+                  </p>
                     <div class="btn-box">
-                      <a href="" class="btn-1"> Read more </a>
-                      <a href="" class="btn-2">Request A Quote</a>
+                      <a href="{{ route('services')}}" class="btn-1"> Read more </a>
+                      <a href="{{ route('contact')}}" class="btn-2">Contact Us</a>
                     </div>
                   </div>
                 </div>
@@ -152,3 +157,8 @@
     </section>
     <!-- end slider section -->
 </div>
+<style>
+  .collapse {
+    visibility: visible!important;
+  }
+</style>

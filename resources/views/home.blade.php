@@ -9,7 +9,7 @@
         <div class="col-md-6 px-0">
           <div class="img_container">
             <div class="img-box">
-              <img src="{{ asset('front-theme/images/guard.jpg') }}" alt="" />
+              <img src="{{ asset('front-theme/images/uk_guard.GIF') }}" alt="" />
             </div>
           </div>
         </div>
@@ -24,10 +24,10 @@
               Get in touch and experience the peace of mind with TRK's Protectors top-notch security solutions.
             </p>
             <div class="btn-box">
-              <a href="">
+              <a href="{{ route('contact')}}" class="mb-2">
                 Get In Touch
               </a>
-              <a href="">
+              <a href="{{ route('services')}}" class="mb-2">
                 Learn More
               </a>
             </div>
@@ -178,7 +178,7 @@
         <!-- Image Column -->
         <div class="col-md-6">
             <div class="image-box text-center">
-            <img src="{{ asset('front-theme/images/banner.png') }}" class="img-fluid" alt="TRK Protector Guard">
+            <img src="{{ asset('front-theme/images/welcome_image.jpg') }}" class="img-fluid" alt="TRK Protector Guard">
             <!-- <div class="logo-overlay">
                 <img src="images/trk-logo.png" alt="TRK Logo" class="logo img-fluid">
             </div> -->
@@ -249,13 +249,32 @@
     </div>
   </section>
 
-  <section class="features-section py-5" style="background-color: #fcb250; color: #000;">
+<!-- end contact section -->
+<section class="sponsors-section py-5 mt-3 mb-3">
+  <div class="container text-center">
+    <!-- Title -->
+    <div class="heading_container heading_center">
+        <h2>
+        Reach Your Best UK-Based Security Partner
+        </h2>
+        <p>
+          We deliver top-tier security services across the UK, tailored to meet your needs. With a commitment to reliability and professionalism, we ensure your safety and peace of mind.
+        </p>
+      </div>
+
+    
+  
+  </div>
+</section>
+
+
+  <section class="features-section py-5" style="background-color: #FF8811; color: #000;">
   <div class="container text-center">
     <div class="row justify-content-center">
       <!-- Feature 1 -->
       <div class="col-6 col-md-3 mb-4">
         <div class="feature-item">
-          <i class="fas fa-shield-alt" style="font-size: 40px;"></i>
+          <i class="fa fa-shield" style="font-size: 40px;"></i>
           <h5 class="mt-2">First Class Service</h5>
         </div>
       </div>
@@ -263,7 +282,7 @@
       <!-- Feature 2 -->
       <div class="col-6 col-md-3 mb-4">
         <div class="feature-item">
-          <i class="fas fa-clock" style="font-size: 40px;"></i>
+          <i class="fa fa-clock-o" style="font-size: 40px;"></i>
           <h5 class="mt-2">Service Available 24/7/365</h5>
         </div>
       </div>
@@ -271,7 +290,7 @@
       <!-- Feature 3 -->
       <div class="col-6 col-md-3 mb-4">
         <div class="feature-item">
-          <i class="fas fa-user-shield" style="font-size: 40px;"></i>
+          <i class="fa fa-user-secret" style="font-size: 40px;"></i>
           <h5 class="mt-2">Health & Safety Compliant</h5>
         </div>
       </div>
@@ -279,7 +298,7 @@
       <!-- Feature 4 -->
       <div class="col-6 col-md-3 mb-4">
         <div class="feature-item">
-          <i class="fas fa-user-check" style="font-size: 40px;"></i>
+          <i class="fa fa-check-circle" style="font-size: 40px;"></i>
           <h5 class="mt-2">Clear DBS & BS7858 Vetted Staff</h5>
         </div>
       </div>
@@ -287,7 +306,7 @@
       <!-- Feature 5 -->
       <div class="col-6 col-md-3 mb-4">
         <div class="feature-item">
-          <i class="fas fa-star" style="font-size: 40px;"></i>
+          <i class="fa fa-star" style="font-size: 40px;"></i>
           <h5 class="mt-2">Highly Experienced</h5>
         </div>
       </div>
@@ -295,7 +314,7 @@
       <!-- Feature 6 -->
       <div class="col-6 col-md-3 mb-4">
         <div class="feature-item">
-          <i class="fas fa-chart-line" style="font-size: 40px;"></i>
+          <i class="fa fa-line-chart" style="font-size: 40px;"></i>
           <h5 class="mt-2">Competitive Rates & Quality Service</h5>
         </div>
       </div>
@@ -303,7 +322,7 @@
       <!-- Feature 7 -->
       <div class="col-6 col-md-3 mb-4">
         <div class="feature-item">
-          <i class="fas fa-globe" style="font-size: 40px;"></i>
+          <i class="fa fa-globe" style="font-size: 40px;"></i>
           <h5 class="mt-2">UK Wide Coverage</h5>
         </div>
       </div>
@@ -311,13 +330,14 @@
       <!-- Feature 8 -->
       <div class="col-6 col-md-3 mb-4">
         <div class="feature-item">
-          <i class="fas fa-puzzle-piece" style="font-size: 40px;"></i>
+          <i class="fa fa-puzzle-piece" style="font-size: 40px;"></i>
           <h5 class="mt-2">Tailored & Personalized Solutions</h5>
         </div>
       </div>
     </div>
   </div>
 </section>
+
 
 
 
@@ -330,8 +350,7 @@
             Accreditations & Memberships
         </h2>
         <p>
-          Lorem ipsum dolor sit amet, non odio tincidunt ut ante, lorem a euismod suspendisse vel, sed quam nulla mauris
-          iaculis. Erat eget vitae malesuada, tortor tincidunt porta lorem lectus.
+        Proudly recognised by leading industry bodies in the UK, we adhere to the highest standards of quality and professionalism. Our memberships and accreditations reflect our commitment to delivering reliable and trusted security solutions nationwide.
         </p>
       </div>
 

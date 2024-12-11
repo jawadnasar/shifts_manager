@@ -469,7 +469,7 @@ a:focus {
 }
 
 .service_section {
-  background-color: #1c1c1c;
+  background-color: #FF8811;
 }
 
 .service_section .heading_container {
@@ -483,6 +483,8 @@ a:focus {
   -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
   margin-top: 45px;
+  border:2px solid #fff;
+  border-radius: 10px;
 }
 
 .service_section .box .img-box svg {
@@ -1025,6 +1027,10 @@ a:focus {
 
   .feature-item {
     text-align: center;
+  }
+
+  .img-box img{
+    width:100%;
   }
 
 
