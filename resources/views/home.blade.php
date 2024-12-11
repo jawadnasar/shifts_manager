@@ -249,13 +249,85 @@
     </div>
   </section>
 
+  <section class="features-section py-5" style="background-color: #fcb250; color: #000;">
+  <div class="container text-center">
+    <div class="row justify-content-center">
+      <!-- Feature 1 -->
+      <div class="col-6 col-md-3 mb-4">
+        <div class="feature-item">
+          <i class="fas fa-shield-alt" style="font-size: 40px;"></i>
+          <h5 class="mt-2">First Class Service</h5>
+        </div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="col-6 col-md-3 mb-4">
+        <div class="feature-item">
+          <i class="fas fa-clock" style="font-size: 40px;"></i>
+          <h5 class="mt-2">Service Available 24/7/365</h5>
+        </div>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="col-6 col-md-3 mb-4">
+        <div class="feature-item">
+          <i class="fas fa-user-shield" style="font-size: 40px;"></i>
+          <h5 class="mt-2">Health & Safety Compliant</h5>
+        </div>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="col-6 col-md-3 mb-4">
+        <div class="feature-item">
+          <i class="fas fa-user-check" style="font-size: 40px;"></i>
+          <h5 class="mt-2">Clear DBS & BS7858 Vetted Staff</h5>
+        </div>
+      </div>
+
+      <!-- Feature 5 -->
+      <div class="col-6 col-md-3 mb-4">
+        <div class="feature-item">
+          <i class="fas fa-star" style="font-size: 40px;"></i>
+          <h5 class="mt-2">Highly Experienced</h5>
+        </div>
+      </div>
+
+      <!-- Feature 6 -->
+      <div class="col-6 col-md-3 mb-4">
+        <div class="feature-item">
+          <i class="fas fa-chart-line" style="font-size: 40px;"></i>
+          <h5 class="mt-2">Competitive Rates & Quality Service</h5>
+        </div>
+      </div>
+
+      <!-- Feature 7 -->
+      <div class="col-6 col-md-3 mb-4">
+        <div class="feature-item">
+          <i class="fas fa-globe" style="font-size: 40px;"></i>
+          <h5 class="mt-2">UK Wide Coverage</h5>
+        </div>
+      </div>
+
+      <!-- Feature 8 -->
+      <div class="col-6 col-md-3 mb-4">
+        <div class="feature-item">
+          <i class="fas fa-puzzle-piece" style="font-size: 40px;"></i>
+          <h5 class="mt-2">Tailored & Personalized Solutions</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
   <!-- end contact section -->
   <section class="sponsors-section py-5">
   <div class="container text-center">
     <!-- Title -->
     <div class="heading_container heading_center">
         <h2>
-          Our Sponsors
+            Accreditations & Memberships
         </h2>
         <p>
           Lorem ipsum dolor sit amet, non odio tincidunt ut ante, lorem a euismod suspendisse vel, sed quam nulla mauris

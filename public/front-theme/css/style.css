@@ -1003,3 +1003,28 @@ a:focus {
         color: black;
         font-size: 16px;
     }
+
+
+
+  .features-section {
+    background-color: #fcb250;
+    color: #000;
+  }
+
+  .feature-item i {
+    display: block;
+    margin: 0 auto;
+    color: #000;
+  }
+
+  .feature-item h5 {
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 16px;
+  }
+
+  .feature-item {
+    text-align: center;
+  }
+
+

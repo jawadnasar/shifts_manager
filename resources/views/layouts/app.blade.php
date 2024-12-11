@@ -25,6 +25,9 @@
         <!-- responsive style -->
         <link href="{{ asset('front-theme/css/responsive.css') }}" rel="stylesheet" />
 
+        <link href="{{ asset('front-theme/css/font-awesome.min.css') }}" rel="stylesheet" />
+
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
