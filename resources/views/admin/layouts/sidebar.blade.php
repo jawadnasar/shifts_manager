@@ -15,8 +15,8 @@
             </div>
         </div>
         <div class="navbar-nav w-100">
-            <a href="{{ route('dashboard') }}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-            <a href="{{ route('students.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Students</a>
+            <a href="" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+            <a href="" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Menu 1</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Rooms</a>
                 <div class="dropdown-menu bg-transparent border-0">

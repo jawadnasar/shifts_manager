@@ -1,9 +1,42 @@
 <div class="hero_area">
     <!-- header section strats -->
     <div class="hero_bg_box">
-      <div class="img-box">
+      <!-- <div class="img-box">
         <img src="{{ asset('front-theme/images/hero-bg.jpg') }}" alt="">
+      </div> -->
+
+
+      <div class="img-box">
+      @if(Route::currentRouteName() == 'home')
+          <img src="{{ asset('front-theme/images/hero-bg.jpg') }}" alt="Home">
+      @elseif(Route::currentRouteName() == 'about')
+          <img src="{{ asset('front-theme/images/about_bg.jpg') }}" alt="About">
+      @elseif(Route::currentRouteName() == 'services')
+          <img src="{{ asset('front-theme/images/services_bg.jpg') }}" alt="Services">
+      @elseif(Route::currentRouteName() == 'contact')
+          <img src="{{ asset('front-theme/images/contact-bg.jpg') }}" alt="Contact">
+      @elseif(Route::currentRouteName() == 'blog')
+          <img src="{{ asset('front-theme/images/blog-bg.jpg') }}" alt="Blog">
+      @elseif(Route::currentRouteName() == 'apply')
+          <img src="{{ asset('front-theme/images/apply-bg.jpg') }}" alt="Apply">
+      @elseif(Route::currentRouteName() == 'reception-security-detail')
+          <img src="{{ asset('front-theme/images/reception-security-bg.jpg') }}" alt="Reception Security">
+      @elseif(Route::currentRouteName() == 'site-security-detail')
+          <img src="{{ asset('front-theme/images/site-security-bg.jpg') }}" alt="Site Security">
+      @elseif(Route::currentRouteName() == 'door-security-detail')
+          <img src="{{ asset('front-theme/images/door-security-bg.jpg') }}" alt="Door Security">
+      @elseif(Route::currentRouteName() == 'events-security-detail')
+          <img src="{{ asset('front-theme/images/events-security-bg.jpg') }}" alt="Events Security">
+      @elseif(Route::currentRouteName() == 'personal-body-guard-security-detail')
+          <img src="{{ asset('front-theme/images/personal-body-guard-bg.jpg') }}" alt="Personal Body Guard">
+      @elseif(Route::currentRouteName() == 'shopping-malls-security-detail')
+          <img src="{{ asset('front-theme/images/shopping-malls-bg.jpg') }}" alt="Shopping Malls Security">
+      @else
+          <img src="{{ asset('front-theme/images/default-bg.jpg') }}" alt="Default">
+      @endif
+
       </div>
+
     </div>
 
     <header class="header_section">
@@ -45,22 +78,23 @@
 
             <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
               <ul class="navbar-nav  ">
-                <li class="nav-item active">
+                <li class="nav-item {{ Route::currentRouteName() == 'home' ? 'active' : '' }}">
                   <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ Route::currentRouteName() == 'about' ? 'active' : '' }}">
                   <a class="nav-link" href="{{ route('about') }}">About Us </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ Route::is('services', 'reception-security-detail', 'site-security-detail', 'door-security-detail', 'events-security-detail', 'personal-body-guard-security-detail', 'shopping-malls-security-detail') ? 'active' : '' }}">
                   <a class="nav-link" href="{{ route('services') }}"> Services</a>
-                </li>
-                <li class="nav-item">
+              </li>
+
+                <li class="nav-item {{ Route::currentRouteName() == 'contact' ? 'active' : '' }}">
                   <a class="nav-link" href="{{ route('contact') }}"> Contact </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ Route::currentRouteName() == 'blog' ? 'active' : '' }}">
                   <a class="nav-link" href="{{ route('blog') }}">Blog</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ Route::currentRouteName() == 'apply' ? 'active' : '' }}">
                   <a class="nav-link" href="{{ route('apply') }}">Apply</a>
                 </li>
               </ul>

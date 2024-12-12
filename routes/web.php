@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\security_agency\Recruitment_Form_Controller;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\ApplyController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
@@ -8,7 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServicesController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Middleware\AdminMiddleware;
 // Redirect root URL to /home
 Route::get('/', function () {
     return redirect()->route('home');
@@ -35,9 +36,11 @@ Route::get('/apply', [ApplyController::class, 'index'])->name('apply');
 Route::resource('/agency_recruitment_form', Recruitment_Form_Controller::class);
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::prefix('admin')->middleware(['auth', 'verified', AdminMiddleware::class])->group(function () {
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

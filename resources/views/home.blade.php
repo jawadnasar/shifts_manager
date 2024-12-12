@@ -4,38 +4,39 @@
 
 @section('title', 'Home') <!-- Set the title for this page -->
 <section class="about_section layout_padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 px-0">
-          <div class="img_container">
-            <div class="img-box">
-              <img src="{{ asset('front-theme/images/uk_guard.GIF') }}" alt="" />
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 px-0">
+        <div class="img_container">
+          <div class="img-box">
+            <img src="{{ asset('front-theme/images/uk_guard.GIF') }}" alt="" style="width: 100%; max-width: 400px; height: auto;" />
           </div>
         </div>
-        <div class="col-md-6 px-0">
-          <div class="detail-box">
-            <div class="heading_container ">
-              <h2>
-                Safeguarding your world with unwavering security expertise?
-              </h2>
-            </div>
-            <p>
-              Get in touch and experience the peace of mind with TRK's Protectors top-notch security solutions.
-            </p>
-            <div class="btn-box">
-              <a href="{{ route('contact')}}" class="mb-2">
-                Get In Touch
-              </a>
-              <a href="{{ route('services')}}" class="mb-2">
-                Learn More
-              </a>
-            </div>
+      </div>
+      <div class="col-md-6 px-0">
+        <div class="detail-box">
+          <div class="heading_container ">
+            <h2>
+              Safeguarding your world with unwavering security expertise?
+            </h2>
+          </div>
+          <p>
+            Get in touch and experience the peace of mind with TRK's Protectors top-notch security solutions.
+          </p>
+          <div class="btn-box">
+            <a href="{{ route('contact')}}" class="mb-2">
+              Get In Touch
+            </a>
+            <a href="{{ route('services')}}" class="mb-2">
+              Learn More
+            </a>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- end about section -->
 
@@ -61,7 +62,7 @@
               <p>
               Safeguarding your world with unwavering security expertise.
               </p>
-              <a href="">
+              <a href="{{ route('reception-security-detail')}}">
                 Read More
               </a>
             </div>
@@ -79,7 +80,7 @@
               <p>
               Safeguarding your world with unwavering security expertise
               </p>
-              <a href="">
+              <a href="{{ route('site-security-detail')}}">
                 Read More
               </a>
             </div>
@@ -97,7 +98,7 @@
               <p>
               Safeguarding your world with unwavering security expertise.
               </p>
-              <a href="">
+              <a href="{{ route('door-security-detail')}}">
                 Read More
               </a>
             </div>
@@ -117,7 +118,7 @@
               <p>
               Safeguarding your world with unwavering security expertise.
               </p>
-              <a href="">
+              <a href="{{ route('shopping-malls-security-detail')}}">
                 Read More
               </a>
             </div>
@@ -135,7 +136,7 @@
               <p>
               Safeguarding your world with unwavering security expertise
               </p>
-              <a href="">
+              <a href="{{ route('events-security-detail')}}">
                 Read More
               </a>
             </div>
@@ -153,7 +154,7 @@
               <p>
               Safeguarding your world with unwavering security expertise
               </p>
-              <a href="">
+              <a href="{{ route('personal-body-guard-security-detail')}}">
                 Read More
               </a>
             </div>
@@ -342,7 +343,7 @@
 
 
   <!-- end contact section -->
-  <section class="sponsors-section py-5">
+  <section class="sponsors-section py-5" style="">
   <div class="container text-center">
     <!-- Title -->
     <div class="heading_container heading_center">

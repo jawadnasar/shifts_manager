@@ -1,4 +1,9 @@
 <x-guest-layout>
+    <!-- Logo -->
+    <div class="text-center mb-6">
+        <img src="{{ asset('images/logo.png') }}" alt="Your Logo" class="mx-auto w-24 h-24">
+    </div>
+
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 

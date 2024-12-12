@@ -4,6 +4,9 @@
         <div class="col-md-3">
           <div class="info_logo">
             <a class="navbar-brand" href="index.html">
+              <span class="footer_logo">
+                <img src="{{ asset('front-theme/images/main_logo.png') }}" alt="" style="width:120px;height:120px;">
+              </span>
               <span>
                 TRK Protectors
               </span>
@@ -17,27 +20,33 @@
         <div class="col-md-3">
           <div class="info_links">
             <h5>
-              Useful Link
+              Important Links
             </h5>
             <ul>
               <li>
-                <a href="">
+                <a href="{{ route('about')}}">
                  About Us
                 </a>
               </li>
               <li>
-                <a href="">
+                <a href="{{ route('services')}}">
                   Our Services
                 </a>
               </li>
               <li>
-                <a href="">
+                <a href="{{ route('contact')}}">
                   Contact Us
                 </a>
               </li>
               <li>
-                <a href="">
+                <a href="{{ route('blog')}}">
                   Blog
+                </a>
+              </li>
+
+              <li>
+                <a href="{{ route('apply')}}">
+                  Apply
                 </a>
               </li>
             </ul>

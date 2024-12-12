@@ -6,6 +6,7 @@ use App\Models\User_Details;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class User_DetailsSeeder extends Seeder
 {
@@ -18,13 +19,13 @@ class User_DetailsSeeder extends Seeder
 
         $users = [
             [
-                'fname' => 'Test',
-                'sname' => 'User',
+                'fname' => 'test',
+                'sname' => 'user',
                 'user_type' => 'admin', // Dummy admin entry
-                'email' => 'test@example.com',
-                'password' => 'admin1234',
+                'email' => 'admin@example.com',
+                'password' => Hash::make('admin1234'),
             ],
-            
+           
         ];
 
         foreach ($users as $user) {
