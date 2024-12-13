@@ -19,12 +19,13 @@ return new class extends Migration
                 ->comment('See comment in migration file 2024_12_09_035858_users_documents');
             $table->string('link');
             /**
-            ! 1. active
-            2. inactive
-            3. updated
-            4. deleted
+            ! 
+            0. inactive
+            1. active
+            2. updated
+            3. deleted
              */
-            $table->tinyInteger('status')->comment('See comment in migration file 2024_12_09_035858_users_documents');
+            $table->tinyInteger('status')->default(1)->comment('See comment in migration file 2024_12_09_035858_users_documents');
             $table->text('details');
 
             $table->bigInteger('created_by')->unsigned(); // Foreign Key
