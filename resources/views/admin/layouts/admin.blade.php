@@ -9,7 +9,8 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <title>@yield('title', config('app.name'))</title>
+    <link rel="icon" href="{{ asset('front-theme/images/main_logo.png') }}" type="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -2,7 +2,7 @@
 
 @section('content')
 
-@section('title', 'Home') <!-- Set the title for this page -->
+@section('title', 'Contact') <!-- Set the title for this page -->
 
   <!-- contact section -->
   <div class="row mb-3 mt-4">

@@ -3,7 +3,7 @@
 
 @section('content')
 
-@section('title', 'Reception') <!-- Set the title for this page -->
+@section('title', 'Event Security') <!-- Set the title for this page -->
 
 <section class="sponsors-section py-5">
   <div class="container text-center">
