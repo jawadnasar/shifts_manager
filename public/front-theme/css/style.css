@@ -1059,4 +1059,13 @@ a:focus {
     margin-bottom:7px;
   }
   
+  .logo-container {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;    /* Centers vertically (if applicable) */
+    margin: 0 auto;         /* Ensures proper centering */
+    padding: 20px 0;        /* Optional spacing around the logo */
+    text-align: center;     /* Ensures centered text alignment */
+}
+
 

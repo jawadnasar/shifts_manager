@@ -24,7 +24,8 @@ return new class extends Migration
             3. updated
             4. deleted
              */
-            $table->tinyInteger('status')->comment('See comment in migration file 2024_12_09_035858_users_documents');
+            //Should Be 1 by default
+            $table->tinyInteger('status')->default(1)->comment('See comment in migration file 2024_12_09_035858_users_documents');
             $table->text('details');
 
             $table->bigInteger('created_by')->unsigned(); // Foreign Key
