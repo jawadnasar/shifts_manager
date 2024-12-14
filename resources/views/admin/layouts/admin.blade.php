@@ -9,8 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <title>@yield('title', config('app.name'))</title>
-    <link rel="icon" href="{{ asset('front-theme/images/main_logo.png') }}" type="icon">
+    <link href="img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,17 +21,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="{{ asset('admin-theme/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('admin-theme/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }} " rel="stylesheet" />
+    <link href="{{ asset('adminth/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('adminth/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{ asset('admin-theme/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('adminth/css/bootstrap.min.css') }}" rel="stylesheet">
+
     <!-- Template Stylesheet -->
-    <link href="{{ asset('admin-theme/css/style.css') }} " rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.css" rel="stylesheet">
-
+    <link href="{{ asset('adminth/css/style.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -53,46 +49,43 @@
 
         <!-- Content Start -->
         <div class="content">
-            <!-- Navbar Start -->
+            <!-- Header-->
             @include('admin.layouts.header')
-            <!-- Navbar End -->
+            <!-- Header -->
 
 
-            <!-- Main Contents -->
+            <!-- Main Contents-->
+          
             @yield('content')
-            <!-- Main Contents End -->
+           
+            <!-- Main Contents -->
 
 
-            <!-- Footer Start -->
-            @include('admin.layouts.footer')
+            <!-- Footer -->
+            @yield('footer')
             <!-- Footer End -->
         </div>
-        <!-- Content End -->
+        <!-- Content -->
 
 
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
+    @yield('javascript')
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Load jQuery first -->
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ asset('admin-theme/lib/chart/chart.min.js') }}"></script>
-    <script src="{{ asset('admin-theme/lib/easing/easing.min.js') }}"></script>
-    <script src="{{ asset('admin-theme/lib/waypoints/waypoints.min.js') }}"></script>
-    <script src="{{ asset('admin-theme/lib/owlcarousel/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('admin-theme/lib/tempusdominus/js/moment.min.js') }}"></script>
-    <script src="{{ asset('admin-theme/lib/tempusdominus/js/moment-timezone.min.js') }}"></script>
-    <script src="{{ asset('admin-theme/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ asset('adminth/lib/chart/chart.min.js') }}"></script>
+    <script src="{{ asset('adminth/lib/easing/easing.min.js') }}"></script>
+    <script src="{{ asset('adminth/lib/waypoints/waypoints.min.js') }}"></script>
+    <script src="{{ asset('adminth/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('adminth/lib/tempusdominus/js/moment.min.js') }}"></script>
+    <script src="{{ asset('adminth/lib/tempusdominus/js/moment-timezone.min.js') }}"></script>
+    <script src="{{ asset('adminth/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
 
     <!-- Template Javascript -->
-    <script src="{{ asset('js/main.js') }}"></script>
-
-    @yield('scripts')
-
+    <script src="{{ asset('adminth/js/main.js') }}"></script>
 </body>
 
 </html>

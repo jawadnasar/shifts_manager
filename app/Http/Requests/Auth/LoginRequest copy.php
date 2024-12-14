@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Requests\Auth;
 
 use Illuminate\Auth\Events\Lockout;
@@ -7,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
-use Illuminate\Http\RedirectResponse;
 
 class LoginRequest extends FormRequest
 {
@@ -37,7 +37,7 @@ class LoginRequest extends FormRequest
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function authenticate(): RedirectResponse
+    public function authenticate(): void
     {
         $this->ensureIsNotRateLimited();
 
@@ -50,9 +50,6 @@ class LoginRequest extends FormRequest
         }
 
         RateLimiter::clear($this->throttleKey());
-
-        // After authentication, perform role-based redirection
-        return $this->roleBasedRedirect();
     }
 
     /**
@@ -85,24 +82,4 @@ class LoginRequest extends FormRequest
     {
         return Str::transliterate(Str::lower($this->string('email')).'|'.$this->ip());
     }
-
-    /**
-     * Perform role-based redirection after successful login.
-     */
-    protected function roleBasedRedirect(): RedirectResponse
-    {
-        $user = Auth::user();
-        // Role-based redirection after login
-        if ($user->user_type == 'admin') {
-            // Redirect to the admin dashboard if the admin_type (Admin)
-            return redirect()->route('dashboard');
-        } else {
-            // Redirect to the homepage for other roles
-            return redirect()->route('home');
-        }
-    }
-
-
-    
 }
-
