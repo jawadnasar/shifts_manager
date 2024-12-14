@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('fname');
             $table->string('sname');
-            $table->string('user_type');
+            /** User type could be admin, employee */
+            $table->string('user_type')->comment('See comment in migration file 0001_01_01_000000_create_users_table.php');;
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

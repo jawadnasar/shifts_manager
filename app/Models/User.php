@@ -57,4 +57,10 @@ class User extends Authenticatable
         return $this->hasOne(User_Documents::class);
     }
 
+    // Full name
+    public function getFullNameAttribute()
+    {
+        return $this->fname . ' ' . $this->sname;
+    }
+
 }
