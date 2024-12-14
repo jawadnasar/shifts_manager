@@ -24,7 +24,7 @@ class User_DocumentsFactory extends Factory
                 'other'
             ]), // Random document type
             'link' => $this->faker->url, // Example URL for the document
-            'status' => $this->faker->randomElement([1, 2, 3, 4]), // Random status value
+            'status' => $this->faker->randomElement([0, 1, 2, 3]), // Random status value
             'details' => $this->faker->text(200), // Random descriptive text
             
             'created_by' => User::query()->inRandomOrder()->value('id') ?? User::factory(), // Random existing user or create one,
