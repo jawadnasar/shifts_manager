@@ -9,7 +9,7 @@
       <div class="col-md-6 px-0">
         <div class="img_container">
           <div class="img-box">
-            <img src="{{ asset('front-theme/images/uk_guard.GIF') }}" alt="" style="width: 100%; max-width: 400px; height: auto;" />
+            <img src="{{ asset('front-theme/images/uk_guard.gif') }}" alt="" style="width: 100%; max-width: 400px; height: auto;" />
           </div>
         </div>
       </div>
