@@ -343,46 +343,71 @@
 
 
   <!-- end contact section -->
-  <section class="sponsors-section py-5" style="">
+  <section class="sponsors-section py-5" style="background-color: #1a1a1a; color: white; text-align: center; position: relative;">
   <div class="container text-center">
-    <!-- Title -->
-    <div class="heading_container heading_center">
-        <h2>
-            Accreditations & Memberships
-        </h2>
-        <p>
-        Proudly recognised by leading industry bodies in the UK, we adhere to the highest standards of quality and professionalism. Our memberships and accreditations reflect our commitment to delivering reliable and trusted security solutions nationwide.
-        </p>
+    <!-- Logo and Tagline -->
+    <div class="heading_container mb-4 text-center logo-container">
+      <img src="{{ asset('front-theme/images/main_logo.png') }}" alt="Company Logo" class="mb-3" style="max-width: 150px;">
+      <p>Pioneers in Comprehensive Security Solutions</p>
+      <p style="font-size: 14px; line-height: 1.6;">
+        Security is a top priority for individuals and businesses seeking to establish a presence in any area. At TRK Protectors, we specialize in delivering professional and reliable security services that instill confidence and peace of mind. Our expertise ensures the safety of your assets, employees, and operations, empowering investors and businesses to focus on growth and success. With TRK Protectors, you’re not just securing your business—you’re securing your future.
+      </p>
+      <p style="font-size: 12px;">
+        Company No: 7996374<br>
+        VAT Registration: 132 7467 15
+      </p>
+    </div>
+
+
+
+    <!-- Accreditations Logos -->
+    <div class="row justify-content-center align-items-center">
+      <!-- Accreditation 1 -->
+      <div class="col-6 col-md-2 mb-3">
+        <img src="{{ asset('front-theme/images/ARC-Logo-300x177.jpg') }}" alt="BSI" class="img-fluid" style="max-height: 80px;">
+      </div>
+      <!-- Accreditation 2 -->
+      <div class="col-6 col-md-2 mb-3">
+        <img src="{{ asset('front-theme/images/OIF-image-300x134.jpg') }}" alt="NTIA" class="img-fluid" style="max-height: 80px;">
+      </div>
+      <!-- Accreditation 3 -->
+      <div class="col-6 col-md-2 mb-3">
+        <img src="{{ asset('front-theme/images/sia-approved-contractor-256x300.jpg') }}" alt="ISO 9001:2015" class="img-fluid" style="max-height: 80px;">
+      </div>
+      <!-- Accreditation 4 -->
+      <div class="col-6 col-md-2 mb-3">
+        <img src="{{ asset('front-theme/images/SAVENIGHTLIFE_new-red-150x150.webp') }}" alt="ARC" class="img-fluid" style="max-height: 80px;">
+      </div>
+      <!-- Accreditation 5 -->
+      <div class="col-6 col-md-2 mb-3">
+        <img src="{{ asset('front-theme/images/NTIA-LONG-WHITE-768x73.webp') }}" alt="National Security" class="img-fluid" style="max-height: 80px;">
       </div>
 
-    <!-- Sponsor Logos -->
-    <div class="row justify-content-center">
-      <!-- Sponsor 1 -->
-      <div class="col-6 col-md-3 mb-4">
-        <img src="{{ asset('front-theme/images/sponsor.png') }}" alt="Sponsor 1" class="img-fluid sponsor-logo">
-      </div>
+    </div>
 
-      <!-- Sponsor 2 -->
-      <div class="col-6 col-md-3 mb-4">
-        <img src="{{ asset('front-theme/images/sponsor.png') }}" alt="Sponsor 2" class="img-fluid sponsor-logo">
-      </div>
-
-      <!-- Sponsor 3 -->
-      <div class="col-6 col-md-3 mb-4">
-        <img src="{{ asset('front-theme/images/sponsor.png') }}" alt="Sponsor 3" class="img-fluid sponsor-logo">
-      </div>
-
-      <!-- Sponsor 4 -->
-      <div class="col-6 col-md-3 mb-4">
-        <img src="{{ asset('front-theme/images/sponsor.png') }}" alt="Sponsor 4" class="img-fluid sponsor-logo">
-      </div>
+    <!-- Enquiry Button -->
+    <div class="mt-4">
+      <a href="#" class="btn btn-primary" style="background-color: #0056b3; border-color: #0056b3; padding: 10px 20px; font-size: 16px;">Make an Enquiry</a>
     </div>
   </div>
 </section>
 
-  <!-- team section -->
 
- 
+<section class="sponsors-section py-5 mt-3 mb-3">
+  <div class="container text-center">
+    <!-- Title -->
+    <div class="heading_container heading_center">
+        <h2>
+          Trusted UK-Based Security Partner for Your Protection
+        </h2>
+        <p>
+          At TRK Protectors, we specialize in delivering high-quality, reliable security solutions tailored to your specific needs. Serving clients across the UK, our expert team ensures complete protection and peace of mind for businesses and individuals alike.
+        </p>
+       
+    </div>
+  </div>
+</section>
+
 
   <!-- end team section -->
   @endsection

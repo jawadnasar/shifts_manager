@@ -38,7 +38,7 @@ Route::resource('/agency_recruitment_form', Recruitment_Form_Controller::class);
 
 
 
-Route::prefix('admin')->middleware(['auth', 'verified', AdminMiddleware::class])->group(function () {
+Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
 });
 

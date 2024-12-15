@@ -25,6 +25,7 @@ return new class extends Migration
             2. updated
             3. deleted
              */
+    //Should Be 1 by default
             $table->tinyInteger('status')->default(1)->comment('See comment in migration file 2024_12_09_035858_users_documents');
             $table->text('details');
 
