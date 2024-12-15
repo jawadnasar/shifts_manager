@@ -16,7 +16,7 @@
                 </div>
                 <div class="navbar-nav w-100">
                     <a href="{{ route('dashboard')}}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    
+                    <a href="users_info" class="nav-item nav-link"><i class="fas fa-users me-2"></i>Users</a>
                     <a href="" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Applications</a>
                     <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Feedbacks</a>
 
