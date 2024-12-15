@@ -24,7 +24,7 @@ class User_DetailsFactory extends Factory
         return [
             'user_id' => User::factory(),
             'dob' => $this->faker->dateTimeBetween('-80 years', '-18 years')->format('Y-m-d'),
-            'gender' => $this->faker->randomElement(['m', 'f', 'o']),
+            'gender' => $this->faker->randomElement(['M', 'F', 'O']),
             'phone' => $this->faker->phoneNumber,
 
             /** if empty null START */
