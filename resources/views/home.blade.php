@@ -116,11 +116,11 @@
         <div class="col-md-4">
           <div class="box ">
             <div class="img-box">
-                <img src="{{ asset('front-theme/images/retail_security.png') }}" alt="">
+                <img src="{{ asset('front-theme/images/mall_security.png') }}" alt="">
             </div>
             <div class="detail-box">
               <h6>
-                Retail Security
+              Shopping Malls
               </h6>
               <p>
               Safeguarding your world with unwavering security expertise.

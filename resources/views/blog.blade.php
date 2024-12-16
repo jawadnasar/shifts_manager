@@ -144,7 +144,7 @@
                         <div class="row g-0">
                             <!-- Left Column (Image or Icon) -->
                             <div class="col-md-3">
-                                <img src="{{ asset('front-theme/images/shoppimg_mall_image.png') }}" class="img-fluid rounded-start" alt="Door Security">
+                                <img src="{{ asset('front-theme/images/mall_security.png') }}" class="img-fluid rounded-start" alt="Door Security">
                             </div>
                             <!-- Right Column (Text Content) -->
                             <div class="col-md-9">
