@@ -18,8 +18,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'fname',
+        'sname',
         'email',
         'password',
+        'user_type'
     ];
 
     /**
@@ -63,4 +66,21 @@ class User extends Authenticatable
         return $this->fname . ' ' . $this->sname;
     }
 
+    /**
+     * Boot method to handle model events
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        // Automatically set "name" before creating
+        static::creating(function ($user) {
+            $user->name = trim(($user->fname ?? '') . ' ' . ($user->sname ?? ''));
+        });
+
+        // Automatically set "name" before updating
+        static::updating(function ($user) {
+            $user->name = trim(($user->fname ?? '') . ' ' . ($user->sname ?? ''));
+        });
+    }
 }

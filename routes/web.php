@@ -1,5 +1,4 @@
 <?php
-use App\Http\Controllers\security_agency\Recruitment_Form_Controller;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\ApplyController;
@@ -7,10 +6,11 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\security_agency\Recruitment_Form_Controller;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\Users_Info_Controller;
 use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\AdminMiddleware;
+
 // Redirect root URL to /home
 Route::get('/', function () {
     return redirect()->route('home');
@@ -27,21 +27,16 @@ Route::get('/services/events-security-detail', [ServicesController::class, 'Even
 Route::get('/services/personal-body-guard-security-detail', [ServicesController::class, 'PersonalBodyGuardDetail'])->name('personal-body-guard-security-detail');
 Route::get('/services/shopping-malls-security-detail', [ServicesController::class, 'ShoppingMallSecurityDetail'])->name('shopping-malls-security-detail');
 
-
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/apply', [ApplyController::class, 'index'])->name('apply');
 
-
-
 Route::resource('/agency_recruitment_form', Recruitment_Form_Controller::class);
-
-
 
 Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+    Route::get('/users_info', [Users_Info_Controller::class, 'index'])->name('users_info');
 });
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -49,7 +44,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-/** We also need admin middleware for this page */
-Route::get('/admin/users_info', [Users_Info_Controller::class, 'index'])->name('users_info');
-
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

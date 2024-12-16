@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'TRK Protectors'),
+    'name' => env('APP_NAME', 'Company Name'),
 
     /*
     |--------------------------------------------------------------------------
