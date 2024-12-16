@@ -200,9 +200,12 @@
             <p class="mb-4">
                 Step into the realm of security excellence with ‘TRK Protectors’ — your trusted safeguarding partner in the United Kingdom. As a premier security provider, we are dedicated to securing what matters most to you. Join us on a journey where protection meets peace of mind. With a passion for excellence and a commitment to innovation, our team delivers cutting-edge security services that set new industry standards.
             </p>
-            <a href="">
-                Read More
-              </a>
+            <div class="btn-box">
+              
+                <a href="{{ route('services')}}" class="mb-2 btn-2">
+                  Learn More
+                </a>
+              </div>
             </div>
         </div>
         </div>
