@@ -3,7 +3,11 @@
 @section('content')
 
 @section('title', 'Apply') <!-- Set the title for this page -->
-
+<style>
+  .hero_area {
+  min-height: 60vh!important;
+}
+</style>
 <section class="sponsors-section py-5">
   <div class="container text-center">
     <!-- Title -->

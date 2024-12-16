@@ -28,6 +28,11 @@
 
         <link href="{{ asset('front-theme/css/font-awesome.min.css') }}" rel="stylesheet" />
 
+        <link href="{{ asset('front-theme/libs/toastr/toastr.min.css') }}" rel="stylesheet" />
+        
+        <script src="{{ asset('front-theme/js/jquery-3.4.1.min.js') }}"></script>
+
+
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -48,8 +53,12 @@
             @yield('javascript')
        
 
-        <script src="{{ asset('front-theme/js/jquery-3.4.1.min.js') }}"></script>
+        <!-- <script src="{{ asset('front-theme/js/jquery-3.4.1.min.js') }}"></script> -->
         <script src="{{ asset('front-theme/js/bootstrap.js') }}"></script>
         <script src="{{ asset('front-theme/js/custom.js') }}"></script>
+        <script src="{{ asset('front-theme/libs/toastr/toastr.min.js') }}"></script>
+        <script src="{{ asset('front-theme/libs/swal/swal.js') }}"></script>
+
+
     </body>
 </html>

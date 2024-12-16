@@ -4,7 +4,11 @@
 @section('content')
 
 @section('title', 'Door Security') <!-- Set the title for this page -->
-
+<style>
+  .hero_area {
+  min-height: 60vh!important;
+}
+</style>
 <section class="sponsors-section py-5">
   <div class="container text-center">
     <!-- Title -->
@@ -88,20 +92,21 @@
     <div class="">
       <div class="row">
         <div class="col-md-7 mx-auto">
-          <form action="#">
+        <form id="contact_form">
+            @csrf
             <div class="reply_form-container">
               <div>
                 <div>
-                  <textarea rows="5" placeholder="Your Comment" class="form-control mb-3" required></textarea>
+                  <input type="text" placeholder="Your Full Name" name="name" class="form-control mb-3" />
                 </div>
                 <div>
-                  <input type="text" placeholder="Your Full Name" class="form-control mb-3" required />
+                  <input type="email" placeholder="Your Email (Optional)" name="email" class="form-control mb-3" />
                 </div>
                 <div>
-                  <input type="email" placeholder="Your Email (Optional)" class="form-control mb-3" />
-                </div>
                 <div>
-                  <input type="text" placeholder="Your Website (Optional)" class="form-control mb-3" />
+                  <input type="text" placeholder="Your Phone" name="phone" class="form-control mb-3" />
+                </div>
+                  <textarea rows="5" placeholder="Your Comment" name="message" class="form-control mb-3"></textarea>
                 </div>
                 <div class="btn-box text-center">
                   <button type="submit" class="btn btn-primary">
@@ -118,4 +123,60 @@
 </section>
 
 </div>
+
+<script>
+    $(document).ready(function() {
+    
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $('#contact_form').on('submit', function(e) {
+          
+            e.preventDefault();
+
+            var formData = new FormData(this);
+
+            $.ajax({
+                type: "POST",
+                url: "{{ route('contact.add') }}",
+                dataType: 'json',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(data) {
+                    if (data.status === 'success') {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: data.msg,
+                            confirmButtonText: 'OK'
+                        }).then(function() {
+                            window.location.href = "{{ route('home') }}";
+                        });
+                    } else {
+                        toastr.error('Oops, Error: ' + data.msg);
+                    }
+                },
+                error: function(request, status, error) {
+                    $("#loading").hide();
+
+                    if(request.status === 422) {
+                        var errors = request.responseJSON.errors;
+                        console.log(errors); // Debugging: log errors to console
+                        $.each(errors, function(key, value) {
+                            toastr.error(value[0]); // Display the first validation message
+                            $('#' + key).focus();
+                            return false; // Focus on the first error field and break the loop
+                        });
+                    } else {
+                        toastr.error('Oops, Error: ' + request.responseText + ' :(');
+                    }
+                }
+            });
+        });
+    });
+</script>
   @endsection

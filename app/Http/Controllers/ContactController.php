@@ -15,4 +15,13 @@ class ContactController extends Controller
             return $e->getMessage();
         }
     }
+
+    public function add(Request $request)
+    {
+        try {
+            return ContactHelper::add($request);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
 }

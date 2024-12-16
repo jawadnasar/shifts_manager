@@ -62,7 +62,7 @@
             <a href="" class="">
               <i class="fa fa-map-marker" aria-hidden="true"></i>
               <span>
-                Lorem ipsum dolor sit amet,
+                Join Us, We are here 24/7
               </span>
             </a>
             <a href="" class="">
