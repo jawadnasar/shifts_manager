@@ -161,7 +161,7 @@
               <p>
               Safeguarding your world with unwavering security expertise
               </p>
-              <a href="{{ route('personal-body-guard-security-detail')}}">
+              <a href="{{ route('mobile-patrolling-security-detail')}}">
                 Read More
               </a>
             </div>

@@ -12,7 +12,7 @@
                         <h6 class="mb-0">Users List</h6>
                       
                     </div>
-                    <form action="" id='user_form' method="get">
+                    <form action="" class=" mb-4" id='user_form' method="get">
                         <div class="row">
                         <div class="form-group col-4">
                             <label for="user_full_name">Name</label>
