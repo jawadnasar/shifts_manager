@@ -64,7 +64,7 @@
                         }
                     </script>
                     <div class="table-responsive">
-                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                        <table class="table main_table">
                             <thead>
                                 <tr class="text-dark">
                                     <th>S.No</th>

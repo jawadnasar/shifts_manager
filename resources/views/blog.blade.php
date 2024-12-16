@@ -116,7 +116,7 @@
             </div>
         </div> <div class="row mb-4 single-blog-card">
             <div class="col-12">
-                <a href="{{ route('personal-body-guard-security-detail')}}" class="text-decoration-none">
+                <a href="{{ route('mobile-patrolling-security-detail')}}" class="text-decoration-none">
                     <div class="card border-0 shadow-lg">
                         <div class="row g-0">
                             <!-- Left Column (Image or Icon) -->

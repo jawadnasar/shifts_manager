@@ -94,7 +94,7 @@
             TRK Protectors is a leading security company dedicated to ensuring the safety and peace of mind for individuals and businesses alike. With a team of highly trained and experienced professionals, we offer a comprehensive range of security solutions tailore …..
             </p>
             <div class="mt-3">
-              <a href="{{ route('personal-body-guard-security-detail')}}" class="btn btn-custom btn-lg">Learn More</a>
+              <a href="{{ route('mobile-patrolling-security-detail')}}" class="btn btn-custom btn-lg">Learn More</a>
             </div>
         </div>
     </div>
