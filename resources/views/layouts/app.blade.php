@@ -58,6 +58,7 @@
         <script src="{{ asset('front-theme/js/custom.js') }}"></script>
         <script src="{{ asset('front-theme/libs/toastr/toastr.min.js') }}"></script>
         <script src="{{ asset('front-theme/libs/swal/swal.js') }}"></script>
+        
 
 
     </body>

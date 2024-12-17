@@ -86,6 +86,8 @@
     }
 
     //Add New User AJAX
+    
+
     $('#certificateForm').on('submit', function(e) {
         e.preventDefault(); // Prevent default form submission behavior
         var formData = new FormData(this);
@@ -104,8 +106,8 @@
                 $("#loading").hide();
                 if (data.status === 'success') {
                     toastr.success('Done: ' + data.msg);
-                    $('#AddCompanyModal').modal('hide');
-                    $('#CompanyForm')[0].reset();
+                    $('#AddCertificateModal').modal('hide');
+                    $('#certificateForm')[0].reset();
                     reloadDataTable();
                 } else {
                     toastr.error('Oops, Error: ' + data.msg);
@@ -117,6 +119,7 @@
             }
         });
     });
+
 
 
 

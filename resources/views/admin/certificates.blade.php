@@ -10,6 +10,12 @@
                         <h6 class="mb-0">Accredation Certificates</h6>
                       
                     </div>
+                    <div class="row text-left">
+                        <div class="col-lg-12 text-left">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddCertificateModal">Add Certificate</button>
+                        </div>
+                    </div>
+                    <br>
                     <div class="table-responsive">
                         <table id="certificatesTable" class="table main_table">
                             <thead>
@@ -34,7 +40,7 @@
 
 
 <!-- Modals to add and edit certificates -->
-<div class="modal fade" id="AddCompanyModal" tabindex="-1" data-bs-backdrop="static">
+<div class="modal fade" id="AddCertificateModal" tabindex="-1" data-bs-backdrop="static">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
       <div class="modal-header">
@@ -61,7 +67,7 @@
   </div>
 </div><!-- Add Product Modal Ends-->
 
-<div class="modal fade" id="EditCompanyModal" tabindex="-1" data-bs-backdrop="static">
+<div class="modal fade" id="EditCertificateModal" tabindex="-1" data-bs-backdrop="static">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
       <div class="modal-header">

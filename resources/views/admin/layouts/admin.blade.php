@@ -26,9 +26,15 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('adminth/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('adminth/libs/toastr/toastr.min.css') }}" rel="stylesheet" />
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('adminth/css/style.css') }}" rel="stylesheet">
+    <script src="{{ asset('adminth/js/jquery-3.4.1.min.js') }}"></script>
+    <link href="{{ asset('adminth/lib/toastr/toastr.min.css') }}" rel="stylesheet" />
+
+
+
 </head>
 
 <body>
@@ -74,7 +80,7 @@
     @yield('javascript')
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('adminth/lib/chart/chart.min.js') }}"></script>
     <script src="{{ asset('adminth/lib/easing/easing.min.js') }}"></script>
@@ -86,6 +92,11 @@
 
     <!-- Template Javascript -->
     <script src="{{ asset('adminth/js/main.js') }}"></script>
+    <script src="{{ asset('adminth/lib/swal/swal.js') }}"></script>
+    <script src="{{ asset('adminth/lib/toastr/toastr.min.js') }}"></script>
+
+
+
 </body>
 
 </html>

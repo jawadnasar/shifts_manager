@@ -73,7 +73,7 @@ class ApplyHelper {
                 'images.*' => 'nullable|file|mimes:jpeg,jpg,png,pdf|max:2048',  // Image file validation
                 'status' => 'required|array',  // Status must be an array
                 'status.*' => 'in:0,1,2,3',  // Each status must be valid
-                'details' => 'required|string',
+                'details' => 'nullable|string',
         
                 // Foreign Keys
                 'created_by' => 'required|exists:users,id',
@@ -125,7 +125,7 @@ class ApplyHelper {
                 'status.required' => 'Please specify the document status.',
                 'status.*.in' => 'Each document status must be valid (0, 1).',
                 'details.required' => 'The details field is required.',
-                'details.string' => 'The details field must be a valid string.',
+                'details.exists' => 'The details field must be a valid string.',
         
                 // Foreign Keys
                 'created_by.required' => 'Created by field is required.',
