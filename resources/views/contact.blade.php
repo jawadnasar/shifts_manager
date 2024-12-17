@@ -3,7 +3,11 @@
 @section('content')
 
 @section('title', 'Contact') <!-- Set the title for this page -->
-
+<style>
+  .hero_area {
+  min-height: 60vh!important;
+}
+</style>
   <!-- contact section -->
   <div class="row mb-3 mt-4">
     <div class="col-lg-12">
@@ -41,20 +45,22 @@
       <div class="">
         <div class="row">
           <div class="col-md-7 mx-auto">
-            <form action="#">
+          <form id="contact_form">
+              @csrf
               <div class="contact_form-container">
                 <div>
                   <div>
-                    <input type="text" placeholder="Your Full Name" />
+                    <input type="text" name="name" placeholder="Your Full Name" />
                   </div>
                   <div>
-                    <input type="email" placeholder="Your Email " />
+                  <input type="email" name="email" placeholder="Your Email (Optional)" />
+
                   </div>
                   <div>
-                    <input type="text" placeholder="Your Phone Number" />
+                    <input type="text" name="phone" placeholder="Your Phone Number" />
                   </div>
                   <div class="">
-                    <input type="text" placeholder="Your Message" class="message_input" />
+                    <input type="text" name="message" placeholder="Your Message" class="message_input" />
                   </div>
                   <div class="btn-box ">
                     <button type="submit">
@@ -70,8 +76,64 @@
     </div>
   </section>
 <br><br><br>
+<script>
+    $(document).ready(function() {
+    
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
+        $('#contact_form').on('submit', function(e) {
+          
+            e.preventDefault();
+
+            var formData = new FormData(this);
+
+            $.ajax({
+                type: "POST",
+                url: "{{ route('contact.add') }}",
+                dataType: 'json',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(data) {
+                    if (data.status === 'success') {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: data.msg,
+                            confirmButtonText: 'OK'
+                        }).then(function() {
+                            window.location.href = "{{ route('home') }}";
+                        });
+                    } else {
+                        toastr.error('Oops, Error: ' + data.msg);
+                    }
+                },
+                error: function(request, status, error) {
+                    $("#loading").hide();
+
+                    if(request.status === 422) {
+                        var errors = request.responseJSON.errors;
+                        console.log(errors); // Debugging: log errors to console
+                        $.each(errors, function(key, value) {
+                            toastr.error(value[0]); // Display the first validation message
+                            $('#' + key).focus();
+                            return false; // Focus on the first error field and break the loop
+                        });
+                    } else {
+                        toastr.error('Oops, Error: ' + request.responseText + ' :(');
+                    }
+                }
+            });
+        });
+    });
+</script>
  
 
   <!-- end team section -->
   @endsection
+
+  

@@ -3,7 +3,11 @@
 @section('content')
 
 @section('title', 'About') <!-- Set the title for this page -->
-
+<style>
+  .hero_area {
+  min-height: 60vh!important;
+}
+</style>
 <section class="sponsors-section py-5">
   <div class="container text-center">
     <!-- Title -->
@@ -19,39 +23,45 @@
       </div>
   </div>
 </section>
-<section class="about_section layout_padding">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 px-0">
-        <div class="img_container">
-          <div class="img-box">
-            <img src="{{ asset('front-theme/images/uk_guard.gif') }}" alt="" style="width: 100%; max-width: 400px; height: auto;" />
-          </div>
+<section class="welcome-section py-5">
+    <div class="container">
+        <div class="row align-items-center">
+        <!-- Image Column -->
+        <div class="col-md-6">
+            <div class="image-box text-center">
+            <img src="{{ asset('front-theme/images/trk_guard.png') }}" class="img-fluid" alt="TRK Protector Guard">
+            <!-- <div class="logo-overlay">
+                <img src="images/trk-logo.png" alt="TRK Logo" class="logo img-fluid">
+            </div> -->
+            </div>
         </div>
-      </div>
-      <div class="col-md-6 px-0">
-        <div class="detail-box">
-          <div class="heading_container ">
-            <h2>
-              Safeguarding your world with unwavering security expertise?
-            </h2>
-          </div>
-          <p>
+
+        <!-- Text Column -->
+        <div class="col-md-6">
+            <div class="text-box">
+            <div class="heading_container ">
+              <h2>
+                Safeguarding your world with unwavering security expertise?
+              </h2>
+            </div>
+            <p>
             Get in touch and experience the peace of mind with TRK's Protectors top-notch security solutions.
-          </p>
+            </p>
           <div class="btn-box">
-            <a href="{{ route('contact')}}" class="mb-2">
+            <a href="{{ route('contact')}}" class="mb-2 btn-2">
               Get In Touch
             </a>
-            <a href="{{ route('services')}}" class="mb-2">
+            <a href="{{ route('services')}}" class="mb-2 btn-2">
               Learn More
             </a>
           </div>
+          
         </div>
-      </div>
+        </div>
+        </div>
     </div>
-  </div>
-</section>
+    </div>
+    </section>
 
   <!-- end about section -->
 

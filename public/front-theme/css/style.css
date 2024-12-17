@@ -389,10 +389,28 @@ a:focus {
   border: 1px solid transparent;
 }
 
+
+
 .slider_section .detail-box .btn-box .btn-2:hover {
   background-color: transparent;
   border-color: #FF881C;
   color: #FF881C;
+}
+
+.btn-box .btn-2:hover {
+  background-color: transparent;
+  border-color: #FF881C;
+  color: #FF881C;
+}
+
+.btn-box .btn-2 {
+  display: inline-block;
+  padding: 10px 35px;
+  background-color: #FF881C;
+  color: #ffffff;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: 1px solid transparent;
 }
 
 .slider_section .img-box {
@@ -1041,6 +1059,11 @@ a:focus {
   .single-blog-card  .card, .sing_service_row{
     border-bottom: 3px solid #FF8811!important;
     padding-bottom: 10px;
+
+  }
+
+  .single-blog-card  .card, .sing_service_row:hover{
+    cursor:pointer;
 
   }
 

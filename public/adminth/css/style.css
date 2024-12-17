@@ -275,3 +275,30 @@
     background: var(--dark);
     border-color: var(--primary);
 }
+
+/* Main Table Style */
+.main_table{
+    border-collapse: collapse ;
+  }
+  
+  .main_table thead tr th{
+    color: var(--tableheadcolor)!important;
+    white-space: normal;
+    font-size:14px;
+    font-weight: 500;
+    padding: 20px;
+    line-height: 1.5rem;
+  }
+  .main_table tbody tr:nth-child(even){
+   background-color: #f2f2f2!important;
+  }
+  .main_table tbody tr:nth-child(odd) {
+    background-color: #fff!important;
+  }
+  .main_table tbody tr td{
+    white-space: nowrap;
+    padding: 20px;
+    line-height: 1.5rem;
+    font-size: 13px;
+    /* font-weight: 500; */
+  }

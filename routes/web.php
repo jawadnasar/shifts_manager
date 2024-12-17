@@ -24,10 +24,11 @@ Route::get('/services/reception-security-detail', [ServicesController::class, 'r
 Route::get('/services/site-security-detail', [ServicesController::class, 'SiteScurityDetail'])->name('site-security-detail');
 Route::get('/services/door-security-detail', [ServicesController::class, 'DoorSecurityDetail'])->name('door-security-detail');
 Route::get('/services/events-security-detail', [ServicesController::class, 'EventSecurityDetail'])->name('events-security-detail');
-Route::get('/services/personal-body-guard-security-detail', [ServicesController::class, 'PersonalBodyGuardDetail'])->name('personal-body-guard-security-detail');
+Route::get('/services/mobile-patrolling-security-detail', [ServicesController::class, 'PersonalBodyGuardDetail'])->name('mobile-patrolling-security-detail');
 Route::get('/services/shopping-malls-security-detail', [ServicesController::class, 'ShoppingMallSecurityDetail'])->name('shopping-malls-security-detail');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact/add', [ContactController::class, 'add'])->name('contact.add');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/apply', [ApplyController::class, 'index'])->name('apply');
 
