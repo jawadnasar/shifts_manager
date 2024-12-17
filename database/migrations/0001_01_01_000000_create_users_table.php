@@ -23,6 +23,18 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            /*Privileges */
+            $table->boolean('pri_setprivileges')->default(false);
+            $table->boolean('pri_addreceipt')->default(false);
+            $table->boolean('pri_editreceipt')->default(false);
+            $table->boolean('pri_addjournal')->default(false);
+            $table->boolean('pri_editjournal')->default(false);
+            $table->boolean('pri_addpayment')->default(false);
+            $table->boolean('pri_editpayment')->default(false);
+            $table->boolean('pri_addexpenses')->default(false);
+            $table->boolean('pri_editexpenses')->default(false);
+            $table->boolean('pri_adduser')->default(false);
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

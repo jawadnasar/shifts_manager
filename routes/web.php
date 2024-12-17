@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\Users_Info_Controller;
 use App\Http\Controllers\ApplyController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
@@ -8,7 +9,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\security_agency\Recruitment_Form_Controller;
 use App\Http\Controllers\ServicesController;
-use App\Http\Controllers\Users_Info_Controller;
 use Illuminate\Support\Facades\Route;
 
 // Redirect root URL to /home
