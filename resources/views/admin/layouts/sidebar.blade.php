@@ -19,6 +19,8 @@
                     <a href="users_info" class="nav-item nav-link"><i class="fas fa-users me-2"></i>Users</a>
                     <a href="" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Applications</a>
                     <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Feedbacks</a>
+                    <a href="{{ route('certificates') }}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Certificates</a>
+
 
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Sign Out</a>

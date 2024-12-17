@@ -15,4 +15,11 @@ class ApplyController extends Controller
             return $e->getMessage();
         }
     }
+
+    public function save(Request $request)
+    {
+        try{ return ApplyHelper::save($request); } catch (\Exception $e) { return $e->getMessage(); }
+    }
+
+
 }
