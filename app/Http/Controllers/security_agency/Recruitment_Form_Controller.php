@@ -34,11 +34,11 @@ class Recruitment_Form_Controller extends Controller
     {
         $request->validate(
             [
-                'fname' => 'string|required',
-                'sname' => 'string|required',
-                'email' => 'email|required',
+                'user_fname' => 'string|required',
+                'user_sname' => 'string|required',
+                'user_email' => 'email|required',
                 'user_dob' => 'required|date|before_or_equal:today',
-                'password' => ['required', 'confirmed', Password::min(8)->letters()->numbers()],
+                'user_password' => ['required', 'confirmed', Password::min(8)->letters()->numbers()],
                 'user_gender' => 'string|required',
                 'user_phone' => 'string|required',
                 'user_birth_place' => 'string|required',
@@ -46,7 +46,7 @@ class Recruitment_Form_Controller extends Controller
                 'user_nationality' => 'string|required',
                 'user_current_address' => 'string|required',
                 'user_postcode' => 'string|required',
-                'user_living_since' => 'required|date|before_or_equal:today',
+                // 'user_living_since' => 'required|date|before_or_equal:today',
                 'user_ni_number' => 'string|required',
                 'user_emergency_contact_name' => 'string|required',
                 'user_emgergency_contact_relationship' => 'string|required',
@@ -61,10 +61,11 @@ class Recruitment_Form_Controller extends Controller
 
         if (!$existing_user) {
             $rec = new User(); //rec -> new recruit
-            $rec->fname = $request->fname;
-            $rec->sname = $request->sname;
-            $rec->email = $request->email;
-            $rec->password = Hash::make($request->password);
+            $rec->fname = $request->user_fname;
+            $rec->sname = $request->user_sname;
+            $rec->email = $request->user_email;
+            $rec->user_type='employee';
+            $rec->password = Hash::make($request->user_password);
             $rec->save();
 
             $det = new User_Details();          // det -> details 
@@ -112,8 +113,9 @@ class Recruitment_Form_Controller extends Controller
      */
     public function show(string $id)
     {
-        echo 'stored';
         //
+        $user = User::where('id', $id)->get();
+        dd($user);
     }
 
     /**

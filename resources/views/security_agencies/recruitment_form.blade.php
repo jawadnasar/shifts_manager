@@ -15,14 +15,14 @@
         </div>
     @endif
     <div class="form-group">
-        <label for="fname">First name</label>
-        <input type="text" class="form-control" id="fname" name="fname"
-            value="{{ old('fname', isset($udata) ? $udata->fname : '') }}" required>
+        <label for="user_fname">First name</label>
+        <input type="text" class="form-control" id="user_fname" name="user_fname"
+            value="{{ old('user_fname', isset($udata) ? $udata->fname : '') }}" required>
     </div>
     <div class="form-group">
-        <label for="sname">Last name</label>
-        <input type="text" class="form-control" id="sname" name="sname"
-            value="{{ old('sname', isset($udata) ? $udata->sname : '') }}" required>
+        <label for="user_sname">Last name</label>
+        <input type="text" class="form-control" id="user_sname" name="user_sname"
+            value="{{ old('user_sname', isset($udata) ? $udata->sname : '') }}" required>
     </div>
     <div class="form-group">
         <label for="user_dob">Date of Birth</label>
@@ -30,19 +30,19 @@
             value="{{ old('user_dob', isset($udata) ? $udata->dob : '') }}" required>
     </div>
     <div class="form-group">
-        <label for="email">Email</label>
-        <input type="text" class="form-control" id="email" name="email"
-            value="{{ old('email', isset($udata) ? $udata->email : '') }}" required>
+        <label for="user_email">Email</label>
+        <input type="text" class="form-control" id="user_email" name="user_email"
+            value="{{ old('user_email', isset($udata) ? $udata->email : '') }}" required>
     </div>
     <div>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" required>
+        <label for="user_password">Password</label>
+        <input type="password" name="user_password" id="user_password" required>
     </div>
 
     <!-- Confirm Password Field -->
     <div>
-        <label for="password_confirmation">Confirm Password</label>
-        <input type="password" name="password_confirmation" id="password_confirmation" required>
+        <label for="user_password_confirmation">Confirm Password</label>
+        <input type="password" name="user_password_confirmation" id="user_password_confirmation" required>
     </div>
     <div class="form-group col-sm-10">
         <select class="form-control my-1 mr-sm-2" name='user_gender' id="user_gender" required>

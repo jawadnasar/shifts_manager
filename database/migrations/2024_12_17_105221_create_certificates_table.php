@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('certificates', function (Blueprint $table) {
             $table->id();
+            $table->string('company_name');
             $table->string('logo');
             $table->timestamps();
             $table->softDeletes();
