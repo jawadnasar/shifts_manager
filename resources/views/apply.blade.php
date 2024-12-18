@@ -68,6 +68,10 @@
     <h3>Date of Birth & Gender</h3>
    <div class="row">
         <div class="form-group col-md-6">
+            <label for="dob">Date of Birth</label>
+            <input type="date" class="form-control" id="dob" name="dob" max="{{ now()->toDateString() }}">
+        </div>
+        <div class="form-group col-md-6">
             <label for="gender">Gender</label>
             <select class="form-control" id="gender" name="gender">
                 <option value="" Disabaled Selected>Select Gender</option>
@@ -76,10 +80,7 @@
                 <option value="Other">Other</option>
             </select>
         </div>
-        <div class="form-group col-md-6">
-            <label for="dob">Date of Birth</label>
-            <input type="date" class="form-control" id="dob" name="dob" max="{{ now()->toDateString() }}">
-        </div>
+        
        
    </div>
 
@@ -242,17 +243,27 @@
       <div id="document_section_container">
           <div class="document-row mb-3">
               <div class="form-row">
+                 <!-- Upload Document -->
+
                   <!-- Document Type -->
                   <div class="form-group col-md-3">
                       <label for="doc_type">Document Type</label>
-                      <input type="text" class="form-control" name="doc_type[]" placeholder="Enter Document Type">
+                        <select class="form-control" name="doc_type[]">
+                            <option value="" disabled selected>Select a Document</option>
+                            <option value="national_idcard">National ID Card</option>
+                            <option value="security_licence">Security Licence</option>
+                            <option value="driving_licence">Driving Licence</option>
+                            <option value="passport">Passport</option>
+                            <option value="brp">BRP</option>
+                        </select>
                   </div>
 
-                  <!-- Upload Document -->
                   <div class="form-group col-md-3">
                       <label for="link">Upload Document</label>
-                      <input type="file" class="form-control" name="image[]" accept=".pdf,.doc,.docx,.jpeg,.jpg">
+                      <input type="file" class="form-control" name="link[]" accept="image/*">
                   </div>
+
+                 
 
                   <!-- Document Status -->
                   <div class="form-group col-md-3">
@@ -311,17 +322,18 @@
         var newDocumentRow = `
             <div class="document-row mb-3">
                 <div class="form-row">
+                     <!-- Upload Document -->
+                    <div class="form-group col-md-3">
+                        <label for="link">Upload Document</label>
+                        <input type="file" class="form-control" name="link[]" accept="image/*">
+                    </div>
                     <!-- Document Type -->
                     <div class="form-group col-md-3">
                         <label for="doc_type">Document Type</label>
                         <input type="text" class="form-control" name="doc_type[]" placeholder="Enter Document Type">
                     </div>
 
-                    <!-- Upload Document -->
-                    <div class="form-group col-md-3">
-                        <label for="link">Upload Document</label>
-                        <input type="file" class="form-control" name="image[]" accept=".pdf,.doc,.docx,.jpeg,.jpg">
-                    </div>
+                   
 
                     <!-- Document Status -->
                     <div class="form-group col-md-3">
