@@ -22,4 +22,9 @@ class CertificatesController extends Controller
     {
         try{ return CertificatesHelper::getall($request); } catch (\Exception $e) { return $e->getMessage(); }
     } 
+
+    public function delete(Request $request)
+    {
+        try{ return CertificatesHelper::delete($request); } catch (\Exception $e) { return $e->getMessage(); }
+    } 
 }

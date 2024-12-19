@@ -2,6 +2,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\CertificatesController;
+use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\Users_Info_Controller;
 use App\Http\Controllers\ApplyController;
 use App\Http\Controllers\BlogController;
@@ -35,17 +36,22 @@ Route::get('/apply', [ApplyController::class, 'index'])->name('apply');
 Route::post('/apply/save', [ApplyController::class, 'save'])->name('apply.save');
 
 Route::resource('/agency_recruitment_form', Recruitment_Form_Controller::class);
-Route::get('/agency_recruitment_form', [Recruitment_Form_Controller::class, 'create'])->name('agency_recruitment_form.create');
-Route::post('/agency_recruitment_form', [Recruitment_Form_Controller::class, 'store'])->name('agency_recruitment_form.store');
 
 Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::get('/users_info', [Users_Info_Controller::class, 'index'])->name('users_info');
+
     Route::get('/certificates', [CertificatesController::class, 'index'])->name('certificates');
     Route::get('/certificates/getall', [CertificatesController::class, 'getall'])->name('certificates.getall');
     Route::post('/certificates/save', [CertificatesController::class, 'save'])->name('certificates.save');
     Route::post('/certificates/edit', [CertificatesController::class, 'edit'])->name('certificates.edit');
     Route::delete('/certificates/delete/', [CertificatesController::class, 'delete'])->name('certificates.delete');
+
+
+
+    Route::get('/feedbacks', [FeedbackController::class, 'index'])->name('feedbacks');
+    Route::delete('/feedbacks/delete', [FeedbackController::class, 'delete'])->name('feedbacks.delete');
+
 
 
 

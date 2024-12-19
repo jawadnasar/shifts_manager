@@ -7,6 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -31,7 +32,8 @@
     <!-- Template Stylesheet -->
     <link href="{{ asset('adminth/css/style.css') }}" rel="stylesheet">
     <script src="{{ asset('adminth/js/jquery-3.4.1.min.js') }}"></script>
-    <link href="{{ asset('adminth/lib/toastr/toastr.min.css') }}" rel="stylesheet" />
+    <!-- <link href="{{ asset('adminth/lib/toastr/toastr.min.css') }}" rel="stylesheet" /> -->
+    <link href="{{ asset('front-theme/libs/toastr/toastr.min.css') }}" rel="stylesheet" />
 
 
 
@@ -92,8 +94,10 @@
 
     <!-- Template Javascript -->
     <script src="{{ asset('adminth/js/main.js') }}"></script>
-    <script src="{{ asset('adminth/lib/swal/swal.js') }}"></script>
-    <script src="{{ asset('adminth/lib/toastr/toastr.min.js') }}"></script>
+    <!-- <script src="{{ asset('adminth/lib/swal/swal.js') }}"></script>
+    <script src="{{ asset('adminth/lib/toastr/toastr.min.js') }}"></script> -->
+    <script src="{{ asset('front-theme/libs/toastr/toastr.min.js') }}"></script>
+    <script src="{{ asset('front-theme/libs/swal/swal.js') }}"></script>
 
 
 
