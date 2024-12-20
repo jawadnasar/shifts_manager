@@ -322,8 +322,8 @@
         Security is a top priority for individuals and businesses seeking to establish a presence in any area. At TRK Protectors, we specialize in delivering professional and reliable security services that instill confidence and peace of mind. Our expertise ensures the safety of your assets, employees, and operations, empowering investors and businesses to focus on growth and success. With TRK Protectors, you’re not just securing your business—you’re securing your future.
       </p>
       <p style="font-size: 12px;">
-        Company No: 7996374<br>
-        VAT Registration: 132 7467 15
+        Company No: <br>
+        VAT Registration:
       </p>
     </div>
 
@@ -332,25 +332,14 @@
     <!-- Accreditations Logos -->
     <div class="row justify-content-center align-items-center">
       <!-- Accreditation 1 -->
-      <div class="col-6 col-md-2 mb-3">
-        <img src="{{ asset('front-theme/images/ARC-Logo-300x177.jpg') }}" alt="BSI" class="img-fluid" style="max-height: 80px;">
-      </div>
-      <!-- Accreditation 2 -->
-      <div class="col-6 col-md-2 mb-3">
-        <img src="{{ asset('front-theme/images/OIF-image-300x134.jpg') }}" alt="NTIA" class="img-fluid" style="max-height: 80px;">
-      </div>
-      <!-- Accreditation 3 -->
-      <div class="col-6 col-md-2 mb-3">
-        <img src="{{ asset('front-theme/images/sia-approved-contractor-256x300.jpg') }}" alt="ISO 9001:2015" class="img-fluid" style="max-height: 80px;">
-      </div>
-      <!-- Accreditation 4 -->
-      <div class="col-6 col-md-2 mb-3">
-        <img src="{{ asset('front-theme/images/SAVENIGHTLIFE_new-red-150x150.webp') }}" alt="ARC" class="img-fluid" style="max-height: 80px;">
-      </div>
-      <!-- Accreditation 5 -->
-      <div class="col-6 col-md-2 mb-3">
-        <img src="{{ asset('front-theme/images/NTIA-LONG-WHITE-768x73.webp') }}" alt="National Security" class="img-fluid" style="max-height: 80px;">
-      </div>
+        @foreach ($certificates as $certificate)
+          <div class="col-6 col-md-2 mb-3">
+              <img src="{{ asset('storage/certificates/' . $certificate->logo) }}" 
+                  alt="Certificate Logo" 
+                  class="img-fluid" 
+                  style="max-height: 80px;">
+          </div>
+        @endforeach
 
     </div>
 

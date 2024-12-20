@@ -11,51 +11,48 @@
                     <h6 class="mb-0">Users List</h6>
 
                 </div>
-                <form action="" id='user_form' method="get">
-                    <div class="row">
-                        <div class="form-group col-4">
-                            <label for="user_full_name">Name</label>
+                <form action="" id='user_form' method="get" class="p-3 bg-light rounded shadow-sm">
+                    <div class="row g-3">
+                        <div class="form-group col-md-4">
+                            <label for="user_full_name" class="form-label">Name</label>
                             <input type="text" class="form-control" id="user_full_name" name="user_full_name"
-                                value="{{ request()->user_full_name }}">
+                                placeholder="Enter name" value="{{ request()->user_full_name }}">
                         </div>
-                        <div class="form-group col-4">
-                            <label for="user_email">Email</label>
-                            <input type="text" class="form-control" id="user_email" name="user_email"
-                                value="{{ request()->user_email }}">
+                        <div class="form-group col-md-4">
+                            <label for="user_email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="user_email" name="user_email"
+                                placeholder="Enter email" value="{{ request()->user_email }}">
                         </div>
-                        <div class="form-group col-4">
-                            User Type
-                            <select class="form-control my-1 mr-sm-2" name='user_type' id="user_type">
-                                <option value="" disabled selected>Select Option</option>
-                                <option value="admin" {{ request()->user_type == 'admin' ? 'selected' : '' }}>Admin
-                                </option>
-                                <option value="compliance" {{ request()->user_type == 'compliance' ? 'selected' : '' }}>
-                                    Compliance</option>
-                                <option value="employee" {{ request()->user_type == 'employee' ? 'selected' : '' }}>Employee
-                                </option>
+                        <div class="form-group col-md-4">
+                            <label for="user_type" class="form-label">User Type</label>
+                            <select class="form-select" name='user_type' id="user_type">
+                                <option value="" disabled selected>Select User Type</option>
+                                <option value="admin" {{ request()->user_type == 'admin' ? 'selected' : '' }}>Admin</option>
+                                <option value="compliance" {{ request()->user_type == 'compliance' ? 'selected' : '' }}>Compliance</option>
+                                <option value="employee" {{ request()->user_type == 'employee' ? 'selected' : '' }}>Employee</option>
                             </select>
                         </div>
-                        <div class="form-group col-4">
-                            Gender
-                            <select class="form-control my-1 mr-sm-2" name='user_gender' id="user_gender">
-                                <option value="" disabled selected>Select Option</option>
+                        <div class="form-group col-md-4">
+                            <label for="user_gender" class="form-label">Gender</label>
+                            <select class="form-select" name='user_gender' id="user_gender">
+                                <option value="" disabled selected>Select Gender</option>
                                 <option value="M" {{ request()->user_gender == 'M' ? 'selected' : '' }}>Male</option>
                                 <option value="F" {{ request()->user_gender == 'F' ? 'selected' : '' }}>Female</option>
                                 <option value="O" {{ request()->user_gender == 'O' ? 'selected' : '' }}>Other</option>
                             </select>
                         </div>
-                        <div class="form-group col-4">
-                            <label for="user_postcode">Postcode</label>
+                        <div class="form-group col-md-4">
+                            <label for="user_postcode" class="form-label">Postcode</label>
                             <input type="text" class="form-control" id="user_postcode" name="user_postcode"
-                                value="{{ request()->user_postcode }}">
+                                placeholder="Enter postcode" value="{{ request()->user_postcode }}">
                         </div>
-                        <div class="row">
-                            <button type="submit" class="btn btn-sm btn-primary col-1">Search</button>
-                            <button type="button" class="btn btn-sm btn-secondary col-1"
-                                onclick="resetForm()">Reset</button>
+                        <div class="col-md-4 d-flex align-items-end">
+                            <button type="submit" class="btn btn-primary w-50 me-2">Search</button>
+                            <button type="button" class="btn btn-secondary w-50" onclick="resetForm()">Reset</button>
                         </div>
                     </div>
                 </form>
+
 
                 <script>
                     function resetForm() {

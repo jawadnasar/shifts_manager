@@ -302,3 +302,28 @@
     font-size: 13px;
     /* font-weight: 500; */
   }
+  .btns-right{
+    text-align: right;
+    float: right;
+  }
+
+  #user_form {
+    margin-bottom: 20px;
+}
+
+#user_form .form-label {
+    font-weight: bold;
+    font-size: 14px;
+    float: left;
+}
+
+#user_form .btn {
+    font-size: 14px;
+    padding: 8px;
+}
+
+#user_form .form-control,
+#user_form .form-select {
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
