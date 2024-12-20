@@ -94,7 +94,7 @@
                                     <td>{{ $det->sia_licence_type ?? '' }} <br> {{ $det->sia_licence_number ?? '' }}</td>
                                     <td>{{ $det->sia_licence_expiry_date ?? '' }}</td>
                                     <td>
-                                        <a href="">Privilges</a>
+                                        <a href="{{route('admin.user_privileges.edit', $row->id)}}">Privileges</a>
                                     </td>
                                 </tr>
                             @endforeach
