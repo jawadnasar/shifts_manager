@@ -2,6 +2,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\CertificatesController;
+use App\Http\Controllers\Admin\User_Privileges_Controller;
 use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\Users_Info_Controller;
 use App\Http\Controllers\ApplyController;
