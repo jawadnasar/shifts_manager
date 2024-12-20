@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\security_agency;
 
 use App\Http\Controllers\Controller;
+use App\Models\Country;
 use App\Models\User;
 use App\Models\User_Details;
 use Illuminate\Http\Request;
@@ -24,7 +25,8 @@ class Recruitment_Form_Controller extends Controller
      */
     public function create()
     {
-        return view('security_agencies/recruitment_form');
+        $countries = Country::all();
+        return view('security_agencies/recruitment_form')->with(compact('countries'));
     }
 
     /**
@@ -57,7 +59,7 @@ class Recruitment_Form_Controller extends Controller
             ]
         );
 
-        $existing_user = User::where('email', $request->email)->first();
+        $existing_user = User::where('email', $request->user_email)->first();
 
         if (!$existing_user) {
             $rec = new User(); //rec -> new recruit
@@ -101,10 +103,10 @@ class Recruitment_Form_Controller extends Controller
             $det->share_code = $request->user_share_code;
 
             $det->save();
-            return redirect()->route('agency_recruitment_form.show', $rec->id);
+            return redirect()->route('security_agency_recruitment_form.show', $rec->id);
 
         } else {
-            return back()->with('error', "You are already registered with this email. Please try again.");
+            return back()->withInput()->with('error', "You are already registered with this email. Please try again.");
         }
     }
 

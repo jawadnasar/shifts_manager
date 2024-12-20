@@ -17,7 +17,7 @@
           <img src="{{ asset('front-theme/images/contact-bg.jpg') }}" alt="Contact">
       @elseif(Route::currentRouteName() == 'blog')
           <img src="{{ asset('front-theme/images/blog-bg.jpg') }}" alt="Blog">
-      @elseif(Route::currentRouteName() == 'apply')
+      @elseif(Route::currentRouteName() == 'apply' || Route::currentRouteName() == 'security_agency_recruitment_form.create')
           <img src="{{ asset('front-theme/images/apply-bg.jpg') }}" alt="Apply">
       @elseif(Route::currentRouteName() == 'reception-security-detail')
           <img src="{{ asset('front-theme/images/reception-security-bg.jpg') }}" alt="Reception Security">
@@ -94,8 +94,9 @@
                 <li class="nav-item {{ Route::currentRouteName() == 'blog' ? 'active' : '' }}">
                   <a class="nav-link" href="{{ route('blog') }}">Blog</a>
                 </li>
-                <li class="nav-item {{ Route::currentRouteName() == 'apply' ? 'active' : '' }}">
-                  <a class="nav-link" href="{{ route('apply') }}">Apply</a>
+                <li class="nav-item {{ Route::currentRouteName() == 'security_agency_recruitment_form' ? 'active' : '' }}">
+                  {{-- <a class="nav-link" href="{{ route('apply') }}">Apply</a> --}}
+                  <a class="nav-link" href="{{ route('security_agency_recruitment_form.create') }}">Apply</a>
                 </li>
               </ul>
             </div>

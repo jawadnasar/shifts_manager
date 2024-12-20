@@ -2,9 +2,9 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\CertificatesController;
-use App\Http\Controllers\Admin\User_Privileges_Controller;
 use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\Users_Info_Controller;
+use App\Http\Controllers\Admin\User_Privileges_Controller;
 use App\Http\Controllers\ApplyController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
@@ -36,7 +36,7 @@ Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/apply', [ApplyController::class, 'index'])->name('apply');
 Route::post('/apply/save', [ApplyController::class, 'save'])->name('apply.save');
 
-Route::resource('/agency_recruitment_form', Recruitment_Form_Controller::class);
+Route::resource('/security_agency_recruitment_form', Recruitment_Form_Controller::class);
 
 Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
@@ -48,14 +48,10 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::post('/certificates/edit', [CertificatesController::class, 'edit'])->name('certificates.edit');
     Route::delete('/certificates/delete/', [CertificatesController::class, 'delete'])->name('certificates.delete');
 
-
-
     Route::get('/feedbacks', [FeedbackController::class, 'index'])->name('feedbacks');
     Route::delete('/feedbacks/delete', [FeedbackController::class, 'delete'])->name('feedbacks.delete');
 
-
-
-
+    Route::resource('/user_privileges', User_Privileges_Controller::class, ['as' => 'admin']);
 
 });
 
