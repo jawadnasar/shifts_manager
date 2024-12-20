@@ -196,17 +196,17 @@
                                 required>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="user_emgergency_contact_relationship">Relationship</label>
-                            <input type="text" class="form-control" id="user_emgergency_contact_relationship"
-                                name="user_emgergency_contact_relationship"
-                                value="{{ old('user_emgergency_contact_relationship', isset($udata) ? $udata->emgergency_contact_relationship : '') }}"
+                            <label for="user_emergency_contact_relationship">Relationship</label>
+                            <input type="text" class="form-control" id="user_emergency_contact_relationship"
+                                name="user_emergency_contact_relationship"
+                                value="{{ old('user_emergency_contact_relationship', isset($udata) ? $udata->emergency_contact_relationship : '') }}"
                                 required>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="user_emgergency_contact_phone">Contact Number</label>
-                            <input type="text" class="form-control" id="user_emgergency_contact_phone"
-                                name="user_emgergency_contact_phone"
-                                value="{{ old('user_emgergency_contact_phone', isset($udata) ? $udata->emgergency_contact_phone : '') }}"
+                            <label for="user_emergency_contact_phone">Contact Number</label>
+                            <input type="text" class="form-control" id="user_emergency_contact_phone"
+                                name="user_emergency_contact_phone"
+                                value="{{ old('user_emergency_contact_phone', isset($udata) ? $udata->emergency_contact_phone : '') }}"
                                 required>
                         </div>
                     </div>
