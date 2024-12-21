@@ -27,7 +27,7 @@
         <div class="row">
             <div class="col-12 mb-5">
 
-                <form action="{{ route('security_agency_recruitment_form.store') }}" method="post">
+                <form action="{{ route('security_agency_recruitment_form.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <!-- Personal Information Section -->
                     <div class="heading_container heading_center">
@@ -251,8 +251,8 @@
                     <div class="row">
                         <div class="form-group col-md-3">
                             <label for="user_driving_licence_present">Driving Licence</label>
-                            <select class="form-control" name='user_driving_licence_present' id="user_driving_licence_present"
-                                required>
+                            <select class="form-control" name='user_driving_licence_present'
+                                id="user_driving_licence_present" required>
                                 <option value="" disabled selected>Select Option</option>
                                 <option value="1" @if (old('user_driving_licence_present', isset($udata) ? $udata->driving_licence_present : '') == '1') {{ 'selected' }} @endif>
                                     Yes
@@ -265,12 +265,14 @@
                         <div class="form-group col-md-3">
                             <label for="user_driving_licence_type">Driving Licence Type</label>
                             <input type="text" class="form-control" id="user_driving_licence_type"
-                                name="user_driving_licence_type" value="">
+                                name="user_driving_licence_type"
+                                value="{{ old('user_driving_licence_type', isset($udata) ? $udata->driving_licence_type : '') }}">
                         </div>
                         <div class="form-group col-md-3">
-                            <label for="driving_licence_number">Driving Licence Number</label>
-                            <input type="text" class="form-control" id="driving_licence_number"
-                                name="driving_licence_number" value="">
+                            <label for="user_driving_licence_number">Driving Licence Number</label>
+                            <input type="text" class="form-control" id="user_driving_licence_number"
+                                name="user_driving_licence_number"
+                                value="{{ old('user_driving_licence_number', isset($udata) ? $udata->driving_licence_number : '') }}">
                         </div>
                         <div class="form-group col-md-3">
                             <label for="user_own_vehicle">Own Vehicle</label>
@@ -285,6 +287,104 @@
                             </select>
                         </div>
                     </div>
+
+                    <!-- Clearance Section -->
+                    <div class="heading_container heading_center">
+                        <h2>
+                            Clearance
+                        </h2>
+
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="user_criminal_offence_present">Criminal Offence Present</label>
+                            <select class="form-control" id="user_criminal_offence_present"
+                                name="user_criminal_offence_present">
+                                <option value="" disabled selected>Select Option</option>
+                                <option value="1" @if (old('user_criminal_offence_present', isset($udata) ? $udata->criminal_offence_present : '') == '1') {{ 'selected' }} @endif>
+                                    Yes
+                                </option>
+                                <option value="0" @if (old('user_criminal_offence_present', isset($udata) ? $udata->criminal_offence_present : '') == '0') {{ 'selected' }} @endif>
+                                    No
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="user_criminal_offence_details">Criminal Offence Details</label>
+                            <input type="text" class="form-control" id="user_criminal_offence_details"
+                                name="user_criminal_offence_details" value="{{ old('user_criminal_offence_details', isset($udata) ? $udata->criminal_offence_details : '') }}">
+                        </div>
+                    </div>
+
+                    <!-- Documents Section -->
+                    <div>
+                        <div class="heading_container heading_center">
+                            <h2>
+                                Documents
+                            </h2>
+    
+                        </div>
+    
+                        <div id="document_section_container">
+                            <div class="document-row mb-3">
+                                <div class="form-row">
+                                    <!-- Upload Document -->
+    
+                                    <!-- Document Type -->
+                                    <div class="form-group col-md-3">
+                                        <label for="user_doc_type">Document Type</label>
+                                        <select class="form-control" name="user_doc_type[]" required>
+                                            <option value="" disabled selected>Select a Document</option>
+                                            <option value="brp">BRP</option>
+                                            <option value="driving_licence">Driving Licence</option>
+                                            <option value="national_idcard">National ID Card</option>
+                                            <option value="passport">Passport</option>
+                                            <option value="security_licence">Security Licence</option>
+                                        </select>
+                                    </div>
+    
+                                    <div class="form-group col-md-3">
+                                        <label for="user_file_link">Upload Document</label>
+                                        <input type="file" class="form-control" name="user_file_link[]" accept="image/*" required>
+                                    </div>
+    
+    
+    
+                                    <!-- Document Status -->
+                                    {{-- <div class="form-group col-md-3">
+                                        <label for="status">Document Status</label>
+                                        <select class="form-control" name="status[]">
+                                            <option value="1">Active</option>
+                                            <option value="0">Inactive</option>
+                                        </select>
+                                    </div> --}}
+    
+                                    <!-- Details -->
+                                    <div class="form-group col-md-3">
+                                        <label for="details">Details</label>
+                                        <input type="text" class="form-control" name="details[]"
+                                            placeholder="Enter Details">
+                                    </div>
+    
+                                    <!-- Remove Button -->
+                                    <div class="form-group col-md-12 text-right">
+                                        <button type="button" class="btn btn-danger btn-sm remove-document-row">
+                                            <i class="fa fa-trash-o"></i> Remove
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Add Document Button -->
+    
+                        <div class="form-group text-right">
+                            <button type="button" class="btn btn-sm btn-success" id="add_document_row">
+                                <i class="fa fa-plus"></i></i>&nbsp; Add Document
+                            </button>
+                        </div>
+                    </div>
+
                     <div class="text-center mt-2">
                         <button type="submit" class="btn btn-success">Save</button>
                     </div>
