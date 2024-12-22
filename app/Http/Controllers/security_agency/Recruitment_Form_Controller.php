@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Country;
 use App\Models\User;
 use App\Models\User_Details;
+use App\Models\User_Documents;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
@@ -56,6 +57,8 @@ class Recruitment_Form_Controller extends Controller
                 'user_sia_licence_type' => 'string|required',
                 'user_sia_licence_number' => 'string|required',
                 'user_sia_licence_expiry_date' => 'string|required',
+                'user_doc_type.*' => 'required|string|max:255',
+                'user_file_link.*' => 'required|image|mimes:jpg,jpeg,png,gif|max:2048',
             ]
         );
 
@@ -66,11 +69,11 @@ class Recruitment_Form_Controller extends Controller
             $rec->fname = $request->user_fname;
             $rec->sname = $request->user_sname;
             $rec->email = $request->user_email;
-            $rec->user_type='employee';
+            $rec->user_type = 'employee';
             $rec->password = Hash::make($request->user_password);
             $rec->save();
 
-            $det = new User_Details();          // det -> details 
+            $det = new User_Details(); // det -> details
             $det->user_id = $rec->id;
             $det->dob = $request->user_dob;
             $det->gender = $request->user_gender;
@@ -103,6 +106,23 @@ class Recruitment_Form_Controller extends Controller
             $det->share_code = $request->user_share_code;
 
             $det->save();
+
+            // Store documents
+            if ($request->hasFile('user_file_link')) {
+                foreach ($request->file('user_file_link') as $index => $document) {
+                    $documentName = time() . '_' . $document->getClientOriginalName();
+                    $documentPath = $document->storeAs('documents', $documentName);
+
+                    $doc = new User_Documents();
+                    $doc->user_id = $rec->id;
+                    $doc->doc_type = $request->input('user_doc_type')[$index];
+                    $doc->status = 1;
+                    $doc->details = $request->input('user_doc_details')[$index];
+                    $doc->link = $documentPath;
+                    $doc->created_by = $rec->id;
+                    $doc->save();
+                }
+            }
             return redirect()->route('security_agency_recruitment_form.show', $rec->id);
 
         } else {
@@ -115,9 +135,19 @@ class Recruitment_Form_Controller extends Controller
      */
     public function show(string $id)
     {
+
         //
         $user = User::where('id', $id)->get();
         // dd($user);
+
+        dd('authorization going on');
+        // if(auth()->user()->id){
+        //     return redirect()->route('security_agency_recruitment_form.show', auth()->user()->id);
+        // }
+        // $recruit = User::find($id);
+        // $recruit_details = User_Details::where('user_id', $id)->first();
+        // return view('security_agencies/recruited_user_dashboard')->with(compact('recruit', 'recruit_details'));
+
     }
 
     /**
