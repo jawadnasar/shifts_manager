@@ -117,7 +117,7 @@ class Recruitment_Form_Controller extends Controller
     {
         //
         $user = User::where('id', $id)->get();
-        dd($user);
+        // dd($user);
     }
 
     /**
