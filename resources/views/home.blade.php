@@ -344,8 +344,15 @@
     </div>
 
     <!-- Enquiry Button -->
-    <div class="mt-4">
-      <a href="#" class="btn btn-primary" style="background-color: #0056b3; border-color: #0056b3; padding: 10px 20px; font-size: 16px;">Make an Enquiry</a>
+    <div class="mt-4">                    
+    <div class="btn-box">
+              
+              <a href="{{ route('contact')}}" class="mb-2 btn-2">
+                Make an Inquiry
+              </a>
+            </div>
+          </div>
+      <!-- <a href="#" class="btn btn-primary" style="background-color: #0056b3; border-color: #0056b3; padding: 10px 20px; font-size: 16px;">Make an Enquiry</a> -->
     </div>
   </div>
 </section>

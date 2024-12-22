@@ -72,7 +72,13 @@
                     </div>
 
                     <!-- Date of Birth & Gender Section -->
-                    <h3>Date of Birth & Gender</h3>
+                  
+                    <div class="heading_container heading_center">
+                        <h2>
+                        Date of Birth & Gender
+                        </h2>
+
+                    </div>
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="user_dob">Date of Birth</label>
@@ -341,7 +347,12 @@
                     </div>
 
                     <div class="text-center mt-2">
-                        <button type="submit" class="btn btn-success">Save</button>
+                        <div class="btn-box">
+                
+                            <button type="submit" class="btn btn-2">Save</button>
+                           
+                        </div>
+                       
                     </div>
                 </form>
 

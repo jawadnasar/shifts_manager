@@ -140,13 +140,15 @@ class Recruitment_Form_Controller extends Controller
         $user = User::where('id', $id)->get();
         // dd($user);
 
-        dd('authorization going on');
+        // dd('authorization going on');
         // if(auth()->user()->id){
         //     return redirect()->route('security_agency_recruitment_form.show', auth()->user()->id);
         // }
         // $recruit = User::find($id);
         // $recruit_details = User_Details::where('user_id', $id)->first();
         // return view('security_agencies/recruited_user_dashboard')->with(compact('recruit', 'recruit_details'));
+
+        return redirect()->route('confirm');
 
     }
 
@@ -172,5 +174,10 @@ class Recruitment_Form_Controller extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function confirm()
+    {
+        return view('security_agencies/thankyou');
     }
 }
