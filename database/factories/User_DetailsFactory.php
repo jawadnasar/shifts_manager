@@ -32,7 +32,7 @@ class User_DetailsFactory extends Factory
             'birth_place' => $this->faker->city,
             'nationality' => $this->faker->country, // Random country name
             'current_address' => $this->faker->address, // Random address
-            'city' => $this->faker->city, // Random city name
+            'city' => $this->faker->numberBetween(1,240), // Random city name
             'postcode' => $this->faker->postcode, // Random postal code
             'living_since' => $this->faker->date('Y-m-d', 'now'), // Random date up to today
             'ni_number' => $this->faker->regexify('[A-Z]{2}[0-9]{6}[A-Z]{1}'), // Random National Insurance number
