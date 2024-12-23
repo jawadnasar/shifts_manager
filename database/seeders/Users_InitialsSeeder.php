@@ -52,6 +52,27 @@ class Users_InitialsSeeder extends Seeder
                 'pri_editexpenses' => 1,
                 'pri_adduser' => 1,
             ],
+
+            [
+                'fname' => 'Umar',
+                'sname' => 'Bahadur',
+                'email' => 'ubhb888@gmail.com',
+                'email_verified_at' => now(),
+                'user_type' => 'admin',
+                'password' => bcrypt('admin1234'),
+                'remember_token' => Str::random(10),
+                'pri_setprivileges' => 1,
+                'pri_addreceipt' => 1,
+                'pri_editreceipt' => 1,
+                'pri_addjournal' => 1,
+                'pri_editjournal' => 1,
+                'pri_addpayment' => 1,
+                'pri_editpayment' => 1,
+                'pri_addexpenses' => 1,
+                'pri_editexpenses' => 1,
+                'pri_adduser' => 1,
+            ]
+            
         ];
 
         foreach ($users as $userData) {

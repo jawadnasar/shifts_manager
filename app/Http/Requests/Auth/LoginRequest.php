@@ -41,7 +41,7 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+        if (!Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
@@ -51,7 +51,7 @@ class LoginRequest extends FormRequest
 
         RateLimiter::clear($this->throttleKey());
 
-        // After authentication, perform role-based redirection
+        // Check for role-based redirection after authentication
         return $this->roleBasedRedirect();
     }
 
@@ -62,7 +62,7 @@ class LoginRequest extends FormRequest
      */
     public function ensureIsNotRateLimited(): void
     {
-        if (! RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
+        if (!RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
             return;
         }
 
@@ -83,7 +83,7 @@ class LoginRequest extends FormRequest
      */
     public function throttleKey(): string
     {
-        return Str::transliterate(Str::lower($this->string('email')).'|'.$this->ip());
+        return Str::transliterate(Str::lower($this->string('email')) . '|' . $this->ip());
     }
 
     /**
@@ -92,17 +92,18 @@ class LoginRequest extends FormRequest
     protected function roleBasedRedirect(): RedirectResponse
     {
         $user = Auth::user();
-        // Role-based redirection after login
-        if ($user->user_type == 'admin') {
-            // Redirect to the admin dashboard if the admin_type (Admin)
+
+        // Ensure only admin can access the admin dashboard
+        if ($user->user_type === 'admin') {
             return redirect()->route('dashboard');
-        } else {
-            // Redirect to the homepage for other roles
+        }
+
+        // Redirect employees to employee dashboard
+        if ($user->user_type === 'employee') {
             return redirect()->route('home');
         }
+
+        // Redirect other users to the homepage
+        return redirect()->route('home');
     }
-
-
-    
 }
-

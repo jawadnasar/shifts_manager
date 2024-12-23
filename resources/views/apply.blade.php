@@ -36,16 +36,18 @@
 
                     </div>
                     <div class="row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-6 col-12">
                             <label for="fname">First Name</label>
                             <input type="text" class="form-control" id="fname" name="fname" value="">
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-6 col-12">
                             <label for="sname">Last Name</label>
                             <input type="text" class="form-control" id="sname" name="sname" value="">
                             <input type="hidden" class="form-control" id="user_type" name="user_type" value="employee">
                         </div>
                     </div>
+
+
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="email">Email</label>

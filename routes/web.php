@@ -40,7 +40,7 @@ Route::resource('/security_agency_recruitment_form', Recruitment_Form_Controller
 Route::get('/confirm', [Recruitment_Form_Controller::class, 'confirm'])->name('confirm');
 
 
-Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
+Route::prefix('admin')->middleware(['auth', 'verified', \App\Http\Middleware\AdminMiddleware::class])->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::get('/users_info', [Users_Info_Controller::class, 'index'])->name('users_info');
 

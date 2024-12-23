@@ -1,7 +1,14 @@
+<style>
+    .text-gray-500 {
+        display: none!important;
+    }
+</style>
 <x-guest-layout>
     <!-- Logo -->
     <div class="text-center mb-6">
-        <img src="{{ asset('images/logo.png') }}" alt="Your Logo" class="mx-auto w-24 h-24">
+        
+        <img src="{{ asset('front-theme/images/main_logo.png') }}" alt="Logo" class="mx-auto w-24 h-24" style="width:120px;height:120px;">
+
     </div>
 
     <!-- Session Status -->

@@ -18,11 +18,22 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // Check if the user is authenticated and if the user_type is 'admin'
-        if (Auth::check() && Auth::user()->user_type !== 'admin') {
-            return redirect('/');  // Redirect to home or any other page you want
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'Please log in first.');
         }
 
-        return $next($request);
+        $user = Auth::user();
+
+        // Avoid redirecting if already on the dashboard
+        if ($user->user_type === 'admin' && $request->route()->getName() !== 'dashboard') {
+            return redirect()->route('dashboard'); // Admin dashboard route
+        }
+
+        // Redirect non-admin users to the home page
+        if ($user->user_type !== 'admin') {
+            return redirect()->route('home'); // Redirect to homepage for non-admin
+        }
+
+        return $next($request); // Continue with the request if no redirection
     }
 }

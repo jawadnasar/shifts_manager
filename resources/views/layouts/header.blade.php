@@ -98,6 +98,21 @@
                   {{-- <a class="nav-link" href="{{ route('apply') }}">Apply</a> --}}
                   <a class="nav-link" href="{{ route('security_agency_recruitment_form.create') }}">Apply</a>
                 </li>
+                  
+                <li class="nav-item">
+                    @if(auth()->check())
+                        <a class="nav-link" href="{{ route('logout') }}"
+                          onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    @else
+                        <!-- If the user is not logged in, you can add some other links or logic here -->
+                    @endif
+                </li>
+
               </ul>
             </div>
           </nav>
