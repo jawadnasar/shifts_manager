@@ -18,10 +18,10 @@
                     
                     <div>
                         <img src="{{ asset('front-theme/images/phone.png') }}" alt="Phone">
-                        <span>Now +44 7404 989621</span>
+                        <span>Now {{env('COMPANY_PHONE')}} </span>
                         &nbsp;&nbsp;&nbsp;
                         <img src="{{ asset('front-theme/images/email.png') }}" alt="Email">
-                        <span>trkprotectors@gmail.com</span>
+                        <span>{{env('COMPANY_EMAIL')}}</span>
                     </div>
                 </div>
             </section>

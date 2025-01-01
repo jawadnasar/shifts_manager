@@ -16,14 +16,14 @@
           About Us
         </h2>
         <p class="text-left">
-        Welcome to TRK Protectors LTD!
+        Welcome to {{env('COMPANY_NAME')}}!
         <br>
-        At TRK Protectors LTD, we take pride in being a premier private security company serving the UK. With a steadfast commitment to excellence and an unwavering focus on safeguarding your peace of mind, we are dedicated to providing top-notch security solutions tailored to meet your specific needs.
+        At {{env('COMPANY_NAME')}}, we take pride in being a premier private security company serving the UK. With a steadfast commitment to excellence and an unwavering focus on safeguarding your peace of mind, we are dedicated to providing top-notch security solutions tailored to meet your specific needs.
         <br>
        <b>Our Mission:</b><br>
         To be the trusted protectors of your safety, assets, and reputation. We strive to deliver uncompromising security services, ensuring you can focus on what matters most, while we handle the rest.
         <br>
-        Why Choose TRK Protectors LTD?
+        Why Choose {{env('COMPANY_NAME')}}?
         <br>
        <b>Expertise:</b> Our team comprises highly skilled and licensed security professionals with extensive experience in the field. We continuously invest in training and development to stay ahead of emerging security challenges.
         Comprehensive Solutions: Whether you need security for your business, event, or personal safety, we have a range of tailored solutions to address your unique requirements.
@@ -39,7 +39,7 @@
         <br>
         Let's Protect Together:
         <br>
-        At TRK Protectors LTD, we believe that safety is a collective effort. As your dedicated security partner, we are committed to your well-being and the security of what you hold dear. Together, we can create a safer environment for you and your business.
+        At {{env('COMPANY_NAME')}}, we believe that safety is a collective effort. As your dedicated security partner, we are committed to your well-being and the security of what you hold dear. Together, we can create a safer environment for you and your business.
 
         Contact us today for a consultation and let's design a security strategy that fits your needs perfectly.
 

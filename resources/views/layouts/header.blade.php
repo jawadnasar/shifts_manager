@@ -52,13 +52,13 @@
             <a href="" class="contact_link2">
               <i class="fa fa-phone" aria-hidden="true"></i>
               <span>
-                Call : +01 1234567890
+                {{env('COMPANY_PHONE')}}
               </span>
             </a>
             <a href="" class="contact_link3">
               <i class="fa fa-envelope" aria-hidden="true"></i>
               <span>
-                trkprotectors@gmail.com
+                {{env('COMPANY_EMAIL')}}
               </span>
             </a>
           </div>

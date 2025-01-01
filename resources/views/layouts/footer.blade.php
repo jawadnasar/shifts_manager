@@ -8,7 +8,7 @@
                 <img src="{{ asset('front-theme/images/main_logo.png') }}" alt="" style="width:120px;height:120px;">
               </span>
               <span>
-                TRK Protectors
+                {{env('APP_NAME')}}
               </span>
             </a>
             <p>
@@ -68,13 +68,13 @@
             <a href="" class="">
               <i class="fa fa-phone" aria-hidden="true"></i>
               <span>
-                Call : +01 1234567890
+                {{env('COMPANY_PHONE')}}
               </span>
             </a>
             <a href="" class="">
               <i class="fa fa-envelope" aria-hidden="true"></i>
               <span>
-                demo@gmail.com
+                {{env('COMPANY_EMAIL')}}
               </span>
             </a>
           </div>
