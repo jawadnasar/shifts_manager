@@ -91,8 +91,8 @@
                                     <td>{{ $det->sia_licence_type ?? '' }} <br> {{ $det->sia_licence_number ?? '' }}</td>
                                     <td>{{ $det->sia_licence_expiry_date ?? '' }}</td>
                                     <td>
-
-                                        <a href="{{route('admin.user_privileges.edit', $row->id)}}">Privileges</a>
+                                        <a href="{{route('admin.users_info.show', $row->id)}}" class="btn btn-sm btn-primary">Show</a>
+                                        <a href="{{route('admin.user_privileges.edit', $row->id)}}" class="btn btn-sm btn-primary">Privileges</a>
                                     </td>
                                 </tr>
                             @endforeach

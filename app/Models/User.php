@@ -57,7 +57,7 @@ class User extends Authenticatable
     /** Relationship to user_documents */
     public function relate_user_documents()
     {
-        return $this->hasOne(User_Documents::class);
+        return $this->hasMany(User_Documents::class);
     }
 
     // Full name

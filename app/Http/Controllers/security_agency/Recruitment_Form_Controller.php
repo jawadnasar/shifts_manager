@@ -111,7 +111,7 @@ class Recruitment_Form_Controller extends Controller
             if ($request->hasFile('user_file_link')) {
                 foreach ($request->file('user_file_link') as $index => $document) {
                     $documentName = time() . '_' . $document->getClientOriginalName();
-                    $documentPath = $document->storeAs('documents', $documentName);
+                    $documentPath = $document->storeAs('documents', $documentName, 'public');
 
                     $doc = new User_Documents();
                     $doc->user_id = $rec->id;

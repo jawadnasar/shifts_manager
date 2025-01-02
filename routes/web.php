@@ -40,20 +40,25 @@ Route::resource('/security_agency_recruitment_form', Recruitment_Form_Controller
 Route::get('/confirm', [Recruitment_Form_Controller::class, 'confirm'])->name('confirm');
 
 
+// Admin routes
 Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+    /*Users Info*/
     Route::get('/users_info', [Users_Info_Controller::class, 'index'])->name('users_info');
+    Route::get('/users_info/{id}', [Users_Info_Controller::class, 'show'])->name('admin.users_info.show');
 
+    /*Certificates*/
     Route::get('/certificates', [CertificatesController::class, 'index'])->name('certificates');
     Route::get('/certificates/getall', [CertificatesController::class, 'getall'])->name('certificates.getall');
     Route::post('/certificates/save', [CertificatesController::class, 'save'])->name('certificates.save');
     Route::post('/certificates/edit', [CertificatesController::class, 'edit'])->name('certificates.edit');
     Route::delete('/certificates/delete/', [CertificatesController::class, 'delete'])->name('certificates.delete');
 
+    /*Feedbacks*/
     Route::get('/feedbacks', [FeedbackController::class, 'index'])->name('feedbacks');
     Route::delete('/feedbacks/delete', [FeedbackController::class, 'delete'])->name('feedbacks.delete');
 
-    Route::resource('/user_privileges', User_Privileges_Controller::class, ['as' => 'admin']);
+    Route::resource('/user_privileges', User_Privileges_Controller::class, ['as' => 'admin']);  
 
 });
 

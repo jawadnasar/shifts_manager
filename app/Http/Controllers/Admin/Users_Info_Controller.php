@@ -20,6 +20,14 @@ class Users_Info_Controller extends Controller
         return View('admin.users_info')->with(compact('users_data'));
     }
 
+    public function show($id)
+    {
+        $user = User::find($id);
+        $details = $user->relate_user_details;
+        $documents = $user->relate_user_documents->where('status', 1);
+        return View('admin.users_info_show')->with(compact('user', 'details', 'documents'));
+    }
+
     private function get_users($request)
     {
         $query = User::with('relate_user_details');
