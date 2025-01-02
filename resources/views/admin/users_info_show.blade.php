@@ -89,7 +89,7 @@
                                     @foreach ($documents as $doc)
                                         <li>{{ $doc->doc_type }} (Uploaded on: {{ $doc->created_at }})
                                             {{ $doc->details }}
-                                            <img src="{{asset('storage/'.$doc->link)}}" alt="" srcset="">
+                                            <img src="{{asset('storage/'.$doc->link)}}" width="200px" height="200px" alt="" srcset="">
                                         </li>
                                     @endforeach
                                 </ul>
