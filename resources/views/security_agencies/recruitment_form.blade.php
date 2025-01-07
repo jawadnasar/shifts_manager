@@ -115,7 +115,7 @@
                             <input type="text" name="user_phone" id='user_phone' class="form-control"
                                 value="{{ old('user_phone', isset($udata) ? $udata->phone : '') }}" required>
                         </div>
-                        <div class="form-group col-md-6">
+                        {{-- <div class="form-group col-md-6">
                             <label for="user_birth_place">Birth Place</label>
                             <select class="form-control" id="user_birth_place" name="user_birth_place" required>
                                 <option value="" selected disabled>Select Birth Place</option>
@@ -125,7 +125,7 @@
                                         {{ $country->name }}</option>
                                 @endforeach
                             </select>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
@@ -177,13 +177,14 @@
                         <div class="form-group col-md-4">
                             <label for="user_ni_number">NI Number</label>
                             <input type="text" class="form-control" id="user_ni_number" name="user_ni_number"
-                                value="{{ old('user_ni_number', isset($udata) ? $udata->ni_number : '') }}" required>
+                                value="{{ old('user_ni_number', isset($udata) ? $udata->ni_number : '') }}" 
+                                placeholder="Please enter your national insurace number" required>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="user_share_code">Share code</label>
+                            <label for="user_share_code">Share code (Right to work)</label>
                             <input type="text" class="form-control" id="user_share_code" name="user_share_code"
                                 value="{{ old('user_share_code', isset($udata) ? $udata->user_share_code : '') }}"
-                                required>
+                                placeholder="Right to work share code" required>
                         </div>
                     </div>
 
@@ -388,10 +389,10 @@
                             <label for="user_doc_type">Document Type</label>
                             <select class="form-control" name="user_doc_type[]" required>
                                 <option value="" disabled selected>Select a Document</option>
-                                <option value="brp">BRP</option>
                                 <option value="driving_licence">Driving Licence</option>
-                                <option value="national_idcard">National ID Card</option>
                                 <option value="passport">Passport</option>
+                                <option value="proof_of_address">Proof of Address</option>
+                                <option value="right_to_work">Right to work</option>
                                 <option value="security_licence">Security Licence</option>
                             </select>
                         </div>

@@ -34,8 +34,8 @@
                         <!-- Contact Information -->
                         <h4>Contact Information</h4>
                         <div>Phone: {{ $details->phone }}</div>
-                        <div>Birth Place: {{ $details->birth_place }}</div>
-                        <div>Nationality: {{ $details->nationality }}</div>
+                        {{-- <div>Birth Place: {{ $details->birth_place }}</div> --}}
+                        <div>Nationality: {{ $details->country->name }}</div>
                         <div>Current Address: {{ $details->current_address }}</div>
                         <div>City: {{ $details->city }}</div>
                         <div>Postcode: {{ $details->postcode }}</div>
