@@ -151,7 +151,7 @@ class ApplyHelper {
                 'criminal_offence_present.boolean' => 'The criminal offence present field must be true or false.',
                 'criminal_offence_details.string' => 'The criminal offence details must be a valid string.',
                 //Share Code
-                'share_code.string' => 'The share code must be a valid string.',
+                'share_code.string' => 'The Right to work share code must be a valid string.',
                 'share_code.max' => 'The share code may not be greater than 255 characters.',
                 // User Documents
                 'link.*.required' => 'Each document image is required.',
