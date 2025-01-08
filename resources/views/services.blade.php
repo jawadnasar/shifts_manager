@@ -44,7 +44,7 @@
             <img src="{{ asset('front-theme/images/site_security.png') }}" alt="Reception" class="img-fluid rounded">
         </div>
         <div class="col-md-9">
-            <h2 class="mb-3 blog_category_title">Site Security</h2>
+            <h2 class="mb-3 blog_category_title">Construction Site</h2>
             <p>
             TRK Protectors is a leading security company dedicated to ensuring the safety and peace of mind for individuals and businesses alike. With a team of highly trained and experienced professionals, we offer a comprehensive range of security solutions tailore …..
             </p>

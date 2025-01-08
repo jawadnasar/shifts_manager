@@ -57,7 +57,7 @@
                             <!-- Right Column (Text Content) -->
                             <div class="col-md-9">
                                 <div class="card-body">
-                                    <h5 class="card-title text-dark blog_category_title">Site Security</h5>
+                                    <h5 class="card-title text-dark blog_category_title">Construction Site</h5>
                                     <p class="card-text text-dark">  TRK Protectors is a leading security company dedicated to ensuring the safety and peace of mind for individuals and businesses alike. With a team of highly trained and experienced professionals, we offer a comprehensive range of security solutions tailore …..</p>
                                     <p class="card-text">
                                         <small class="text-muted">Published on August 7, 2023</small>

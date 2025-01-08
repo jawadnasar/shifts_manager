@@ -82,7 +82,7 @@
             </div>
             <div class="detail-box">
               <h6>
-                Site Security
+                Construction Site
               </h6>
               <p>
               Safeguarding your world with unwavering security expertise
