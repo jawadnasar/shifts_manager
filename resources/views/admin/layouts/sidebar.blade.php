@@ -21,6 +21,7 @@
                     <a href="{{ route('dashboard')}}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="{{ route('users_info') }}" class="nav-item nav-link"><i class="fas fa-users me-2"></i>Users</a>
                     <a href="" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Applications</a>
+                    <a href="{{ route('templates') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Templates</a>
                     <a href="{{ route('feedbacks') }}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Feedbacks</a>
                     <a href="{{ route('certificates') }}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Certificates</a>
 

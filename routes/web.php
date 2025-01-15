@@ -2,6 +2,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\CertificatesController;
+use App\Http\Controllers\Admin\EmailTemplateController;
 use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\Users_Info_Controller;
 use App\Http\Controllers\Admin\User_Privileges_Controller;
@@ -59,6 +60,16 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::delete('/feedbacks/delete', [FeedbackController::class, 'delete'])->name('feedbacks.delete');
 
     Route::resource('/user_privileges', User_Privileges_Controller::class, ['as' => 'admin']);  
+
+    //Email template routes
+    Route::get('/templates', [EmailTemplateController::class, 'index'])->name('templates');
+    Route::post('/templates/save', [EmailTemplateController::class, 'save'])->name('templates.save');
+    Route::post('/templates/edit', [EmailTemplateController::class, 'edit'])->name('templates.edit');
+    Route::delete('/templates/delete', [EmailTemplateController::class, 'delete'])->name('templates.delete');
+
+
+
+
 
 });
 
