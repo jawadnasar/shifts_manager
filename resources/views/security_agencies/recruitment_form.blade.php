@@ -101,6 +101,27 @@
                             </select>
                         </div>
                     </div>
+                    <div class="heading_container heading_center">
+                        <h2>
+                            Disability Information
+                        </h2>
+
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="is_disabled">Do you have a disability?</label>
+                        <select class="form-control" id="is_disabled" name="is_disabled" required>
+                            <option value="Please Select" selected disabled></option>
+                            <option value="0" @if (old('is_disabled', isset($udata) ? $udata->is_disabled : '') == '0') {{ 'selected' }} @endif>No</option>
+                            <option value="1" @if (old('is_disabled', isset($udata) ? $udata->is_disabled : '') == '1') {{ 'selected' }} @endif>Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-6" id="disabilities-container" style="display: none;">
+                        <label for="disabilities">Please specify your disabilities</label>
+                        <textarea class="form-control" id="disabilities" name="disabilities" rows="4" placeholder="Enter your disabilities here, separated by commas (e.g., Diabetes, Hypertension, etc.)"></textarea>
+                    </div>
+
+
 
                     <!-- Contact Information Section -->
                     <div class="heading_container heading_center">
@@ -421,6 +442,17 @@
             `;
 
             $('#document_section_container').append(newDocumentRow);            
+        }
+    });
+
+
+     // Manage Disablity Options:
+     document.getElementById('is_disabled').addEventListener('change', function() {
+        var disabilitiesContainer = document.getElementById('disabilities-container');
+        if (this.value == '1') {
+            disabilitiesContainer.style.display = 'block';
+        } else {
+            disabilitiesContainer.style.display = 'none';
         }
     });
 </script>

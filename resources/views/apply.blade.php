@@ -88,6 +88,8 @@
 
                     </div>
 
+                    
+
                     <!-- Contact Information Section -->
                     <div class="heading_container heading_center">
                         <h2>
@@ -335,6 +337,7 @@
 </section>
 <script>
     $(document).ready(function() {
+
         // Add new document row
         $('#add_document_row').click(function() {
             var newDocumentRow = `
@@ -426,4 +429,5 @@
         });
     });
 </script>
+
 @endsection
