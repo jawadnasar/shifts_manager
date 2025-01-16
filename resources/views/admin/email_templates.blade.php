@@ -151,36 +151,7 @@
         </div>
     </div>
 
-
-    <!-- Details Modal -->
-    <div class="modal fade" id="detailsModal" tabindex="-1" data-bs-backdrop="static">
-        <div class="modal-dialog modal-md">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modal_header">Template Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <strong>Template Name:</strong> <span id="template-name"></span>
-                    </div>
-                    <div class="mb-3">
-                        <strong>Subject Line:</strong> <span id="template-email"></span>
-                    </div>
-                    <div class="mb-3">
-                        <strong>Email Body:</strong> <span id="template-phone"></span>
-                    </div>
-                    <div class="mb-3">
-                        <strong>Email Footer</strong>
-                        <p id="template-message"></p>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </div>
 
 
@@ -225,6 +196,7 @@
 
     // Edit modal opening
     $(document).on('click', '.edit-template-btn', function() {
+        // Retrieve data attributes from the button
         const templateId = $(this).data('id');
         const templateName = $(this).data('template_name');
         const subjectLine = $(this).data('subject_line');
@@ -240,13 +212,16 @@
         $('#edit_footer').val(footer);
 
         // Display the current image
+        const imagePreview = $('#edit_current_image_preview');
         if (image) {
-            const imageUrl = `{{ asset('storage/email_templates/') }}/${image}`;
-            $('#edit_current_image_preview').html(
-                `<img src="{{ asset('storage/email_templates/') }}/${image}" alt="Template Image" class="img-fluid rounded" width="100" height="auto">`
+            const imageUrl = `/storage/email_templates/${image}`;
+            imagePreview.html(
+                `<img src="${imageUrl}" alt="Template Image" class="img-fluid rounded" width="100" height="auto">`
             );
+            $('#existing_image').val(image); // Set hidden input for existing image
         } else {
-            $('#edit_current_image_preview').html('<p>No image available.</p>');
+            imagePreview.html('<p>No image available.</p>');
+            $('#existing_image').val(''); // Clear the hidden input for existing  image
         }
 
         // Show the modal
@@ -254,11 +229,10 @@
     });
 
 
-    $('#edit_template_form').on('submit', function(e) {
+
+    $('#edit_template_form').on('submit', function (e) {
         e.preventDefault(); // Prevent default form submission behavior
         var formData = new FormData(this);
-        var imageFile = $('#image')[0].files[0]; 
-        formData.append('image', imageFile); 
 
         $("#loading").show();
 
@@ -268,7 +242,7 @@
             data: formData,
             processData: false, // Prevent jQuery from automatically processing the data
             contentType: false, // Prevent jQuery from setting content type
-            success: function(data) {
+            success: function (data) {
                 $("#loading").hide();
                 if (data.status === 'success') {
                     toastr.success('Done: ' + data.msg);
@@ -279,12 +253,13 @@
                     toastr.error('Oops, Error: ' + data.msg);
                 }
             },
-            error: function(request, status, error) {
+            error: function (request, status, error) {
                 $("#loading").hide();
                 toastr.error('Oops, Error: ' + request.responseText + ' :(');
             }
         });
     });
+
 
 
 
