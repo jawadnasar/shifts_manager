@@ -44,11 +44,24 @@ class EmailTemplateHelper {
 
             // Handle image upload
             if ($request->hasFile('image')) {
+                // Delete the old image if it exists
+                if ($template->image && file_exists(public_path('storage/email_templates/' . $template->image))) {
+                    unlink(public_path('storage/email_templates/' . $template->image));
+                }
+            
+                // Upload new image
                 $image = $request->file('image');
                 $imageName = time() . '_' . $image->getClientOriginalName();
                 $image->move(public_path('storage/email_templates'), $imageName);
                 $template->image = $imageName;
+            } elseif ($request->has('existing_image')) {
+                // Retain the existing image
+                $template->image = $request->existing_image;
+            } else {
+                // Remove the image if none exists
+                $template->image = null;
             }
+            
 
             // Save to database
             $template->save();
@@ -105,11 +118,6 @@ class EmailTemplateHelper {
                 $imageName = time() . '_' . $image->getClientOriginalName();
                 $image->move(public_path('storage/email_templates'), $imageName);
                 $template->image = $imageName;
-            } else {
-                // Use the existing image filename from the hidden input
-                if ($request->has('existing_image') && $request->existing_image) {
-                    $template->image = $request->existing_image;
-                }
             }
 
             // Save the updated template
@@ -126,6 +134,8 @@ class EmailTemplateHelper {
             ]);
         }
     }
+
+
 
     public static function delete(Request $request)
     {
