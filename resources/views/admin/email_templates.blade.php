@@ -12,6 +12,7 @@
             </div>
 
             <br>
+            <div class="row">
             <div class="table-responsive">
                 <table id="templateTable" class="table main_table">
                     <thead>
@@ -33,8 +34,8 @@
                                 <td>{{ $template->body }}</td>
                                 <td>{{ $template->footer }}</td>
                                 <td>
-                                    <a href="{{ route('admin.send_email') }}" class="btn btn-primary">Use</a>
-                                    <button class="btn btn-primary edit-template-btn" data-id="{{ $template->id }}">
+                                    <a href="{{ route('preview_email_template', ['template_id'=>1]) }}" class="btn btn-primary">Use</a>
+                                    {{-- <button class="btn btn-primary edit-template-btn" data-id="{{ $template->id }}"> --}}
 
                                 <button 
                                         class="btn btn-danger delete-template-btn" 
@@ -60,6 +61,7 @@
                     </tbody>
                 </table>
             </div>
+        </div>
         </div>
     </div>
     <!-- Recent Sales End -->

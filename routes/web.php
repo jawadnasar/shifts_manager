@@ -68,7 +68,7 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::post('/templates/edit', [EmailTemplateController::class, 'edit'])->name('templates.edit');
     Route::delete('/templates/delete', [EmailTemplateController::class, 'delete'])->name('templates.delete');
 
-    Route::get('/preview_email_template', [EmailSendingController::class, 'template_preview'])->name('emails.preview_template');
+    Route::get('/preview_email_template', [EmailSendingController::class, 'email_template_preview'])->name('preview_email_template');
 
 
 
