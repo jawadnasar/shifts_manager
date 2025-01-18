@@ -16,9 +16,7 @@
                     subject: <input type="text" name="subject" id="subject" value="{{ $template->subject_line }}">
                 </div>
                 <div class="row">
-                    <textarea name="email_body" id="email_body" cols="30" rows="10">
-                        {{ $template->body }}
-                        {{ Auth::user()->name }} 
+                    <textarea name="email_body" id="email_body" cols="30" rows="10">{{ $template->body }}{{ Auth::user()->name }} 
                     </textarea>
                 </div>
                 <div>
