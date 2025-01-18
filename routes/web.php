@@ -2,6 +2,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\CertificatesController;
+use App\Http\Controllers\Admin\EmailSendingController;
 use App\Http\Controllers\Admin\EmailTemplateController;
 use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\Users_Info_Controller;
@@ -67,7 +68,7 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::post('/templates/edit', [EmailTemplateController::class, 'edit'])->name('templates.edit');
     Route::delete('/templates/delete', [EmailTemplateController::class, 'delete'])->name('templates.delete');
 
-
+    Route::get('/preview_email_template', [EmailSendingController::class, 'template_preview'])->name('emails.preview_template');
 
 
 

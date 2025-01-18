@@ -33,6 +33,9 @@
                                 <td>{{ $template->body }}</td>
                                 <td>{{ $template->footer }}</td>
                                 <td>
+                                    <a href="{{ route('admin.send_email') }}" class="btn btn-primary">Use</a>
+                                    <button class="btn btn-primary edit-template-btn" data-id="{{ $template->id }}">
+
                                 <button 
                                         class="btn btn-danger delete-template-btn" 
                                         data-id="{{ $template->id }}"
