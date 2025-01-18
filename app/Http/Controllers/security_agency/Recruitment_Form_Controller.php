@@ -42,7 +42,7 @@ class Recruitment_Form_Controller extends Controller
                 'user_email' => 'email|required',
                 'user_dob' => 'required|date|before_or_equal:today',
                 'is_disabled' => 'boolean|required',
-                'disabilities' => 'sting|nullable',
+                'disabilities' => 'string|nullable',
                 'user_password' => ['required', 'confirmed', Password::min(8)->letters()->numbers()],
                 'user_gender' => 'string|required',
                 'user_phone' => 'string|required',
@@ -79,7 +79,7 @@ class Recruitment_Form_Controller extends Controller
             $det->user_id = $rec->id;
             $det->dob = $request->user_dob;
             $det->is_disabled = $request->is_disabled;
-            $det->disabilities = $request->is_disabled;
+            $det->disabilities = $request->disabilities;
 
             $det->gender = $request->user_gender;
             $det->phone = $request->user_phone;

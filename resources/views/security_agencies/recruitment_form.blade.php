@@ -136,7 +136,7 @@
                             <input type="text" name="user_phone" id='user_phone' class="form-control"
                                 value="{{ old('user_phone', isset($udata) ? $udata->phone : '') }}" required>
                         </div>
-                        {{-- <div class="form-group col-md-6">
+                       <div class="form-group col-md-6">
                             <label for="user_birth_place">Birth Place</label>
                             <select class="form-control" id="user_birth_place" name="user_birth_place" required>
                                 <option value="" selected disabled>Select Birth Place</option>
@@ -146,7 +146,7 @@
                                         {{ $country->name }}</option>
                                 @endforeach
                             </select>
-                        </div> --}}
+                        </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-6">
