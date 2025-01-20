@@ -27,7 +27,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ asset('adminth/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('adminth/libs/toastr/toastr.min.css') }}" rel="stylesheet" />
+    <!-- <link href="{{ asset('adminth/lib/toastr/toastr.min.css') }}" rel="stylesheet" /> -->
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('adminth/css/style.css') }}" rel="stylesheet">
