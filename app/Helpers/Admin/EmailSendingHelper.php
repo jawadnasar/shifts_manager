@@ -16,14 +16,14 @@ class EmailSendingHelper {
         try {
             // Validate incoming request data with custom messages
             $validatedData = $request->validate([
-                'from_email' => 'required|email',
+                // 'from_email' => 'required|email',
                 'to_email' => 'required|email',
                 'subject' => 'required|string|max:255',
                 'email_body' => 'required|string',
                 'email_footer' => 'nullable|string',
                 'image' => 'nullable|string', // Image name as a string
             ], [
-                'from_email.required' => 'Please enter a valid "From" email address.',
+                // 'from_email.required' => 'Please enter a valid "From" email address.',
                 'from_email.email' => 'Please enter a valid email address for "From".',
                 'to_email.required' => 'Please enter a valid "To" email address.',
                 'to_email.email' => 'Please enter a valid email address for "To".',
@@ -49,7 +49,7 @@ class EmailSendingHelper {
 
             // Send the email
             Mail::send([], [], function ($message) use ($validatedData, $htmlContent, $imageData, $logoUrl, $fbIconUrl, $xIconUrl) {
-                $message->from($validatedData['from_email']);
+                // $message->from($validatedData['from_email']);
                 $message->to($validatedData['to_email']);
                 $message->subject($validatedData['subject']);
                 $message->setBody($htmlContent, 'text/html'); // Setting content type as HTML

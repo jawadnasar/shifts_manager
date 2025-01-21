@@ -13,14 +13,14 @@
                     style="width:120px;height:120px;">
                 </div>
             </div>
-
+<!-- 
             <div class="row mb-3">
                 <label for="from_email" class="col-form-label col-md-2 text-left">From:</label>
                 <div class="col-md-10">
                     <input type="email" name="from_email" id="from_email" class="form-control" 
                            value="{{ env('MAIL_FROM_ADDRESS') }}">
                 </div>
-            </div>
+            </div> -->
 
             <div class="row mb-3">
                 <label for="email" class="col-form-label col-md-2 text-left">To:</label>
@@ -67,14 +67,15 @@
             </div>
 
             <div class="row">
-             
                 <div class="col-md-10">
-                    <p>
-                        Follow us:
-                        <a href="#"><img src="{{ asset('front-theme/images/fb.png') }}" alt="Facebook"></a>
-                        <a href="#"><img src="{{ asset('front-theme/images/x.png') }}" alt="Twitter"></a>
-                    </p>
-                    <p>&copy; {{ date('Y') }} TRK Protectors. All rights reserved.</p>
+                    <div style="text-align:center;">
+                        <p>
+                            Follow us:
+                            <a href="#"><img src="{{ asset('front-theme/images/fb.png') }}" alt="Facebook"></a>
+                            <a href="#"><img src="{{ asset('front-theme/images/x.png') }}" alt="Twitter"></a>
+                        </p>
+                        <p>&copy; {{ date('Y') }} TRK Protectors. All rights reserved.</p>
+                    </div>
                 </div>
             </div>
 
