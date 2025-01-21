@@ -70,6 +70,10 @@
                 <div class="col-md-10">
                     <div style="text-align:center;">
                         <p>
+                            <img src="{{ asset('front-theme/images/main_logo.png') }}" alt=""
+                            style="width:120px;height:120px;">
+                        </p>
+                        <p>
                             Follow us:
                             <a href="#"><img src="{{ asset('front-theme/images/fb.png') }}" alt="Facebook"></a>
                             <a href="#"><img src="{{ asset('front-theme/images/x.png') }}" alt="Twitter"></a>
