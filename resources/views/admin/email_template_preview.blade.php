@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <!-- Email Editing Section -->
     <div class="text-center rounded p-4 mt-5">
-        <form id="send_email_form" method="POST">
+        <form id="send_email_form" action="{{route('send_email')}}"  method="POST">
             @csrf <!-- CSRF token for security -->
 
             <div class="row mb-3">
@@ -59,14 +59,14 @@
             </div>
 
             <div class="row mb-3">
-                <label for="email_body" class="col-form-label col-md-2 text-left">Footer:</label>
+                <label for="email_footer" class="col-form-label col-md-2 text-left">Footer:</label>
                 <div class="col-md-10">
                     <input type="text" name="email_footer" id="email_footer" class="form-control" value=" {{ $template->footer }}">
                        
                 </div>
             </div>
 
-            <div class="row">
+            <div name='email_company_info_footer' contenteditable="true" class="row">
                 <div class="col-md-10">
                     <div style="text-align:center;">
                         <p>
@@ -110,28 +110,28 @@
 
      $("#loading").show();
 
-     $.ajax({
-         type: "post",
-         url: "{{ route('send_email') }}",
-         data: formData,
-         processData: false, // Prevent jQuery from automatically processing the data
-         contentType: false, // Prevent jQuery from setting content type
-         success: function(data) {
-             $("#loading").hide();
-             if (data.status === 'success') {
-                 toastr.success('Done: ' + data.msg);
-                 $('#send_email_form')[0].reset();
-                 location.reload(); // Refresh the page
-             } else {
-                 toastr.error('Oops, Error: ' + data.msg);
-             }
-         },
-         error: function(request, status, error) {
-             $("#loading").hide();
-             toastr.error('Oops, Error: ' + request.responseText + ' :(');
-         }
-     });
- });
+//      $.ajax({
+//          type: "post",
+//          url: "{{ route('send_email') }}",
+//          data: formData,
+//          processData: false, // Prevent jQuery from automatically processing the data
+//          contentType: false, // Prevent jQuery from setting content type
+//          success: function(data) {
+//              $("#loading").hide();
+//              if (data.status === 'success') {
+//                  toastr.success('Done: ' + data.msg);
+//                  $('#send_email_form')[0].reset();
+//                  location.reload(); // Refresh the page
+//              } else {
+//                  toastr.error('Oops, Error: ' + data.msg);
+//              }
+//          },
+//          error: function(request, status, error) {
+//              $("#loading").hide();
+//              toastr.error('Oops, Error: ' + request.responseText + ' :(');
+//          }
+//      });
+//  });
 
 </script>
 
