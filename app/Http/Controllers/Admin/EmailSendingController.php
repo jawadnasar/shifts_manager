@@ -1,13 +1,11 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
-use App\Helpers\Admin\EmailSendingHelper;
 use App\Http\Controllers\Controller;
+use App\Mail\Mailer_Send_Email_Template;
 use App\Models\EmailTemplate;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use PharIo\Manifest\Email;
+use Illuminate\Support\Facades\Mail;
 
 class EmailSendingController extends Controller
 {
@@ -19,11 +17,23 @@ class EmailSendingController extends Controller
         return view('admin.email_template_preview')->with(compact('template'));
     }
 
+    // Connecting to mailer from here
     public function sendEmailWithTemplate(Request $request)
     {
-        try{ return EmailSendingHelper::sendEmailWithTemplate($request); } catch (\Exception $e) { return $e->getMessage(); }
+        try {
+            $email_subject = $request['subject'];
+            $email_body    = $request['email_body'];
+            $email_footer  = $request['email_footer'];
+
+            Mail::to($request['to_email'])->send(new Mailer_Send_Email_Template($email_subject, $email_body, $email_footer));   // Real mailer function
+            return response()->json([
+                'status' => 'success',
+                'msg'    => 'Email sent successfully!',
+            ]);
+        } catch (\Exception $e) {return response()->json([
+            'status' => 'error',
+            'msg'    => $e->getMessage(),
+        ]);}
     }
 
-
 }
-

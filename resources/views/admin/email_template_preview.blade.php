@@ -38,16 +38,6 @@
                 </div>
             </div>
 
-            <div class="row mb-3">
-                <label for="subject" class="col-form-label col-md-2 text-left">Attached Image:</label>
-                <div class="col-md-10">
-                    <input type="hidden" name="image" value="{{ $template->image }}">
-
-                    <img src="{{ asset('storage/email_templates/' . $template->image) }}" alt="Image"
-                    style="width:120px;height:120px;">
-                </div>
-            </div>
-
 
             <div class="row mb-3">
                 <label for="email_body" class="col-form-label col-md-2 text-left">Body:</label>
@@ -66,24 +56,6 @@
                     </textarea>
                 </div>
             </div>
-<textarea name="email_footer" id="email_company_info_footer" class="form-control" rows="5">
-            <div contenteditable="true" class="row">
-                <div class="col-md-10">
-                    <div style="text-align:center;">
-                        <p>
-                            <img src="{{ asset('front-theme/images/main_logo.png') }}" alt=""
-                            style="width:120px;height:120px;">
-                        </p>
-                        <p>
-                            Follow us:
-                            <a href="#"><img src="{{ asset('front-theme/images/fb.png') }}" alt="Facebook"></a>
-                            <a href="#"><img src="{{ asset('front-theme/images/x.png') }}" alt="Twitter"></a>
-                        </p>
-                        <p>&copy; {{ date('Y') }} TRK Protectors. All rights reserved.</p>
-                    </div>
-                </div>
-            </div>
-</textarea>
 
             <!-- Submit Button -->
             <div class="row mt-3">

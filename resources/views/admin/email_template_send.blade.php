@@ -43,24 +43,6 @@
     </style>
 </head>
 <body>
-    {{-- <div class="email-container">
-        <div class="email-header">
-            <img src="https://trkprotectors.com/public/front-theme/images/main_logo.png" alt="Company Logo">
-        </div>
-        <div class="email-content">
-            <p>Hello [Recipient's Name],</p>
-            <p>Thank you for signing up with TRK Protectors. We are excited to have you on board!</p>
-            <p>If you have any questions or need assistance, feel free to reach out to us.</p>
-        </div>
-        <div class="social-links">
-            <p>Follow us:</p>
-            <a href="#"><img src="https://trkprotectors.com/front-theme/images/fb.png" alt="Facebook"></a>
-            <a href="#"><img src="https://trkprotectors.com/public/front-theme/images/x.png" alt="Twitter"></a>
-        </div>
-        <div class="footer">
-            <p>© 2025 TRK Protectors. All rights reserved.</p>
-        </div>
-    </div> --}}
     {!! nl2br($email_body)  !!}
     {!! $email_footer !!}
 </body>
