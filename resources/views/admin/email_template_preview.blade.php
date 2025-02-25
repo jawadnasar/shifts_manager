@@ -26,7 +26,7 @@
                 <label for="email" class="col-form-label col-md-2 text-left">To:</label>
                 <div class="col-md-10">
                     <input type="text" name="to_email" id="to_email" class="form-control" 
-                           placeholder="For many emails, separate them with a semicolon">
+                           placeholder="For many emails, separate them with a semicolon" required>
                 </div>
             </div>
 
@@ -61,8 +61,9 @@
             <div class="row mb-3">
                 <label for="email_footer" class="col-form-label col-md-2 text-left">Footer:</label>
                 <div class="col-md-10">
-                    <input type="text" name="email_footer" id="email_footer" class="form-control" value=" {{ $template->footer }}">
-                       
+                    <textarea input type="text" name="email_footer" id="email_footer" class="form-control">
+                        {{ $template->footer }}
+                    </textarea>
                 </div>
             </div>
 <textarea name="email_footer" id="email_company_info_footer" class="form-control" rows="5">

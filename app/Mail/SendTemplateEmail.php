@@ -14,14 +14,16 @@ class SendTemplateEmail extends Mailable
     use Queueable, SerializesModels;
     public $email_body;
     public $email_subject;
+    public $email_footer;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($em_subject, $em_body)
+    public function __construct($em_subject, $em_body, $em_footer)
     {
         $this->email_body = $em_body;
         $this->email_subject = $em_subject;
+        $this->email_footer = $em_footer;
     }
 
     /**
@@ -43,8 +45,8 @@ class SendTemplateEmail extends Mailable
             // view: 'admin.email_template_preview',
             // view: $this->email_body
             // view: 'admin.email_template_preview_send',
-            view: 'admin.email_template_preview_send',
-            with: ['emailBody' => $this->email_body]
+            view: 'admin.email_template_send',
+            with: ['email_body' => $this->email_body, 'email_subject' => $this->email_subject, 'email_footer'=>$this->email_footer]
         );
     }
 

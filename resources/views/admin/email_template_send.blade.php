@@ -43,7 +43,7 @@
     </style>
 </head>
 <body>
-    <div class="email-container">
+    {{-- <div class="email-container">
         <div class="email-header">
             <img src="https://trkprotectors.com/public/front-theme/images/main_logo.png" alt="Company Logo">
         </div>
@@ -60,6 +60,8 @@
         <div class="footer">
             <p>© 2025 TRK Protectors. All rights reserved.</p>
         </div>
-    </div>
+    </div> --}}
+    {!! nl2br($email_body)  !!}
+    {!! $email_footer !!}
 </body>
 </html>

@@ -44,21 +44,11 @@ class EmailSendingHelper
                 $imageData = asset('storage/email_templates/' . $validatedData['image']);
             }
 
-            // Prepare the complete email body with optional elements
-            $completeHtmlContent = "
-                    <div style='font-family: Arial, sans-serif;'>
-                        <img src='{$logoUrl}' alt='Logo' style='width:150px;'>
-                        <p>{$htmlContent}</p>
-                        <div>
-                            <img src='{$fbIconUrl}' alt='Facebook' style='width:20px; margin-right:5px;'>
-                            <img src='{$xIconUrl}' alt='Twitter' style='width:20px;'>
-                        </div>
-                    </div>
-                ";
+            $email_subject = $validatedData['subject'];
+            $email_body    = $validatedData['email_body'];
+            $email_footer  = $validatedData['email_footer'];
 
-                $completeHtmlContent = $validatedData['email_body'] . $validatedData['email_footer'];
-
-            Mail::to($validatedData['to_email'])->send(new SendTemplateEmail($validatedData['subject'], $completeHtmlContent));
+            Mail::to($validatedData['to_email'])->send(new SendTemplateEmail($email_subject, $email_body, $email_footer));
 
             return response()->json([
                 'status' => 'success',
