@@ -13,13 +13,15 @@ class SendTemplateEmail extends Mailable
 {
     use Queueable, SerializesModels;
     public $email_body;
+    public $email_subject;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($em_body)
+    public function __construct($em_subject, $em_body)
     {
         $this->email_body = $em_body;
+        $this->email_subject = $em_subject;
     }
 
     /**
@@ -39,7 +41,10 @@ class SendTemplateEmail extends Mailable
     {
         return new Content(
             // view: 'admin.email_template_preview',
-            view: $this->email_body
+            // view: $this->email_body
+            // view: 'admin.email_template_preview_send',
+            view: 'admin.email_template_preview_send',
+            with: ['emailBody' => $this->email_body]
         );
     }
 

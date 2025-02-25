@@ -65,8 +65,8 @@
                        
                 </div>
             </div>
-
-            <div name='email_company_info_footer' contenteditable="true" class="row">
+<textarea name="email_footer" id="email_company_info_footer" class="form-control" rows="5">
+            <div contenteditable="true" class="row">
                 <div class="col-md-10">
                     <div style="text-align:center;">
                         <p>
@@ -82,6 +82,7 @@
                     </div>
                 </div>
             </div>
+</textarea>
 
             <!-- Submit Button -->
             <div class="row mt-3">
