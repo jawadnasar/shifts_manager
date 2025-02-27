@@ -16,8 +16,8 @@ return new class extends Migration
             $table->id();
             $table->string('template_name')->unique();
             $table->string('subject_line');
-            $table->string('body');
-            $table->string('footer');
+            $table->text('body');
+            $table->text('footer');
             $table->string('image');
             $table->timestamps();
         });
