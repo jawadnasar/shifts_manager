@@ -26,6 +26,10 @@
             overflow: hidden;
             transition: max-height 0.2s ease-out;
         }
+
+        .modal textarea {
+            height: auto !important;
+        }
     </style>
     {{-- Making the content of the table collapsible END --}}
 
@@ -71,7 +75,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <a href="{{ route('preview_email_template', ['template_id' => 1]) }}"
+                                            <a href="{{ route('preview_email_template', ['template_id' => $template->id]) }}"
                                                 class="btn btn-primary">Use</a>
                                             {{-- <button class="btn btn-primary edit-template-btn" data-id="{{ $template->id }}"> --}}
 
@@ -101,7 +105,7 @@
 
         <!-- Add New Template Modal -->
         <div class="modal fade" id="addTemplateModal" tabindex="-1" data-bs-backdrop="static">
-            <div class="modal-dialog modal-md">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Add New Template</h5>
@@ -120,14 +124,14 @@
                             </div>
                             <div class="mb-3">
                                 <label for="body" class="form-label">Email Body</label>
-                                <textarea name="body" id="body" class="form-control" rows="4"></textarea>
+                                <textarea name="body" id="body" class="form-control" rows="10"></textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="footer" class="form-label">Email Footer</label>
-                                <textarea name="footer" id="footer" class="form-control" rows="2"></textarea>
+                                <textarea name="footer" id="footer" class="form-control" rows="5"></textarea>
                             </div>
                             <div class="mb-3">
-                                <label for="subject_line" class="form-label">Image</label>
+                                <label for="subject_line" class="form-label">Template icon</label>
                                 <input type="file" name="image" id="image" class="form-control">
                             </div>
                         </div>
@@ -143,7 +147,7 @@
 
         <!-- Edit Email Template Modal -->
         <div class="modal fade" id="editTemplateModal" tabindex="-1" data-bs-backdrop="static">
-            <div class="modal-dialog modal-md">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Edit Template</h5>
@@ -163,15 +167,15 @@
                             </div>
                             <div class="mb-3">
                                 <label for="edit_body" class="form-label">Email Body</label>
-                                <textarea name="body" id="edit_body" class="form-control" rows="4"></textarea>
+                                <textarea name="body" id="edit_body" class="form-control" rows="10"></textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="edit_footer" class="form-label">Email Footer</label>
-                                <textarea name="footer" id="edit_footer" class="form-control" rows="2"></textarea>
+                                <textarea name="footer" id="edit_footer" class="form-control" rows="5"></textarea>
                             </div>
 
                             <div class="mb-3">
-                                <label for="edit_image" class="form-label">Image</label>
+                                <label for="edit_image" class="form-label">Template icon</label>
                                 <input type="file" name="image" id="edit_image" class="form-control">
                                 <small class="form-text text-muted">Leave empty to keep the current image.</small>
                                 <div id="edit_current_image_preview" class="mt-2">

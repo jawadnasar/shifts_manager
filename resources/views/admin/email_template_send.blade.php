@@ -1,49 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Template</title>
+    <title></title>
     <style>
-        body {
+        /* .email-footer {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        .email-container {
             max-width: 600px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            color: #333333;
+            line-height: 1.4;
+        } */
+
+        .header-section {
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
         }
-        .email-header {
-            text-align: center;
-            margin-bottom: 20px;
+
+        .header-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 250px;
+            /* Half of container width */
+            border-bottom: 2px solid #cc0000;
         }
-        .email-header img {
-            width: 120px;
-            height: 120px;
+
+        .name-section {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
         }
-        .social-links {
-            text-align: center;
-            margin: 20px 0;
+
+        .position-section {
+            font-size: 14px;
+            color: #666666;
+            margin: 8px 0;
         }
-        .social-links a {
-            margin: 0 10px;
+
+        .contact-info {
+            font-size: 13px;
+            margin: 10px 0;
         }
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 12px;
-            color: #777;
+
+        .company-name {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 15px 0 5px 0;
+        }
+
+        .confidential-notice {
+            border-left: 3px solid #cc0000;
+            background-color: #f8f8f8;
+            padding: 12px 15px;
+            margin: 25px 0;
+            font-size: 11px;
+            color: #666666;
+        }
+
+        .address-line {
+            margin: 3px 0;
+        }
+
+        a {
+            color: #1155cc;
+            text-decoration: none;
+        }
+
+        /* Social Media Icons */
+        .social-media {
+            margin: 15px 0;
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-media a {
+            display: inline-block;
+        }
+
+        .social-media img {
+            width: 24px;
+            height: 24px;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-media img:hover {
+            opacity: 0.8;
         }
     </style>
 </head>
+
 <body>
-    {!! nl2br($email_body)  !!}
+    {!! nl2br($email_body) !!}
     {!! $email_footer !!}
 </body>
+
 </html>

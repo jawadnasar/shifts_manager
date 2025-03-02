@@ -25,7 +25,9 @@ class EmailSendingController extends Controller
             $email_body    = $request['email_body'];
             $email_footer  = $request['email_footer'];
 
-            Mail::to($request['to_email'])->send(new Mailer_Send_Email_Template($email_subject, $email_body, $email_footer));   // Real mailer function
+            return $this->previewEmail($request);            // preview email before sending
+
+            Mail::to($request['to_email'])->send(new Mailer_Send_Email_Template($email_subject, $email_body, $email_footer)); // Real mailer function
             return response()->json([
                 'status' => 'success',
                 'msg'    => 'Email sent successfully!',
@@ -34,6 +36,16 @@ class EmailSendingController extends Controller
             'status' => 'error',
             'msg'    => $e->getMessage(),
         ]);}
+    }
+
+    // If you want to preview the email before sending
+    public function previewEmail(Request $request)
+    {
+        $email_subject = $request['subject'];
+        $email_body    = $request['email_body'];
+        $email_footer  = $request['email_footer'];
+
+        return view('admin.email_template_send', compact('email_body', 'email_footer'));
     }
 
 }
