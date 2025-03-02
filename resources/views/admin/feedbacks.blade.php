@@ -3,15 +3,12 @@
 @section('content')
 
 <div class="container-fluid">
-            
             <!-- Recent Sales Start -->
             <div class="container-fluid">
                 <div class=" text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h6 class="mb-0">Users Feedbacks</h6>
-                      
                     </div>
-                   
                     <br>
                     <div class="table-responsive">
                         <table id="feedbackTable" class="table main_table">
@@ -54,14 +51,10 @@
                                 @endforeach
                             </tbody>
                         </table>
-
-                        
                     </div>
                 </div>
             </div>
             <!-- Recent Sales End -->
-
-            
 
 <div class="modal fade" id="detailsModal" tabindex="-1" data-bs-backdrop="static">
     <div class="modal-dialog modal-md">
