@@ -25,7 +25,7 @@ class EmailSendingController extends Controller
             $email_body    = $request['email_body'];
             $email_footer  = $request['email_footer'];
 
-            return $this->previewEmail($request);            // preview email before sending
+            // return $this->previewEmail($request);            // preview email before sending
 
             Mail::to($request['to_email'])->send(new Mailer_Send_Email_Template($email_subject, $email_body, $email_footer)); // Real mailer function
             return response()->json([
