@@ -27,7 +27,8 @@ class EmailSendingController extends Controller
 
             // return $this->previewEmail($request);            // preview email before sending
 
-            Mail::to($request['to_email'])->send(new Mailer_Send_Email_Template($email_subject, $email_body, $email_footer)); // Real mailer function
+            $emailsArray = explode(';', $request['to_email']); // Split by semicolon
+            Mail::to($emailsArray)->send(new Mailer_Send_Email_Template($email_subject, $email_body, $email_footer)); // Real mailer function
             return response()->json([
                 'status' => 'success',
                 'msg'    => 'Email sent successfully!',
