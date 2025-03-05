@@ -29,10 +29,11 @@ class EmailSendingController extends Controller
 
             $emailsArray = explode(';', $request['to_email']); // Split by semicolon
             Mail::to($emailsArray)->send(new Mailer_Send_Email_Template($email_subject, $email_body, $email_footer)); // Real mailer function
-            return response()->json([
-                'status' => 'success',
-                'msg'    => 'Email sent successfully!',
-            ]);
+            // return response()->json([
+            //     'status' => 'success',
+            //     'msg'    => 'Email sent successfully!',
+            // ]);
+            return back()->with('success', 'Email sent successfully!');
         } catch (\Exception $e) {return response()->json([
             'status' => 'error',
             'msg'    => $e->getMessage(),
