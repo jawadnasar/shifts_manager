@@ -19,13 +19,12 @@ class User_Details extends Model
 
         static::creating(function ($model) {
             if (!$model->created_by) {
-                // $model->created_by = auth()->User()->id;
-                $model->created_by = 1;
+                $model->created_by = auth()->User()->id;
             }
         });
 
         static::updating(function ($model) {
-            // $model->updated_by = auth()->user()->id;
+            $model->updated_by = auth()->User()->id;
         });
     }
 
