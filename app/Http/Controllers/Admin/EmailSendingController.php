@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Mail\Mailer_Send_Email_Template;
+use App\Models\Email_Sent;
 use App\Models\EmailTemplate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -28,10 +29,15 @@ class EmailSendingController extends Controller
             // return $this->previewEmail($request);            // preview email before sending
 
             Mail::to($request['to_email'])->send(new Mailer_Send_Email_Template($email_subject, $email_body, $email_footer)); // Real mailer function
-            return response()->json([
-                'status' => 'success',
-                'msg'    => 'Email sent successfully!',
-            ]);
+            
+            // Save the email sent to the database
+            $email_sent = new Email_Sent();
+            $email_sent->to_email = $request['to_email'];
+            $email_sent->subject = $email_subject;
+            $email_sent->email_body = $this->previewEmail($request);
+            $email_sent->save();
+
+            return back()->with('success', 'Email sent successfully!');
         } catch (\Exception $e) {return response()->json([
             'status' => 'error',
             'msg'    => $e->getMessage(),
