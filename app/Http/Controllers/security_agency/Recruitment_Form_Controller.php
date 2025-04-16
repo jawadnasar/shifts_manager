@@ -67,6 +67,12 @@ class Recruitment_Form_Controller extends Controller
                 'emp_company_name.*'                    => 'required|string|max:255',
                 'emp_job_title.*'                       => 'required|string|max:255',
                 'emp_job_description.*'                 => 'required|string|max:255',
+                /** Bank Details */
+                'bank_name'            => 'string|required',
+                'bank_address'         => 'string|required',
+                'account_holder_name'  => 'string|required',
+                'sort_code'            => 'string|required',
+                'account_number'       => 'string|required',
             ]
         );
 
@@ -116,6 +122,14 @@ class Recruitment_Form_Controller extends Controller
             $det->criminal_offence_details = $request->user_criminal_offence_details;
 
             $det->share_code = $request->user_share_code;
+
+            // Add bank details
+            $det->bank_name           = $request->bank_name;
+            $det->bank_address        = $request->bank_address;
+            $det->account_holder_name = $request->account_holder_name;
+            $det->sort_code           = $request->sort_code;
+            $det->account_number      = $request->account_number;
+
             $det->created_by=$rec->id;
 
             $det->save();
