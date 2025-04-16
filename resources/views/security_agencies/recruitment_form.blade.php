@@ -364,7 +364,9 @@
                         </h2>
                     </div>
                     <div class="row">
-                        <p id='screening' style="font-size: 0.9em; font-style: italic; color: #555;">As part of the
+                        <p id='screening' style="font-size: 0.9em; font-style: italic; color: #555;">
+                            <span class="text-danger">*</span>
+                            As part of the
                             security screening process, we must verify your personal history for the past
                             five (5) years. Please provide comprehensive details of your history over this period,
                             including all instances of employment, self-employment, education, and any periods of
@@ -393,6 +395,13 @@
                                 Documents
                             </h2>
 
+                        </div>
+                        <div class="row">
+                            <p id='screening' style="font-size: 0.9em; font-style: italic; color: #555;">
+                                <span class="text-danger">*</span>
+                                Please upload all relevant documents that can help verify your identity.
+                                <br>If you need to add more than one document, click the 'Add Document' button.
+                            </p>
                         </div>
 
                         <div id="document_section_container">
@@ -427,6 +436,7 @@
 <script>
     $(document).ready(function() {
         addDocumentRow(); // Adding first document row
+
         add_5_years_history_row(true); // Adding first 5 years history row
 
 
