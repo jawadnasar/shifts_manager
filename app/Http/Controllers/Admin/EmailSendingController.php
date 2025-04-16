@@ -3,7 +3,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Mail\Mailer_Send_Email_Template;
-use App\Models\Email_Sent;
 use App\Models\EmailTemplate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -26,19 +25,13 @@ class EmailSendingController extends Controller
             $email_body    = $request['email_body'];
             $email_footer  = $request['email_footer'];
 
-            // return $this->previewEmail($request);            // preview email before sending
-            $emailsArray = explode(';', $request['to_email']); // Split by semicolon
+            return $this->previewEmail($request);            // preview email before sending
 
-            Mail::to($emailsArray)->send(new Mailer_Send_Email_Template($email_subject, $email_body, $email_footer)); // Real mailer function
-            
-            // Save the email sent to the database
-            $email_sent = new Email_Sent();
-            $email_sent->to_email = $request['to_email'];
-            $email_sent->subject = $email_subject;
-            $email_sent->email_body = $this->previewEmail($request);
-            $email_sent->save();
-
-            return back()->with('success', 'Email sent successfully!');
+            Mail::to($request['to_email'])->send(new Mailer_Send_Email_Template($email_subject, $email_body, $email_footer)); // Real mailer function
+            return response()->json([
+                'status' => 'success',
+                'msg'    => 'Email sent successfully!',
+            ]);
         } catch (\Exception $e) {return response()->json([
             'status' => 'error',
             'msg'    => $e->getMessage(),
@@ -56,3 +49,51 @@ class EmailSendingController extends Controller
     }
 
 }
+
+?>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('form').on('submit', function(event) {
+        let isValid = true;
+
+        // Iterate through required fields
+        $(this).find('[required]').each(function() {
+            if (!$(this).val()) {
+                isValid = false;
+
+                // Show a popup near the input field
+                const offset = $(this).offset();
+                const popup = $('<div class="validation-popup">This field is required</div>');
+                popup.css({
+                    position: 'absolute',
+                    top: offset.top - $(this).outerHeight() - 10,
+                    left: offset.left,
+                    background: '#f8d7da',
+                    color: '#721c24',
+                    padding: '5px 10px',
+                    border: '1px solid #f5c6cb',
+                    borderRadius: '5px',
+                    zIndex: 1000
+                });
+
+                $('body').append(popup);
+
+                // Remove the popup after 3 seconds
+                setTimeout(function() {
+                    popup.remove();
+                }, 3000);
+
+                // Stop iterating further
+                return false;
+            }
+        });
+
+        // Prevent form submission if validation fails
+        if (!isValid) {
+            event.preventDefault();
+        }
+    });
+});
+</script>

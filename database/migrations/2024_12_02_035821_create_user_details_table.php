@@ -15,9 +15,6 @@ return new class extends Migration
             $table->bigInteger('user_id')->unsigned()->unique();
             $table->date("dob");
             $table->char('gender', 2);
-            /** Disability */
-            $table->boolean('is_disabled')->default(false); // Yes/No disability status
-            $table->json('disabilities')->nullable(); // Store selected disabilities as a JSON array
             $table->string('phone', 20);
             $table->string('birth_place')->nullable();
             $table->string('nationality')->nullable();
