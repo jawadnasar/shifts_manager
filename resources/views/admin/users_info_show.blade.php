@@ -7,9 +7,6 @@
         <!-- Recent Sales Start -->
         <div class="container-fluid">
             <div class="text-center rounded p-4 shadow-lg">
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                    <h6 class="mb-0 text-primary">Users List</h6>
-                </div>
 
                 <div>
                     <h2 class="font-weight-bold text-success mb-3">User Details</h2>
@@ -46,6 +43,16 @@
 
                     <hr class="border-info">
 
+                    <!-- Bank Details -->
+                    <h4 class="text-info">Bank Details</h4>
+                    <div><b>Name of Bank:</b> {{ $details->bank_name }}</div>
+                    <div><b>Bank Address:</b> {{ $details->bank_address }}</div>
+                    <div><b>Name of Account Holder:</b> {{ $details->account_holder_name }}</div>
+                    <div><b>Sort Code:</b> {{ $details->sort_code }}</div>
+                    <div><b>Account Number:</b> {{ $details->account_number }}</div>
+
+                    <hr class="border-info">
+
                     <!-- Emergency Contact Information -->
                     <h4 class="text-info">Emergency Contact Information</h4>
                     <div><b>Contact Name:</b> {{ $details->emergency_contact_name }}</div>
@@ -73,8 +80,50 @@
 
                     <!-- Clearance -->
                     <h4 class="text-info">Clearance</h4>
-                    <div><b>Criminal Offence Present:</b> {{ $details->criminal_offence_present == '1' ? 'Yes' : 'No' }}</div>
+                    <div><b>Criminal Offence Present:</b> {{ $details->criminal_offence_present == '1' ? 'Yes' : 'No' }}
+                    </div>
                     <div><b>Criminal Offence Details:</b> {{ $details->criminal_offence_details }}</div>
+
+                    <hr class="border-info">
+
+                    <!-- Employment History -->
+                    <h4 class="text-info">Employment History</h4>
+                    @if (isset($employment_history) && count($employment_history) > 0)
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Start</th>
+                                        <th>End</th>
+                                        <th>Company</th>
+                                        <th>Position</th>
+                                        <th>Employer</th>
+                                        <th>Contact</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($employment_history as $history)
+                                        <tr>
+                                            <td>{{ $history->from_date }}</td>
+                                            <td>{{ $history->to_date }}</td>
+                                            <td>
+                                                <b>{{ $history->company_name }}</b><br>
+                                                <small>{{ $history->company_address }}</small>
+                                            </td>
+                                            <td>{{ $history->position_held }}</td>
+                                            <td>{{ $history->employer_name }}</td>
+                                            <td>
+                                                <b>Phone:</b> {{ $history->company_phone }}<br>
+                                                <b>Email:</b> {{ $history->company_email }}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    @else
+                        <p>No employment history available.</p>
+                    @endif
 
                     <hr class="border-info">
 
@@ -87,8 +136,31 @@
                                     <li class="border p-2 mb-2 rounded">
                                         <b>{{ $doc->doc_type }}</b> (Uploaded on: {{ $doc->created_at }})<br>
                                         {{ $doc->details }}
-                                        <img src="{{asset('storage/'.$doc->link)}}" width="200px" height="200px" alt="Document Image">
+                                        <a href="#" data-bs-toggle="modal"
+                                            data-bs-target="#imageModal{{ $loop->index }}">
+                                            <img src="{{ asset('storage/' . $doc->link) }}" width="200px" height="200px"
+                                                alt="Document Image">
+                                        </a>
                                     </li>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="imageModal{{ $loop->index }}" tabindex="-1"
+                                        aria-labelledby="imageModalLabel{{ $loop->index }}" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="imageModalLabel{{ $loop->index }}">
+                                                        {{ $doc->doc_type }}</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body text-center">
+                                                    <img src="{{ asset('storage/' . $doc->link) }}" class="img-fluid"
+                                                        alt="Document Image">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 @endforeach
                             </ul>
                         @else
@@ -101,3 +173,6 @@
 
         <!-- Recent Sales End -->
     @endsection
+
+    <!-- Include Bootstrap JS if not already included -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

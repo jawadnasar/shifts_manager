@@ -60,6 +60,12 @@ class User extends Authenticatable
         return $this->hasMany(User_Documents::class);
     }
 
+    /** Relationship to Employment Histories */
+    public function relate_user_employment_history()
+    {
+        return $this->hasMany(User_Employment_History::class);
+    }
+
     // Full name
     public function getFullNameAttribute()
     {

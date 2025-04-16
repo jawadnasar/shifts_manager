@@ -25,7 +25,8 @@ class Users_Info_Controller extends Controller
         $user = User::find($id);
         $details = $user->relate_user_details;
         $documents = $user->relate_user_documents->where('status', 1);
-        return View('admin.users_info_show')->with(compact('user', 'details', 'documents'));
+        $employment_history = $user->relate_user_employment_history()->orderBy('from_date', 'desc')->get();
+        return View('admin.users_info_show')->with(compact('user', 'details', 'documents', 'employment_history'));
     }
 
     private function get_users($request)
