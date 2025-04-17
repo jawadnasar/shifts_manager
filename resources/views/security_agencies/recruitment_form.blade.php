@@ -12,7 +12,10 @@
     .hero_area {
         min-height: 60vh !important;
     }
+
+    
 </style>
+
 <section id='form_errors'>
 
 </section>
@@ -466,9 +469,7 @@
 <script>
     $(document).ready(function() {
         addDocumentRow(); // Adding first document row
-
         add_5_years_history_row(true); // Adding first 5 years history row
-
 
         // Add new document row
         $('#add_document_row').click(function() {
@@ -483,7 +484,6 @@
         $('#add_history_row').on('click', function() {
             add_5_years_history_row(); // Add new 5 years history row
         });
-
 
         // Add new document row function
         function addDocumentRow() {
@@ -532,8 +532,6 @@
         }
 
         $('form').on('submit', function(event) {
-
-            // return
             event.preventDefault(); // Prevent default form submission
 
             $('#form_errors').empty(); // Clear previous errors
@@ -541,10 +539,13 @@
             let csrfToken = $('meta[name="csrf-token"]').attr(
                 'content'); // Get CSRF token from meta tag
 
-                if ($('input[name="user_file_link[]"]').length < 4) {
-                    alert('You have added ' + $('input[name="user_file_link[]"]').length + ' document(s). Please add at least 4 documents before submitting the form.');
-                    return;
-                }
+            if ($('input[name="user_file_link[]"]').length < 4) {
+                alert('You have added ' + $('input[name="user_file_link[]"]').length + ' document(s). Please add at least 4 documents before submitting the form.');
+                return;
+            }
+
+            // Show loading overlay
+            $('#loading-overlay').fadeIn();
 
             $.ajax({
                 url: $(this).attr('action'), // Get the form action URL
@@ -556,11 +557,17 @@
                 contentType: false, // Important for file uploads
                 processData: false, // Important for file uploads
                 success: function(response) {
+                    // Hide loading overlay
+                    $('#loading-overlay').fadeOut();
+
                     // Handle success response
                     console.log('Form submitted successfully!');
                     window.location = response.redirect_url;
                 },
                 error: function(xhr) {
+                    // Hide loading overlay
+                    $('#loading-overlay').fadeOut();
+
                     console.log('xhr:', xhr.responseText)
                     try {
                         var res = JSON.parse(xhr.responseText);
@@ -599,46 +606,46 @@
         });
 
         // // Add a button to trigger the function
-        const testButton = $('<button type="button" class="btn btn-primary">Fill Test Data</button>');
-        testButton.on('click', fillTestData);
-        $('form').prepend(testButton);
-        fillTestData();
+        // const testButton = $('<button type="button" class="btn btn-primary">Fill Test Data</button>');
+        // testButton.on('click', fillTestData);
+        // $('form').prepend(testButton);
+        // fillTestData();
 
-        function fillTestData() {
-            // Fill text inputs
-            $('input[type="text"]').each(function() {
-                $(this).val('Test ' + $(this).attr('name'));
-            });
+        // function fillTestData() {
+        //     // Fill text inputs
+        //     $('input[type="text"]').each(function() {
+        //         $(this).val('Test ' + $(this).attr('name'));
+        //     });
 
-            // Fill date inputs
-            $('input[type="date"]').each(function() {
-                $(this).val('2023-01-01');
-            });
+        //     // Fill date inputs
+        //     $('input[type="date"]').each(function() {
+        //         $(this).val('2023-01-01');
+        //     });
 
-            // Fill select inputs
-            $('select').each(function() {
-                $(this).val($(this).find('option').not(':disabled').first().val());
-            });
+        //     // Fill select inputs
+        //     $('select').each(function() {
+        //         $(this).val($(this).find('option').not(':disabled').first().val());
+        //     });
 
-            // Fill textareas
-            $('textarea').each(function() {
-                $(this).val('Test data for ' + $(this).attr('name'));
-            });
+        //     // Fill textareas
+        //     $('textarea').each(function() {
+        //         $(this).val('Test data for ' + $(this).attr('name'));
+        //     });
 
-            // Check checkboxes and radio buttons
-            $('input[type="checkbox"], input[type="radio"]').each(function() {
-                $(this).prop('checked', true);
-            });
+        //     // Check checkboxes and radio buttons
+        //     $('input[type="checkbox"], input[type="radio"]').each(function() {
+        //         $(this).prop('checked', true);
+        //     });
 
-            $('#user_email').val(Math.random() * 11224 + 'test@gmail.cij')
-            $('#user_password_confirmation').val('jhjh2222');
-            $('#user_password').val('jhjh2222');
-            $('#user_sia_licence_expiry_date').val('2027-01-01');
-            $('#is_disabled').val(0);
-            $('#user_postcode').val(4444)
+        //     $('#user_email').val(Math.random() * 11224 + 'test@gmail.cij')
+        //     $('#user_password_confirmation').val('jhjh2222');
+        //     $('#user_password').val('jhjh2222');
+        //     $('#user_sia_licence_expiry_date').val('2027-01-01');
+        //     $('#is_disabled').val(0);
+        //     $('#user_postcode').val(4444)
 
-            console.log('Test data has been filled in all fields!');
-        }
+        //     console.log('Test data has been filled in all fields!');
+        // }
     });
 
     // Add 5 years histoy row

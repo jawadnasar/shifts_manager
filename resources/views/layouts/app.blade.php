@@ -48,6 +48,33 @@
     <div id="app">
         <main class="">
 
+            <style>/** Layout blur out fade**/
+                #loading-overlay {
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background: rgba(255, 255, 255, 0.8);
+                  z-index: 9999;
+                  display: none;
+                  align-items: center;
+                  justify-content: center;
+                }
+                
+                #loading-overlay .spinner-border {
+                  width: 3rem;
+                  height: 3rem;
+                }</style>
+
+            
+            <div id="loading-overlay">
+                {{-- Loading spinner --}}
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+
             {{-- Errors section START --}}
             @section('errors')
                 {{-- All the errors will be shown here for validation --}}
