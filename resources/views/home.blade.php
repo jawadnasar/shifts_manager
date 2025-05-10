@@ -322,8 +322,8 @@
         Security is a top priority for individuals and businesses seeking to establish a presence in any area. At TRK Protectors, we specialize in delivering professional and reliable security services that instill confidence and peace of mind. Our expertise ensures the safety of your assets, employees, and operations, empowering investors and businesses to focus on growth and success. With TRK Protectors, you’re not just securing your business—you’re securing your future.
       </p>
       <p style="font-size: 12px;">
-        Company No: <br>
-        VAT Registration:
+        Company No:{{env('COMPANY_NUMBER')}} <br>
+        VAT Registration:{{env('COMPANY_VAT_REGISTRATION')}} <br>
       </p>
     </div>
 
