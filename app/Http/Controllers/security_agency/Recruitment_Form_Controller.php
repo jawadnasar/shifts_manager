@@ -10,6 +10,7 @@ use App\Models\User_Employment_History;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
+use Spatie\ImageOptimizer\OptimizerChainFactory;
 
 class Recruitment_Form_Controller extends Controller
 {
@@ -60,23 +61,30 @@ class Recruitment_Form_Controller extends Controller
                 'user_sia_licence_number'             => 'string|required',
                 'user_sia_licence_expiry_date'        => 'string|required',
                 'user_doc_type.*'                     => 'required|string|max:255',
-                'user_file_link.*'                    => 'required|image|mimes:jpg,jpeg,png,gif|max:2048',
+                'user_file_link.*'                    => 'required|image|mimes:jpg,jpeg,png,gif|max:5000',
                 /** User Employment History */
-                'emp_from_date.*'                       => 'required|date|before_or_equal:today',
-                'emp_to_date.*'                         => 'required|date',
-                'emp_company_name.*'                    => 'required|string|max:255',
-                'emp_job_title.*'                       => 'required|string|max:255',
-                'emp_job_description.*'                 => 'required|string|max:255',
+                'emp_from_date.*'                     => 'required|date|before_or_equal:today',
+                'emp_to_date.*'                       => 'required|date',
+                'emp_company_name.*'                  => 'required|string|max:255',
+                'emp_job_title.*'                     => 'required|string|max:255',
+                'emp_job_description.*'               => 'required|string|max:255',
                 /** Bank Details */
-                'bank_name'            => 'string|required',
-                'bank_address'         => 'string|required',
-                'account_holder_name'  => 'string|required',
-                'sort_code'            => 'string|required',
-                'account_number'       => 'string|required',
+                'bank_name'                           => 'string|required',
+                'bank_address'                        => 'string|required',
+                'account_holder_name'                 => 'string|required',
+                'sort_code'                           => 'string|required',
+                'account_number'                      => 'string|required',
+            ], [
+                'user_file_link.*.required' => 'Please upload the document image.',
+                'user_file_link.*.image'    => 'Each uploaded file must be an image.',
+                'user_file_link.*.mimes'    => 'Allowed file types are jpg, jpeg, png, and gif.',
+                'user_file_link.*.max'      => 'Each image must not exceed 5MB.',
+            ], // custom messages, leave empty if none
+            [
+                'user_file_link.*' => 'Document Images', // <-- This is the friendly name shown in errors
             ]
         );
 
-        
         $existing_user = User::where('email', $request->user_email)->first();
 
         if (! $existing_user) {
@@ -130,31 +138,51 @@ class Recruitment_Form_Controller extends Controller
             $det->sort_code           = $request->sort_code;
             $det->account_number      = $request->account_number;
 
-            $det->created_by=$rec->id;
+            $det->created_by = $rec->id;
 
             $det->save();
 
             // Store employment history
             foreach ($request->emp_from_date as $i => $eHistory) {
-            $ueh = new User_Employment_History();
-            $ueh->user_id = $rec->id;
-            $ueh->from_date = $request->emp_from_date[$i];
-            $ueh->to_date = $request->emp_to_date[$i];
-            $ueh->company_name = $request->company_name[$i];
-            $ueh->company_address= $request->company_address[$i];
-            $ueh->company_phone = $request->company_phone[$i];
-            $ueh->position_held = $request->position_held[$i];
-            $ueh->employer_name = $request->employer_name[$i];
-            $ueh->company_email = $request->company_email[$i];
-            $ueh->created_by = $rec->id; 
-            $ueh->save();         
-        }
+                $ueh                  = new User_Employment_History();
+                $ueh->user_id         = $rec->id;
+                $ueh->from_date       = $request->emp_from_date[$i];
+                $ueh->to_date         = $request->emp_to_date[$i];
+                $ueh->company_name    = $request->company_name[$i];
+                $ueh->company_address = $request->company_address[$i];
+                $ueh->company_phone   = $request->company_phone[$i];
+                $ueh->position_held   = $request->position_held[$i];
+                $ueh->employer_name   = $request->employer_name[$i];
+                $ueh->company_email   = $request->company_email[$i];
+                $ueh->created_by      = $rec->id;
+                $ueh->save();
+            }
 
             // Store documents
             if ($request->hasFile('user_file_link')) {
                 foreach ($request->file('user_file_link') as $index => $document) {
                     $documentName = time() . '_' . $document->getClientOriginalName();
                     $documentPath = $document->storeAs('documents', $documentName, 'public');
+
+                    $fullPath = storage_path("app/public/{$documentPath}");
+
+                    // Compress if file is over 1MB
+                    if (filesize($fullPath) > 1048576) {
+                        $optimizerChain = OptimizerChainFactory::create([
+                            // fine-tuned flags for smaller output
+                            'jpegoptim' => [
+                                '--strip-all',
+                                '--all-progressive',
+                                '--max=70', // reduce quality to approx. target 1MB
+                            ],
+                            'optipng'   => ['-o7'],
+                            'pngquant'  => ['--quality=60-80'],
+                            'gifsicle'  => ['-O3'],
+                            'svgo'      => ['--disable=cleanupIDs'],
+                        ]);
+
+                        $optimizerChain->optimize($fullPath);
+                    }
 
                     $doc             = new User_Documents();
                     $doc->user_id    = $rec->id;
@@ -170,7 +198,7 @@ class Recruitment_Form_Controller extends Controller
             return response()->json(['redirect_url' => route('security_agency_recruitment_form.show', $rec->id)]);
 
         } else {
-            return response()->json(['errors' => array('You are already registered with this email. Please try again.')], 422);
+            return response()->json(['errors' => ['You are already registered with this email. Please try again.']], 422);
             // return back()->withInput()->with('error', "You are already registered with this email. Please try again.");
         }
     }
@@ -203,6 +231,7 @@ class Recruitment_Form_Controller extends Controller
     public function edit(string $id)
     {
         //
+        // $user = User::where('id', $id)->get();
     }
 
     /**
