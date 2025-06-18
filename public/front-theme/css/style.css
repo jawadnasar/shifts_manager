@@ -1131,3 +1131,16 @@ select.form-control{
 
 /* Prevent reverse order on small screens */
 /* Prevent reverse order on small screens */
+
+/* Apply form new css */
+
+@media (max-width: 767.98px) {
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .form-row > .form-group {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
