@@ -36,11 +36,13 @@
 
                     </div>
                     <div class="row">
-                        <div class="form-group col-md-6 col-12">  <!-- Added col-12 for mobile -->
+                        <!-- First Name -->
+                        <div class="form-group col-md-6 col-12 order-md-1 order-1 mb-3 mb-md-0">
                             <label for="fname">First Name</label>
                             <input type="text" class="form-control" id="fname" name="fname">
                         </div>
-                        <div class="form-group col-md-6 col-12">  <!-- Added col-12 for mobile -->
+                        <!-- Last Name -->
+                        <div class="form-group col-md-6 col-12 order-md-2 order-2">
                             <label for="sname">Last Name</label>
                             <input type="text" class="form-control" id="sname" name="sname">
                             <input type="hidden" class="form-control" id="user_type" name="user_type" value="employee">
