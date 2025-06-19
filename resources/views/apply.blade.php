@@ -21,7 +21,7 @@
         </div>
     </div>
 </section>
-<section class="about_section layout_padding">
+<section class="layout_padding">
     <div class="container">
         <div class="row">
             <div class="col-12 mb-5">
@@ -36,15 +36,13 @@
 
                     </div>
                     <div class="row">
-                        <!-- First Name -->
-                        <div class="form-group col-md-6 col-12 order-md-1 order-1 mb-3 mb-md-0">
+                        <div class="form-group col-md-6 col-12">
                             <label for="fname">First Name</label>
-                            <input type="text" class="form-control" id="fname" name="fname">
+                            <input type="text" class="form-control" id="fname" name="fname" value="">
                         </div>
-                        <!-- Last Name -->
-                        <div class="form-group col-md-6 col-12 order-md-2 order-2">
+                        <div class="form-group col-md-6 col-12">
                             <label for="sname">Last Name</label>
-                            <input type="text" class="form-control" id="sname" name="sname">
+                            <input type="text" class="form-control" id="sname" name="sname" value="">
                             <input type="hidden" class="form-control" id="user_type" name="user_type" value="employee">
                         </div>
                     </div>
