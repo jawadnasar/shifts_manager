@@ -1131,3 +1131,24 @@ select.form-control{
 
 /* Prevent reverse order on small screens */
 /* Prevent reverse order on small screens */
+
+/** Layout blur out fade start**/
+#loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+#loading-overlay .spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+/** Layout blur out fade start
