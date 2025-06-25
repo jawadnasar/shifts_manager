@@ -24,9 +24,9 @@
         rel="stylesheet" />
 
     <!-- Custom styles for this template -->
-    <link href="{{ asset('front-theme/css/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('front-theme/css/style.css') }}?v={{config('app.version')}}" rel="stylesheet" />
     <!-- responsive style -->
-    <link href="{{ asset('front-theme/css/responsive.css') }}" rel="stylesheet" />
+    <link href="{{ asset('front-theme/css/responsive.css') }}?v={{config('app.version')}}" rel="stylesheet" />
 
     <link href="{{ asset('front-theme/css/font-awesome.min.css') }}" rel="stylesheet" />
 
@@ -48,26 +48,7 @@
     <div id="app">
         <main class="">
 
-            <style>/** Layout blur out fade**/
-                #loading-overlay {
-                  position: fixed;
-                  top: 0;
-                  left: 0;
-                  width: 100%;
-                  height: 100%;
-                  background: rgba(255, 255, 255, 0.8);
-                  z-index: 9999;
-                  display: none;
-                  align-items: center;
-                  justify-content: center;
-                }
-                
-                #loading-overlay .spinner-border {
-                  width: 3rem;
-                  height: 3rem;
-                }</style>
-
-            
+            {{-- This is the overlay spinner for waiting and stopping users to do anything (in future please make it in center css is in style.css) --}}
             <div id="loading-overlay">
                 {{-- Loading spinner --}}
                 <div class="spinner-border text-primary" role="status">
