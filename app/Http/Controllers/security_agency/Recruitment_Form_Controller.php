@@ -9,6 +9,7 @@ use App\Models\User_Documents;
 use App\Models\User_Employment_History;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rules\Password;
 use Spatie\ImageOptimizer\OptimizerChainFactory;
 
@@ -196,6 +197,8 @@ class Recruitment_Form_Controller extends Controller
                     $doc->save();
                 }
             }
+
+            $this->Email_Noftify_Admin_About_New_Recruit($request);
             // return redirect()->route('security_agency_recruitment_form.show', $rec->id);
             return response()->json(['redirect_url' => route('security_agency_recruitment_form.show', $rec->id)]);
 
@@ -255,5 +258,20 @@ class Recruitment_Form_Controller extends Controller
     public function confirm()
     {
         return view('security_agencies/thankyou');
+    }
+
+    private function Email_Noftify_Admin_About_New_Recruit($request){
+        // Send a simple email notification to the company email
+        Mail::to(config('app.company.email'))
+            ->send(
+                new class extends \Illuminate\Mail\Mailable
+                {
+                    public function build()
+                    {
+                        return $this->subject('New Recruitment Application')
+                            ->view('emails.recruitment_notification'); // Blade view (optional)
+                    }
+                }
+            );
     }
 }

@@ -12,8 +12,6 @@
     .hero_area {
         min-height: 60vh !important;
     }
-
-    
 </style>
 
 <section id='form_errors'>
@@ -370,23 +368,28 @@
                     <div class="row" id='bank details'>
                         <div class="form-group col-md-3">
                             <label for="bank_name">Name of Bank</label>
-                            <input type="text" class="form-control" id="bank_name" name="bank_name" placeholder="Name of Bank..." required>
+                            <input type="text" class="form-control" id="bank_name" name="bank_name"
+                                placeholder="Name of Bank..." required>
                         </div>
                         <div class="form-group col-md-3">
                             <label for="bank_address">Bank Address</label>
-                            <input type="text" class="form-control" id="bank_address" name="bank_address" placeholder="Bank Address..." required>
+                            <input type="text" class="form-control" id="bank_address" name="bank_address"
+                                placeholder="Bank Address..." required>
                         </div>
                         <div class="form-group col-md-3">
                             <label for="account_holder_name">Name of Account Holder</label>
-                            <input type="text" class="form-control" id="account_holder_name" name="account_holder_name" placeholder="As printed on your bank card" required>
+                            <input type="text" class="form-control" id="account_holder_name"
+                                name="account_holder_name" placeholder="As printed on your bank card" required>
                         </div>
                         <div class="form-group col-md-3">
                             <label for="sort_code">Sort Code</label>
-                            <input type="text" class="form-control" id="sort_code" name="sort_code" placeholder="Sort Code..." required>
+                            <input type="text" class="form-control" id="sort_code" name="sort_code"
+                                placeholder="Sort Code..." required>
                         </div>
                         <div class="form-group col-md-3">
                             <label for="account_number">Account Number</label>
-                            <input type="text" class="form-control" id="account_number" name="account_number" placeholder="Account Number..." required>
+                            <input type="text" class="form-control" id="account_number" name="account_number"
+                                placeholder="Account Number..." required>
                         </div>
                     </div>
 
@@ -540,7 +543,8 @@
                 'content'); // Get CSRF token from meta tag
 
             if ($('input[name="user_file_link[]"]').length < 4) {
-                alert('You have added ' + $('input[name="user_file_link[]"]').length + ' document(s). Please add at least 4 documents before submitting the form.');
+                alert('You have added ' + $('input[name="user_file_link[]"]').length +
+                    ' document(s). Please add at least 4 documents before submitting the form.');
                 return;
             }
 
@@ -605,54 +609,56 @@
             }
         });
 
-        // // Add a button to trigger the function
-        // const testButton = $('<button type="button" class="btn btn-primary">Fill Test Data</button>');
-        // testButton.on('click', fillTestData);
-        // $('form').prepend(testButton);
-        // fillTestData();
+        // Add a button to trigger the function
+        /*
+        const testButton = $('<button type="button" class="btn btn-primary">Fill Test Data</button>');
+        testButton.on('click', fillTestData);
+        $('form').prepend(testButton);
+        fillTestData();
 
-        // function fillTestData() {
-        //     // Fill text inputs
-        //     $('input[type="text"]').each(function() {
-        //         $(this).val('Test ' + $(this).attr('name'));
-        //     });
+        function fillTestData() {
+            // Fill text inputs
+            $('input[type="text"]').each(function() {
+                $(this).val('Test ' + $(this).attr('name'));
+            });
 
-        //     // Fill date inputs
-        //     $('input[type="date"]').each(function() {
-        //         $(this).val('2023-01-01');
-        //     });
+            // Fill date inputs
+            $('input[type="date"]').each(function() {
+                $(this).val('2000-01-01');
+            });
 
-        //     // Fill select inputs
-        //     $('select').each(function() {
-        //         $(this).val($(this).find('option').not(':disabled').first().val());
-        //     });
+            // Fill select inputs
+            $('select').each(function() {
+                $(this).val($(this).find('option').not(':disabled').first().val());
+            });
 
-        //     // Fill textareas
-        //     $('textarea').each(function() {
-        //         $(this).val('Test data for ' + $(this).attr('name'));
-        //     });
+            // Fill textareas
+            $('textarea').each(function() {
+                $(this).val('Test data for ' + $(this).attr('name'));
+            });
 
-        //     // Check checkboxes and radio buttons
-        //     $('input[type="checkbox"], input[type="radio"]').each(function() {
-        //         $(this).prop('checked', true);
-        //     });
+            // Check checkboxes and radio buttons
+            $('input[type="checkbox"], input[type="radio"]').each(function() {
+                $(this).prop('checked', true);
+            });
 
-        //     $('#user_email').val(Math.random() * 11224 + 'test@gmail.cij')
-        //     $('#user_password_confirmation').val('jhjh2222');
-        //     $('#user_password').val('jhjh2222');
-        //     $('#user_sia_licence_expiry_date').val('2027-01-01');
-        //     $('#is_disabled').val(0);
-        //     $('#user_postcode').val(4444)
+            $('#user_email').val(Math.random() * 11224 + 'test@gmail.cij')
+            $('#user_password_confirmation').val('jhjh2222');
+            $('#user_password').val('jhjh2222');
+            $('#user_sia_licence_expiry_date').val('2027-01-01');
+            $('#is_disabled').val(0);
+            $('#user_postcode').val(4444)
 
-        //     console.log('Test data has been filled in all fields!');
-        // }
-    });
+            console.log('Test data has been filled in all fields!');
+        }
+        */
 
-    // Add 5 years histoy row
-    function add_5_years_history_row(doc_loaded) {
-        var hist_row;
-        hist_row = doc_loaded ? '' : '<hr class="my-4">'; // if first row is true we donot need to separate the rows 
-        hist_row += `
+        // Add 5 years histoy row
+        function add_5_years_history_row(doc_loaded) {
+            var hist_row;
+            hist_row = doc_loaded ? '' :
+            '<hr class="my-4">'; // if first row is true we donot need to separate the rows 
+            hist_row += `
             <div class='row'>
                 <div class="form-group col-md-3">
                     <label for="emp_from_date[]">From Date</label>
@@ -688,9 +694,10 @@
                 </div>
             </div>
         `;
-        $('#five_years_history_container').append(hist_row);
+            $('#five_years_history_container').append(hist_row);
 
-    }
+        }
+    });
 </script>
 
 @endsection
