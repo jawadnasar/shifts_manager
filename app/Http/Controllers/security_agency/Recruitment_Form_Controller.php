@@ -94,6 +94,7 @@ class Recruitment_Form_Controller extends Controller
             $rec->email     = $request->user_email;
             $rec->user_type = 'employee';
             $rec->password  = Hash::make($request->user_password);
+            $rec->ip_address = $request->ip();
             $rec->save();
 
             $det               = new User_Details(); // det -> details

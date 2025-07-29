@@ -43,7 +43,7 @@ Route::get('/confirm', [Recruitment_Form_Controller::class, 'confirm'])->name('c
 
 
 // Admin routes
-Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
+Route::prefix('admin')->middleware(['auth', 'verified', 'is_admin'])->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     /*Users Info*/
     Route::get('/users_info', [Users_Info_Controller::class, 'index'])->name('users_info');
@@ -70,7 +70,6 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/preview_email_template', [EmailSendingController::class, 'email_template_preview'])->name('preview_email_template');
     Route::post('/send_email', [EmailSendingController::class, 'sendEmailWithTemplate'])->name('send_email');
-
 
 
 

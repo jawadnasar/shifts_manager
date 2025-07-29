@@ -19,6 +19,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
+        return abort(404); // This route is not used in the current context, so we return a 404 error.
         return view('auth.register');
     }
 
@@ -38,21 +39,19 @@ class RegisteredUserController extends Controller
         ]);
 
         $user = User::create([
-            // 'fname' => $request->fname,
-            // 'sname' => $request->sname,
-            // 'email' => $request->email,
-            // 'user_type'=>'employee',
-            // 'password' => Hash::make($request->password),
-            // 'ip_address' => $request->ip(),
-            // 'user_agent' => $request->userAgent(),
+            'fname' => $request->fname,
+            'sname' => $request->sname,
+            'email' => $request->email,
+            'user_type'=>'employee',
+            'password' => Hash::make($request->password),
+            'ip_address' => $request->ip()
         ]);
-
         
 
         event(new Registered($user));
 
-        Auth::login($user);
+        // Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        return redirect(route('home', absolute: false));
     }
 }
