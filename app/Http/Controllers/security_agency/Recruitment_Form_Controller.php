@@ -41,7 +41,7 @@ class Recruitment_Form_Controller extends Controller
                 'user_fname'                          => 'string|required',
                 'user_sname'                          => 'string|required',
                 'user_email'                          => 'email|required',
-                'user_dob'                            => 'required|date|before_or_equal:today',
+                'user_dob'                            => 'required|date|before_or_equal:' . now()->subYears(18)->toDateString(),
                 'is_disabled'                         => 'boolean|required',
                 'disabilities'                        => 'string|nullable',
                 'user_password'                       => ['required', 'confirmed', Password::min(8)->letters()->numbers()],
@@ -79,6 +79,7 @@ class Recruitment_Form_Controller extends Controller
                 'user_file_link.*.image'    => 'Each uploaded file must be an image.',
                 'user_file_link.*.mimes'    => 'Allowed file types are jpg, jpeg, png, and gif.',
                 'user_file_link.*.max'      => 'Each image must not exceed 5MB.',
+                'user_dob.before_or_equal' => 'You must be at least 18 years old to apply.',
             ], // custom messages, leave empty if none
             [
                 'user_file_link.*' => 'Document Images', // <-- This is the friendly name shown in errors
