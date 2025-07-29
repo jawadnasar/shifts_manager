@@ -134,4 +134,15 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | Company Details
+    |--------------------------------------------------------------------------
+    | These configuration options determine the company details used in the system
+    */
+    'company' => [
+        'name' => env('COMPANY_NAME', ''),
+        'email' => env('COMPANY_EMAIL', ''),
+    ],
 ];
