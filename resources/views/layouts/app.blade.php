@@ -49,7 +49,7 @@
         <main class="">
 
             {{-- This is the overlay spinner for waiting and stopping users to do anything (in future please make it in center css is in style.css) --}}
-            <div id="loading-overlay">
+            <div id="loading-overlay" style="display:none">
                 {{-- Loading spinner --}}
                 <div class="spinner-border text-primary" role="status">
                     <span class="visually-hidden">Loading...</span>
