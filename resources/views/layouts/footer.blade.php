@@ -65,13 +65,13 @@
                 Join Us, We are here 24/7
               </span>
             </a>
-            <a href="" class="">
+            <a href="tel:{{env('COMPANY_PHONE')}}" class="">
               <i class="fa fa-phone" aria-hidden="true"></i>
               <span>
                 {{env('COMPANY_PHONE')}}
               </span>
             </a>
-            <a href="" class="">
+            <a href="mailto:{{env('COMPANY_EMAIL')}}" class="">
               <i class="fa fa-envelope" aria-hidden="true"></i>
               <span>
                 {{env('COMPANY_EMAIL')}}
@@ -91,7 +91,7 @@
               </button>
             </form> -->
             <div class="social_box">
-              <a href="">
+              <a href="{{env('FACEBOOK_URL')}}" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
               </a>
               <a href="">
