@@ -91,7 +91,7 @@
               </button>
             </form> -->
             <div class="social_box">
-              <a href="{{env('FACEBOOK_URL')}}" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page">
+              <a href="{{env('COMPANY_FACEBOOK')}}" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
               </a>
               <a href="">
