@@ -24,9 +24,9 @@
         rel="stylesheet" />
 
     <!-- Custom styles for this template -->
-    <link href="{{ asset('front-theme/css/style.css') }}?v={{config('app.version')}}" rel="stylesheet" />
+    <link href="{{ asset('front-theme/css/style.css') }}?v={{ config('app.version') }}" rel="stylesheet" />
     <!-- responsive style -->
-    <link href="{{ asset('front-theme/css/responsive.css') }}?v={{config('app.version')}}" rel="stylesheet" />
+    <link href="{{ asset('front-theme/css/responsive.css') }}?v={{ config('app.version') }}" rel="stylesheet" />
 
     <link href="{{ asset('front-theme/css/font-awesome.min.css') }}" rel="stylesheet" />
 
@@ -35,6 +35,19 @@
     <script src="{{ asset('front-theme/js/jquery-3.4.1.min.js') }}"></script>
 
 
+    <!-- Adding google tag for Adsense and analytics -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11080741261"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-11080741261');
+    </script>
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
