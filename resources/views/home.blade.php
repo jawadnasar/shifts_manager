@@ -176,13 +176,12 @@
         <div class="row mt-5">
             <div class="col-lg-12">
                 <p class="text-white">
-                    TRK Protectors is a leading security company dedicated to ensuring the safety and peace of mind for
-                    individuals and businesses alike. With a team of highly trained and experienced professionals, we
-                    offer a comprehensive range of security solutions tailored to meet the unique needs of our clients.
-                    From advanced surveillance systems and access control to expertly executed security protocols, our
-                    commitment to excellence and unwavering dedication to safeguarding your assets make us the trusted
-                    choice for all your security needs. Partner with TRK Protectors and experience a proactive and
-                    reliable approach to security, providing you with the protection you deserve.
+                    TRK Protectors is your dedicated UK-based security partner, providing SIA-licensed static guards,
+                    mobile patrols, and event security teams. We develop tailored solutions that protect your business
+                    premises, assets, and people with unwavering reliability. Our proactive approach focuses on
+                    deterring threats and preventing incidents before they occur. We combine experienced personnel with
+                    clear protocols to ensure your safety and operational continuity. Partner with us to implement a
+                    security strategy that delivers true peace of mind.
                 </p>
             </div>
         </div>
@@ -208,11 +207,11 @@
                 <div class="text-box">
                     <h2 class="mb-3">Welcome to TRK Protectors</h2>
                     <p class="mb-4">
-                        Step into the realm of security excellence with ‘TRK Protectors’ — your trusted safeguarding
-                        partner in the United Kingdom. As a premier security provider, we are dedicated to securing what
-                        matters most to you. Join us on a journey where protection meets peace of mind. With a passion
-                        for excellence and a commitment to innovation, our team delivers cutting-edge security services
-                        that set new industry standards.
+                        As your trusted UK security partner, we provide businesses with professional, SIA-licensed
+                        security personnelfrom on-site guards and mobile patrols to event security teams. We focus on
+                        reliable, proactive protection for your premises, assets, and people. Explore how our tailored
+                        solutions can address your specific security challenges and provide the peace of mind you need
+                        to operate with confidence.
                     </p>
                     <div class="btn-box">
 
