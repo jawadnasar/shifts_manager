@@ -140,9 +140,9 @@
                             <div class="col-md-7">
                                 <div class="detail-box">
                                     <h1>
-                                        Securing Your <br>
+                                        Protect your business <br>
                                         <span>
-                                            Peace of Mind
+                                            with expert security
                                         </span>
                                     </h1>
                                     <p>
@@ -164,9 +164,9 @@
                             <div class="col-md-7">
                                 <div class="detail-box">
                                     <h1>
-                                        Your Security <br>
+                                        Security Staffing <br>
                                         <span>
-                                            Our Commitment
+                                            For retail, construction & more
                                         </span>
                                     </h1>
                                     <p>
