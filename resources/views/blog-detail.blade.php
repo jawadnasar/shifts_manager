@@ -1,11 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Our Blog')
+@section('title', $blog->title . ' | Our Blog')
 
 @section('content')
 
 <style>
-  
   
    .blog-hero {
         position: relative;
@@ -24,44 +23,6 @@
         text-align: center;
         z-index: 2;
     }
-
-  
-
-    /* Blog Cards */
-    .blog-card {
-        border-radius: 15px;
-        overflow: hidden;
-        transition: all 0.3s;
-        cursor: pointer;
-    }
-    .blog-card:hover {
-        transform: translateY(-7px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    }
-    .blog-card img {
-        height: 200px;
-        object-fit: cover;
-    }
-    .blog-card-body h5 {
-        color: #007bff;
-        font-weight: 600;
-        font-size: 1.25rem;
-        margin-bottom: 8px;
-    }
-    .blog-card-body h6 {
-        font-size: 1rem;
-        color: #0056b3;
-        margin-bottom: 12px;
-    }
-    .blog-card-body p {
-        font-size: 0.95rem;
-        line-height: 1.6;
-        color: #333;
-    }
-    .blog-card-body .btn {
-        margin-top: 10px;
-    }
-
 
     /* Sidebar */
     .sidebar-widget {
@@ -102,28 +63,21 @@
 
 <div class="container mb-5">
     <div class="row">
-        <!-- Blog Posts -->
+        <!-- Blog Content -->
         <div class="col-lg-8">
-         
             <div class="card mb-4 blog-card shadow-sm">
                 <div class="row g-0">
-                   
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <div class="card-body blog-card-body">
-                        
                             @if($blog->subtitle)
-                                <h6>{{ $blog->subtitle }}</h6>
+                                <h5 class="mb-1">{{ $blog->subtitle }}</h5>
                             @endif
-                            <p>{{ \Illuminate\Support\Str::limit(strip_tags($blog->content), 150) }}</p>
+                            <p class="text-bold">{!! $blog->content !!}</p>
                             <small class="text-muted">Published on {{ $blog->published_at ? $blog->published_at->format('F d, Y') : 'Not Published' }}</small>
-                            <br>
-                           
                         </div>
                     </div>
                 </div>
             </div>
-         
-           
         </div>
 
         <!-- Sidebar -->
@@ -146,18 +100,14 @@
                 </div>
                 @endforeach
             </div>
-
-            <!-- Categories -->
-           
         </div>
     </div>
 </div>
-
 <script>
     $(document).ready(function() {
     $('.detail-box').html(`
         <h1>
-            Blog Details<br>
+            Blog Detail<br>
             <span>Latest Security Insights</span>
         </h1>
         <p>
