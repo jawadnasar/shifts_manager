@@ -24,6 +24,8 @@
                     <a href="{{ route('templates') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Templates</a>
                     <a href="{{ route('feedbacks') }}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Feedbacks</a>
                     <a href="{{ route('certificates') }}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Certificates</a>
+                    <a href="{{ route('blogs.index') }}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Blogs</a>
+
 
 
             <div class="nav-item dropdown">

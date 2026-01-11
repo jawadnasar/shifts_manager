@@ -15,4 +15,15 @@ class BlogController extends Controller
             return $e->getMessage();
         }
     }
+
+    public function detail(Request $request, $slug)
+    {
+        try {
+            return BlogHelper::detail($request, $slug);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+
 }

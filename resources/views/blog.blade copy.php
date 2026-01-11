@@ -96,7 +96,7 @@
 
 <!-- Hero Section -->
 <section class="blog-hero">
-    <h1>Our Insights & Updates</h1>
+    <h1>{{ $blog->title }}</h1>
 </section>
 
 <div class="container mb-5">

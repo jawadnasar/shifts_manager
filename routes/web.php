@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Admin\AdminBlogController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\CertificatesController;
 use App\Http\Controllers\Admin\EmailSendingController;
@@ -34,7 +35,12 @@ Route::get('/services/shopping-malls-security-detail', [ServicesController::clas
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact/add', [ContactController::class, 'add'])->name('contact.add');
+
+// Blog Routes On Front Website
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/blog/detail/{slug}', [BlogController::class, 'detail'])->name('blog.detail');
+
+
 Route::get('/apply', [ApplyController::class, 'index'])->name('apply');
 Route::post('/apply/save', [ApplyController::class, 'save'])->name('apply.save');
 
@@ -70,6 +76,18 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'is_admin'])->group(func
 
     Route::get('/preview_email_template', [EmailSendingController::class, 'email_template_preview'])->name('preview_email_template');
     Route::post('/send_email', [EmailSendingController::class, 'sendEmailWithTemplate'])->name('send_email');
+
+    // Blog Routes - Admin Side
+    Route::get('/blogs', [AdminBlogController::class, 'index'])->name('blogs.index');
+    Route::get('/blogs/add', [AdminBlogController::class, 'add'])->name('blogs.add');
+    Route::post('/blogs/save', [AdminBlogController::class, 'save'])->name('blogs.save');
+    Route::get('/blogs/getall', [AdminBlogController::class, 'getall'])->name('blogs.getall');
+    Route::get('/blogs/view/{id}', [AdminBlogController::class, 'view'])->name('blogs.view');
+    Route::post('/blogs/update_status', [AdminBlogController::class, 'update_status'])->name('blogs.update_status');
+    Route::get('/blogs/edit/{id}', [AdminBlogController::class, 'edit'])->name('blogs.edit');
+    Route::post('/blogs/update', [AdminBlogController::class, 'update'])->name('blogs.update');
+    Route::delete('/blogs/{id}', [AdminBlogController::class, 'destroy'])->name('blogs.destroy');
+    Route::get('/blogs/getall_filtered', [AdminBlogController::class, 'filter'])->name('blogs.getall_filtered');
 
 
 
