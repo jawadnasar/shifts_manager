@@ -16,7 +16,7 @@
         <h2>
           Door  Security
         </h2>
-        <h5>Security - August 7, 2023</h5>
+        <h5>Security - January 7, 2026</h5>
        
       </div>
   </div>
@@ -43,7 +43,7 @@
 
         <div class="row">
             <div class="col-12">
-                <h3 class="mt-4">Tailored Solutions for Every Requirement</h3>
+                <h3 class="mt-4"><b>Tailored Solutions for Every Requirement</b></h3>
                 <p>
                 No two security needs are exactly alike, which is why TRK Protectors emphasizes providing tailored solutions. Whether you require a comprehensive access control system for a business or a smart lock with remote monitoring for your home, TRK Protectors’ solutions can be customized to fit your specific requirements. This personalized approach ensures that you get the security features you need without paying for unnecessary extras.
                 </p>

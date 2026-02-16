@@ -365,7 +365,7 @@
         <div class="mt-4">
             <div class="btn-box">
 
-                <a href="{{ route('contact') }}" class="mb-2 btn-2">
+                <a href="{{ route('contact') }}#contact_form_section" class="mb-2 btn-2">
                     Make an Inquiry
                 </a>
             </div>

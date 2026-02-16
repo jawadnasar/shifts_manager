@@ -29,7 +29,7 @@
     </div>
 </div>
 
-  <section class="contact_section layout_padding">
+  <section class="contact_section layout_padding" id="contact_form_section">
     <div class="contact_bg_box">
       <div class="img-box">
         <img src="{{ asset('front-theme/images/contact-bg.jpg') }}" alt="">

@@ -16,7 +16,7 @@
         <h2>
           Mobile Patrolling
         </h2>
-        <h5>Security - August 7, 2023</h5>
+        <h5>Security - January 7, 2026</h5>
       </div>
   </div>
 </section>
@@ -42,7 +42,7 @@
 
         <div class="row">
             <div class="col-12">
-                <h3 class="mt-4">TRK Protectors’ Mobile Patrolling Expertise</h3>
+                <h3 class="mt-4"><b>TRK Protectors’ Mobile Patrolling Expertise</b></h3>
                 <p>
                 Our mobile patrolling services go beyond the ordinary to deliver exceptional protection tailored to your unique needs:
                 </p>
