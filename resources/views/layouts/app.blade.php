@@ -53,7 +53,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="">
+<body class="@yield('body_class', '')">
 
     <!-- ======= Header ======= -->
     @include('layouts.header')

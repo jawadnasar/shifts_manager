@@ -1,0 +1,189 @@
+/* Blog Page Styles */
+
+/* Hero Section - Blog Pages */
+.blog-hero {
+    position: relative;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    margin-bottom: 50px;
+    border-radius: 0px;
+    overflow: hidden;
+}
+
+.blog-hero h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    text-align: center;
+    z-index: 2;
+    margin: 0;
+    word-wrap: break-word;
+    padding: 0 20px;
+}
+
+/* Blog Cards */
+.blog-card {
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.blog-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.blog-card img {
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover img {
+    transform: scale(1.05);
+}
+
+.blog-card-body h5 {
+    color: #f1db25;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+}
+
+.blog-card-body h6 {
+    font-size: 1rem;
+    color: #f1db25;
+    margin-bottom: 12px;
+}
+
+.blog-card-body p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.blog-card-body .btn {
+    margin-top: 10px;
+}
+
+/* Sidebar */
+.sidebar-widget {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+.sidebar-widget:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-widget h5 {
+    font-weight: 700;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    color: #0c0c0c;
+}
+
+.sidebar-widget ul li a {
+    display: block;
+    padding: 6px 0;
+    color: #333;
+    transition: 0.2s ease;
+    text-decoration: none;
+}
+
+.sidebar-widget ul li a:hover {
+    color: #007bff;
+    padding-left: 5px;
+}
+
+.recent-post {
+    alignment: flex-start;
+}
+
+.recent-post img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .blog-hero {
+        height: 250px;
+        margin-bottom: 35px;
+    }
+
+    .blog-hero h1 {
+        font-size: 2rem;
+    }
+
+    .blog-card {
+        margin-bottom: 20px;
+    }
+
+    .sidebar-widget {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .blog-hero {
+        height: 200px;
+        margin-bottom: 25px;
+        border-radius: 8px;
+    }
+
+    .blog-hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .blog-card img {
+        height: 150px;
+    }
+
+    .blog-card-body h5 {
+        font-size: 1.1rem;
+    }
+
+    .recent-post img {
+        width: 70px;
+        height: 50px;
+    }
+}
+
+/* Hide home hero/slider on blog pages */
+body.no-home-hero .hero_area,
+body.no-home-hero .slider_section,
+body.no-home-hero .hero_bg_box,
+body.no-home-hero .detail-box,
+body.no-home-hero .hero_bg_box .img-box {
+    display: none !important;
+}
+
+/* Adjust spacing when hero is removed */
+body.no-home-hero .layout_padding,
+body.no-home-hero .layout_padding-top,
+body.no-home-hero .layout_padding-bottom,
+body.no-home-hero .sub_page .hero_area {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* If necessary, ensure blog hero sits flush at top */
+.blog-hero {
+    margin-top: 20px;
+}

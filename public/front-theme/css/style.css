@@ -680,3 +680,7 @@ a:focus {
 }
 
 /* end footer section*//*# sourceMappingURL=style.css.map */
+
+.header_top a{
+  color: #fff!important;
+}

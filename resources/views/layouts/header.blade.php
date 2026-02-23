@@ -43,19 +43,19 @@
         <div class="header_top">
             <div class="container-fluid">
                 <div class="contact_link-container">
-                    <a href="" class="contact_link1">
+                    <a href="" class="contact_link1 text-white">
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
                         <span>
                             Top-notch Security Solutions
                         </span>
                     </a>
-                    <a href="" class="contact_link2">
+                    <a href="" class="contact_link2 text-white">
                         <i class="fa fa-phone" aria-hidden="true"></i>
                         <span>
                             {{ env('COMPANY_PHONE') }}
                         </span>
                     </a>
-                    <a href="" class="contact_link3">
+                    <a href="" class="contact_link3 text-white">
                         <i class="fa fa-envelope" aria-hidden="true"></i>
                         <span>
                             {{ env('COMPANY_EMAIL') }}
