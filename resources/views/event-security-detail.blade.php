@@ -3,7 +3,9 @@
 
 @section('content')
 
-@section('title', 'Event Security') <!-- Set the title for this page -->
+@section('title', 'Event Security Services | TRK Protectors UK')
+
+@section('meta_description', 'Ensure safe and successful events with TRK Protectors’ professional event security services across the UK. Our SIA-licensed team provides crowd management, access control, and 24/7 protection for concerts, corporate events, private parties, and public gatherings.')
 <style>
   .hero_area {
   min-height: 60vh!important;

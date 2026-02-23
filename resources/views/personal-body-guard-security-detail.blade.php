@@ -3,7 +3,9 @@
 
 @section('content')
 
-@section('title', 'Personal Body Guard') <!-- Set the title for this page -->
+@section('title', 'Personal Bodyguard Services | TRK Protectors UK')
+
+@section('meta_description', 'Stay safe with TRK Protectors’ professional personal bodyguard services in the UK. Our SIA-licensed security team provides discreet, trained protection for individuals, executives, VIPs, and high-profile clients, ensuring safety at all times.')
 <style>
   .hero_area {
   min-height: 60vh!important;

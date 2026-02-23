@@ -2,7 +2,9 @@
 
 @section('content')
 
-@section('title', 'Apply') <!-- Set the title for this page -->
+@section('title', 'Careers at TRK Protectors | Join Our Professional Security Team')
+
+@section('meta_description', 'Apply for security jobs at TRK Protectors, a leading UK-based security company. Join our SIA-licensed team for roles in event security, door supervision, mobile patrols, reception security, and site protection. Start your career with a trusted UK security provider today.')
 <style>
     .hero_area {
         min-height: 60vh !important;

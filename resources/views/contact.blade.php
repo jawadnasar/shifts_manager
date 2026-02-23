@@ -2,7 +2,9 @@
 
 @section('content')
 
-@section('title', 'Contact') <!-- Set the title for this page -->
+@section('title', 'Contact TRK Protectors | Get Professional Security Services in the UK')
+
+@section('meta_description', 'Contact TRK Protectors today for reliable and professional security services across the UK. Get in touch for event security, door supervisors, mobile patrols, reception security, and construction site protection. Request a free consultation or security quote now.')
 <style>
   .hero_area {
   min-height: 60vh!important;

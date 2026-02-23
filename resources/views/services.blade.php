@@ -3,7 +3,9 @@
 
 @section('content')
 
-@section('title', 'Services') <!-- Set the title for this page -->
+@section('title', 'Our Security Services | TRK Protectors UK')
+
+@section('meta_description', 'Discover professional security services from TRK Protectors, including event security, door supervision, mobile patrols, shopping mall security, reception security, and construction site protection. Trusted, SIA-licensed security solutions tailored for businesses across the UK.')
 
 <style>
   .hero_area {

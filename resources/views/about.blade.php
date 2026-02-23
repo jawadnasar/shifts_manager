@@ -2,7 +2,8 @@
 
 @section('content')
 
-@section('title', 'About') <!-- Set the title for this page -->
+@section('title', 'About TRK Protectors | Trusted UK Security Specialists')
+@section('meta_description', 'Learn more about TRK Protectors, a trusted UK-based security company committed to delivering professional event security, door supervision, mobile patrols, site protection, and corporate security services. Our trained and SIA-licensed team ensures safety, reliability, and excellence across the UK.')
 <style>
   .hero_area {
   min-height: 60vh!important;

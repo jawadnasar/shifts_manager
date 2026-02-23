@@ -3,7 +3,9 @@
 
 @section('content')
 
-@section('title', 'Door Security') <!-- Set the title for this page -->
+@section('title', 'Door Security Services | TRK Protectors UK')
+
+@section('meta_description', 'Protect your premises with TRK Protectors’ professional door security services. Our UK-based, SIA-licensed door supervisors manage access control, entry screening, and crowd safety for clubs, offices, events, and commercial properties.')
 <style>
   .hero_area {
   min-height: 60vh!important;

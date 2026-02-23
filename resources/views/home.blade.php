@@ -2,7 +2,10 @@
 
 @section('content')
 
-@section('title', 'Home') <!-- Set the title for this page -->
+@section('content')
+
+@section('title', 'TRK Protectors | Professional Security Services Across the UK')
+@section('meta_description', 'TRK Protectors is a UK-based security company providing professional event security, door supervisors, mobile patrols, shopping mall security, reception security, construction site security, and tailored protection services. Reliable, trained, and trusted security solutions across the UK.')
 
 <section class="welcome-section py-5">
     <div class="container">

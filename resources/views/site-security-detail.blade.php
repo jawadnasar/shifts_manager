@@ -3,7 +3,9 @@
 
 @section('content')
 
-@section('title', 'Site Security') <!-- Set the title for this page -->
+@section('title', 'Site Security Services | TRK Protectors UK')
+
+@section('meta_description', 'Ensure the safety of your construction sites, commercial properties, and industrial locations with TRK Protectors. Our UK-based, SIA-licensed site security team provides reliable mobile patrols, access control, and 24/7 protection tailored to your site’s needs.')
 <style>
   .hero_area {
   min-height: 60vh!important;

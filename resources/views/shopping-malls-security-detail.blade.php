@@ -3,7 +3,9 @@
 
 @section('content')
 
-@section('title', 'Shopping Mall') <!-- Set the title for this page -->
+@section('title', 'Shopping Mall Security Services | TRK Protectors UK')
+
+@section('meta_description', 'Protect shoppers, staff, and assets with TRK Protectors’ professional shopping mall security services. Our UK-based, SIA-licensed team provides crowd management, access control, and 24/7 protection for retail complexes and shopping centers.')
 <style>
   .hero_area {
   min-height: 60vh!important;

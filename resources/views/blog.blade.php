@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'Our Blog')
 
 @section('content')
+@section('title', 'Security Insights & Industry Updates | TRK Protectors UK')
+
+@section('meta_description', 'Explore the TRK Protectors blog for the latest security insights, industry updates, safety tips, and professional advice on event security, door supervision, mobile patrols, and site protection services across the UK.')
+
 <link href="{{ asset('front-theme/css/blog.css') }}" rel="stylesheet" />
 
 <!-- Hero Section -->

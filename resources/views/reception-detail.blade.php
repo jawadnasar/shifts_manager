@@ -3,7 +3,9 @@
 
 @section('content')
 
-@section('title', 'Reception') <!-- Set the title for this page -->
+@section('title', 'Reception Security Services | TRK Protectors UK')
+
+@section('meta_description', 'Ensure professional front-desk protection with TRK Protectors’ reception security services. Our UK-based, SIA-licensed security team manages access control, visitor screening, and safety protocols to safeguard offices, hotels, and commercial properties.')
 <style>
   .hero_area {
   min-height: 60vh!important;
