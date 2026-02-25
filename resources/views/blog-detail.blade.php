@@ -20,6 +20,21 @@
 .blog-card-body {
     padding: 25px;
 }
+
+.blog-detail-image {
+    width: 100%;
+    height: 350px; /* Fixed clean height */
+    overflow: hidden;
+    border-radius: 10px 0 0 10px;
+}
+
+.blog-detail-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 </style>
 <!-- Hero Section -->
 <section class="blog-hero">
@@ -34,10 +49,9 @@
                 <div class="row g-0">
 
                     <!-- Image Left (Same as listing page) -->
-                    <div class="col-md-5">
+                    <div class="blog-detail-image">
                         <img src="{{ $blog->featured_image ? asset('storage/blogs/' . $blog->featured_image) : asset('front-theme/images/default-blog.png') }}"
-                             class="img-fluid h-100 w-100 object-fit-cover"
-                             alt="{{ $blog->title }}">
+                            alt="{{ $blog->title }}">
                     </div>
 
                     <!-- Content Right -->
