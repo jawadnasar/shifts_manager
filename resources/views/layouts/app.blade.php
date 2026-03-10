@@ -2,10 +2,24 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WJDW96SHE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-9WJDW96SHE');
+    </script>
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="TRK Protectors is a UK-based security company delivering professional and reliable security services including event security, door supervisors, mobile patrols, shopping mall security, reception security, and construction site protection. Trusted for 24/7 safety and SIA-compliant security solutions across the UK.">
+    <meta name="description"
+        content="TRK Protectors is a UK-based security company delivering professional and reliable security services including event security, door supervisors, mobile patrols, shopping mall security, reception security, and construction site protection. Trusted for 24/7 safety and SIA-compliant security solutions across the UK.">
     <title>@yield('title', config('app.name'))</title>
 
     <link rel="icon" href="{{ asset('front-theme/images/main_logo.png') }}" type="icon">
