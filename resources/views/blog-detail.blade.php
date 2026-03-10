@@ -20,6 +20,21 @@
 .blog-card-body {
     padding: 25px;
 }
+
+.blog-detail-image {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+
+.blog-detail-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 </style>
 <!-- Hero Section -->
 <section class="blog-hero">
@@ -31,41 +46,34 @@
         <!-- Blog Content -->
         <div class="col-lg-8">
             <div class="card mb-4 blog-card shadow-sm">
-                <div class="row g-0">
+                <!-- Image Full Width -->
+                <div class="blog-detail-image">
+                    <img src="{{ $blog->featured_image ? asset('storage/blogs/' . $blog->featured_image) : asset('front-theme/images/default-blog.png') }}"
+                        alt="{{ $blog->title }}">
+                </div>
 
-                    <!-- Image Left (Same as listing page) -->
-                    <div class="col-md-5">
-                        <img src="{{ $blog->featured_image ? asset('storage/blogs/' . $blog->featured_image) : asset('front-theme/images/default-blog.png') }}"
-                             class="img-fluid h-100 w-100 object-fit-cover"
-                             alt="{{ $blog->title }}">
+                <!-- Content Below Image -->
+                <div class="card-body blog-card-body">
+                    
+                    @if($blog->subtitle)
+                        <h6 class="text-muted">{{ $blog->subtitle }}</h6>
+                    @endif
+
+                    <div class="blog-content mt-3">
+                        {!! $blog->content !!}
                     </div>
 
-                    <!-- Content Right -->
-                    <div class="col-md-7">
-                        <div class="card-body blog-card-body">
-                            
-                            @if($blog->subtitle)
-                                <h6 class="text-muted">{{ $blog->subtitle }}</h6>
-                            @endif
+                    <hr>
 
-                            <div class="blog-content mt-3">
-                                {!! $blog->content !!}
-                            </div>
+                    <small class="text-muted">
+                        Published on {{ $blog->published_at ? $blog->published_at->format('F d, Y') : 'Not Published' }}
+                    </small>
 
-                            <hr>
+                    <br><br>
 
-                            <small class="text-muted">
-                                Published on {{ $blog->published_at ? $blog->published_at->format('F d, Y') : 'Not Published' }}
-                            </small>
-
-                            <br><br>
-
-                            <a href="{{ route('blog') }}" class="btn btn-sm btn-primary">
-                                ← Back to Blogs
-                            </a>
-
-                        </div>
-                    </div>
+                    <a href="{{ route('blog') }}" class="btn btn-sm btn-primary">
+                        ← Back to Blogs
+                    </a>
 
                 </div>
             </div>
