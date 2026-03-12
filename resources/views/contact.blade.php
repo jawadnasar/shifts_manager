@@ -14,7 +14,7 @@
   <div class="row mb-3 mt-4">
     <div class="col-lg-12">
         <div class="container">
-            <section class="contact-section">
+            <section class="contact-section" id="contact_info_section">
                 <h2>Contact 24/7</h2>
                 <div class="contact-info">
                     
@@ -52,7 +52,7 @@
               <div class="contact_form-container">
                 <div>
                   <div>
-                    <input type="text" name="name" placeholder="Your Full Name" />
+                    <input type="text" id="full_name" name="name" placeholder="Your Full Name" />
                   </div>
                   <div>
                   <input type="email" name="email" placeholder="Your Email (Optional)" />
@@ -62,7 +62,7 @@
                     <input type="text" name="phone" placeholder="Your Phone Number" />
                   </div>
                   <div class="">
-                    <input type="text" name="message" placeholder="Your Message" class="message_input" />
+                    <input type="text" name="message" id="message" placeholder="Your Message" class="message_input" />
                   </div>
                   <div class="btn-box ">
                     <button type="submit">
@@ -80,6 +80,15 @@
 <br><br><br>
 <script>
     $(document).ready(function() {
+        // Scroll to contact info section and focus on full name input
+        const contactInfoSection = document.getElementById('contact_info_section');
+        if (contactInfoSection) {
+            contactInfoSection.scrollIntoView({ behavior: 'smooth' });
+            // Focus on full name input after scrolling (delayed slightly to ensure scroll completes)
+            setTimeout(function() {
+                document.getElementById('full_name').focus();
+            }, 800);
+        }
     
         $.ajaxSetup({
             headers: {
