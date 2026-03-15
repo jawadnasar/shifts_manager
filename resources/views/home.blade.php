@@ -13,7 +13,7 @@
             <!-- Image Column -->
             <div class="col-md-6">
                 <div class="image-box text-center">
-                    <img src="{{ asset('front-theme/images/trk_guard.png') }}" class="img-fluid" alt="TRK Protector Guard">
+                    <img src="{{ asset('front-theme/images/trk_guard.png') }}"  class="img-fluid" alt="TRK Protector Guard">
                     <!-- <div class="logo-overlay">
                 <img src="images/trk-logo.png" alt="TRK Logo" class="logo img-fluid">
             </div> -->
@@ -65,7 +65,7 @@
             <div class="col-md-4">
                 <div class="box ">
                     <div class="img-box">
-                        <img src="{{ asset('front-theme/images/concierge.png') }}" alt="">
+                        <img src="{{ asset('front-theme/images/concierge.png') }}" alt="Concierge Security">
                     </div>
                     <div class="detail-box">
                         <h6>
@@ -84,7 +84,7 @@
             <div class="col-md-4">
                 <div class="box ">
                     <div class="img-box">
-                        <img src="{{ asset('front-theme/images/site_security.png') }}" alt="">
+                        <img src="{{ asset('front-theme/images/site_security.png') }}" alt="Construction Site Security">
                     </div>
                     <div class="detail-box">
                         <h6>
@@ -102,7 +102,7 @@
             <div class="col-md-4">
                 <div class="box ">
                     <div class="img-box">
-                        <img src="{{ asset('front-theme/images/door_supervisor.png') }}" alt="">
+                        <img src="{{ asset('front-theme/images/door_supervisor.png') }}" alt="Door Supervisor Security">
                     </div>
                     <div class="detail-box">
                         <h6>
@@ -122,7 +122,7 @@
             <div class="col-md-4">
                 <div class="box ">
                     <div class="img-box">
-                        <img src="{{ asset('front-theme/images/mall_security.png') }}" alt="">
+                        <img src="{{ asset('front-theme/images/mall_security.png') }}" alt="Shopping Malls Security">
                     </div>
                     <div class="detail-box">
                         <h6>
@@ -140,7 +140,7 @@
             <div class="col-md-4">
                 <div class="box ">
                     <div class="img-box">
-                        <img src="{{ asset('front-theme/images/event_security.png') }}" alt="">
+                        <img src="{{ asset('front-theme/images/event_security.png') }}" alt="Event Security">
                     </div>
                     <div class="detail-box">
                         <h6>
@@ -158,7 +158,7 @@
             <div class="col-md-4">
                 <div class="box ">
                     <div class="img-box">
-                        <img src="{{ asset('front-theme/images/mobile_patrolling.png') }}" alt="">
+                        <img src="{{ asset('front-theme/images/mobile_patrolling.png') }}" alt="Mobile Patrolling Security">
                     </div>
                     <div class="detail-box">
                         <h6>
@@ -198,7 +198,7 @@
             <div class="col-md-6">
                 <div class="image-box text-center">
                     <img src="{{ asset('front-theme/images/welcome_image.jpg') }}" class="img-fluid"
-                        alt="TRK Protector Guard">
+                        alt="Welcome to {{ env('APP_NAME') }}">
                     <!-- <div class="logo-overlay">
                 <img src="images/trk-logo.png" alt="TRK Logo" class="logo img-fluid">
             </div> -->
@@ -208,7 +208,7 @@
             <!-- Text Column -->
             <div class="col-md-6">
                 <div class="text-box">
-                    <h2 class="mb-3">Welcome to TRK Protectors</h2>
+                    <h2 class="mb-3">Welcome to {{ env('APP_NAME') }}</h2>
                     <p class="mb-4">
                         As your trusted UK security partner, we provide businesses with professional, SIA-licensed
                         security personnelfrom on-site guards and mobile patrols to event security teams. We focus on

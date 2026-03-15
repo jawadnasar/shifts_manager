@@ -14,15 +14,15 @@
 
         gtag('config', 'G-9WJDW96SHE');
     </script>
-    
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description"
-        content="{{ env('APP_DESCRIPTION') }}">
-    <title>@yield('title', config('app.name')) | {{env('APP_TITLE_DESCRIPTION')}}</title>
+    <meta name="description" content="{{ env('APP_DESCRIPTION') }}">
+    <title>@yield('title', config('app.name')) | {{ env('APP_TITLE_DESCRIPTION') }}</title>
 
-    <meta name="keywords" content="security company UK, SIA security guards, construction site security UK, event security UK, mobile patrol security UK, door supervisor security UK">
+    <meta name="keywords"
+        content="security company UK, SIA security guards, construction site security UK, event security UK, mobile patrol security UK, door supervisor security UK">
     <meta name="robots" content="home, follow">
     <meta name="author" content="@yield('title', config('app.name'))">
 
@@ -66,6 +66,25 @@
         gtag('js', new Date());
 
         gtag('config', 'AW-11080741261');
+    </script>
+
+    <!-- Open Graph SEO -->
+    <meta property="og:title" content="@yield('title', config('app.name')) | {{ env('APP_TITLE_DESCRIPTION') }}">
+    <meta property="og:description" content="{{ env('APP_DESCRIPTION') }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ env('COMPANY_WEBSITE') }}">
+    <meta property="og:image" content="{{ asset('front-theme/images/main_logo.png') }}">
+
+    <!-- Google Structured Data SEO -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SecurityService",
+            "name": "{{env('APP_NAME')}}",
+            "url": "{{env('COMPANY_WEBSITE')}}",
+            "telephone": "{{env('COMPANY_PHONE')}}",
+            "areaServed": "United Kingdom"
+        }
     </script>
 
     <!-- Scripts -->
