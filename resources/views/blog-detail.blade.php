@@ -6,104 +6,114 @@
 
 @section('content')
 
-<link href="{{ asset('front-theme/css/blog.css') }}" rel="stylesheet" />
-<style>
-    .object-fit-cover {
-    object-fit: cover;
-}
+    <link href="{{ asset('front-theme/css/blog.css') }}" rel="stylesheet" />
+    <style>
+        .object-fit-cover {
+            object-fit: cover;
+        }
 
-.blog-content p {
-    margin-bottom: 1rem;
-    line-height: 1.7;
-}
+        .blog-content p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
 
-.blog-card-body {
-    padding: 25px;
-}
+        .blog-card-body {
+            padding: 25px;
+        }
 
-.blog-detail-image {
-    width: 100%;
-    height: 400px;
-    overflow: hidden;
-    border-radius: 10px 10px 0 0;
-}
+        .blog-detail-image {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 10px 10px 0 0;
+        }
 
-.blog-detail-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
+        .blog-detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    </style>
+    <!-- Hero Section -->
+    <section class="blog-hero">
+        <h1>{{ $blog->title }}</h1>
+    </section>
 
-</style>
-<!-- Hero Section -->
-<section class="blog-hero">
-    <h1>{{ $blog->title }}</h1>
-</section>
-
-<div class="container mb-5">
-    <div class="row">
-        <!-- Blog Content -->
-        <div class="col-lg-8">
-            <div class="card mb-4 blog-card shadow-sm">
-                <!-- Image Full Width -->
-                <div class="blog-detail-image">
-                    <img src="{{ $blog->featured_image ? asset('storage/blogs/' . $blog->featured_image) : asset('front-theme/images/default-blog.png') }}"
-                        alt="{{ $blog->title }}">
-                </div>
-
-                <!-- Content Below Image -->
-                <div class="card-body blog-card-body">
-                    
-                    @if($blog->subtitle)
-                        <h6 class="text-muted">{{ $blog->subtitle }}</h6>
-                    @endif
-
-                    <div class="blog-content mt-3">
-                        {!! $blog->content !!}
+    <div class="container mb-5">
+        <div class="row">
+            <!-- Blog Content -->
+            <div class="col-lg-8">
+                <div class="card mb-4 blog-card shadow-sm">
+                    <!-- Image Full Width -->
+                    <div class="blog-detail-image">
+                        <img src="{{ $blog->featured_image ? asset('storage/blogs/' . $blog->featured_image) : asset('front-theme/images/default-blog.png') }}"
+                            alt="{{ $blog->title }}">
                     </div>
 
-                    <hr>
+                    <!-- Content Below Image -->
+                    <div class="card-body blog-card-body">
 
-                    <small class="text-muted">
-                        Published on {{ $blog->published_at ? $blog->published_at->format('F d, Y') : 'Not Published' }}
-                    </small>
+                        @if ($blog->subtitle)
+                            <h6 class="text-muted">{{ $blog->subtitle }}</h6>
+                        @endif
 
-                    <br><br>
+                        <div class="blog-content mt-3">
+                            {!! $blog->content !!}
+                        </div>
 
-                    <a href="{{ route('blog') }}" class="btn btn-sm btn-primary">
-                        ← Back to Blogs
-                    </a>
+                        <hr>
 
+                        <small class="text-muted">
+                            Published on {{ $blog->published_at ? $blog->published_at->format('F d, Y') : 'Not Published' }}
+                        </small>
+
+                        <br><br>
+
+                        <a href="{{ route('blog') }}" class="btn btn-sm btn-primary">
+                            ← Back to Blogs
+                        </a>
+
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Sidebar -->
-        <div class="col-lg-4">
-            <div class="sidebar-widget">
-                <h5>Recent Posts</h5>
-                @foreach($recentBlogs as $recent)
-                <div class="d-flex mb-3 recent-post">
-                    <a href="{{ route('blog.detail', $recent->slug) }}">
-                        <img src="{{ $recent->featured_image ? asset('storage/blogs/' . $recent->featured_image) : asset('front-theme/images/default-blog.png') }}"
-                             alt="{{ $recent->title }}">
-                    </a>
-                    <div class="ms-2">
-                        <a href="{{ route('blog.detail', $recent->slug) }}"
-                           class="text-decoration-none text-dark">
-                            {{ \Illuminate\Support\Str::limit($recent->title, 50) }}
-                        </a>
-                        <br>
-                        <small class="text-muted">
-                            {{ $recent->published_at ? $recent->published_at->format('M d, Y') : '' }}
-                        </small>
-                    </div>
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="sidebar-widget">
+                    <h5>Recent Posts</h5>
+                    @foreach ($recentBlogs as $recent)
+                        <div class="d-flex mb-3 recent-post">
+                            <a href="{{ route('blog.detail', $recent->slug) }}">
+                                <img src="{{ $recent->featured_image ? asset('storage/blogs/' . $recent->featured_image) : asset('front-theme/images/default-blog.png') }}"
+                                    alt="{{ $recent->title }}">
+                            </a>
+                            <div class="ms-2">
+                                <a href="{{ route('blog.detail', $recent->slug) }}" class="text-decoration-none text-dark">
+                                    {{ \Illuminate\Support\Str::limit($recent->title, 50) }}
+                                </a>
+                                <br>
+                                <small class="text-muted">
+                                    {{ $recent->published_at ? $recent->published_at->format('M d, Y') : '' }}
+                                </small>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-                @endforeach
             </div>
         </div>
     </div>
-</div>
+
+    <script>
+        $(document).ready(function() {
+            // Scroll to contact info section and focus on full name input
+            const contactInfoSection = document.getElementsByClassName('blog-hero')[0];
+            if (contactInfoSection) {
+                contactInfoSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    </script>
 
 @endsection

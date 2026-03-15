@@ -19,8 +19,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description"
-        content="TRK Protectors is a UK-based security company delivering professional and reliable security services including event security, door supervisors, mobile patrols, shopping mall security, reception security, and construction site protection. Trusted for 24/7 safety and SIA-compliant security solutions across the UK.">
-    <title>@yield('title', config('app.name'))</title>
+        content="{{ env('APP_DESCRIPTION') }}">
+    <title>@yield('title', config('app.name')) | {{env('APP_TITLE_DESCRIPTION')}}</title>
+
+    <meta name="keywords" content="security company UK, SIA security guards, construction site security UK, event security UK, mobile patrol security UK, door supervisor security UK">
+    <meta name="robots" content="home, follow">
+    <meta name="author" content="@yield('title', config('app.name'))">
 
     <link rel="icon" href="{{ asset('front-theme/images/main_logo.png') }}" type="icon">
 
