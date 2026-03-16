@@ -60,6 +60,7 @@ class ContactHelper
 
             // Send a simple email notification to the company email
             Mail::to(config('app.company.email'))
+                ->cc(env('COMPANY_CC_EMAIL')) // Optional: CC to another email address
                 ->send(
                     new class extends \Illuminate\Mail\Mailable
                     {
