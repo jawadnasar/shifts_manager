@@ -55,8 +55,11 @@
                     <input type="text" id="full_name" name="name" placeholder="Your Full Name" />
                   </div>
                   <div>
-                  <input type="email" name="email" placeholder="Your Email (Optional)" />
+                  <input type="email" name="email" placeholder="Your Email" />
 
+                  </div>
+                  <div>
+                    <input type="text" name="company_name" placeholder="Your Company Name" />
                   </div>
                   <div>
                     <input type="text" name="phone" placeholder="Your Phone Number" />

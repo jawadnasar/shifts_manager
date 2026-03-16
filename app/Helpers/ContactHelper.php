@@ -19,6 +19,7 @@ class ContactHelper
         $rules = [
             'name'    => ['required', 'string', 'max:255'],
             'email'   => ['nullable', 'string', 'email', 'max:255'],
+            'company_name' => ['nullable', 'string', 'max:255'],
             'phone'   => ['required', 'string', 'max:255'],
             'message' => ['required', 'string', 'max:1000'],
         ];
@@ -35,6 +36,9 @@ class ContactHelper
             'phone.string'     => 'The phone number must be a valid string.',
             'phone.max'        => 'The phone number cannot exceed 255 characters.',
 
+            'company_name.string' => 'The company name must be a valid string.',
+            'company_name.max'    => 'The company name cannot exceed 255 characters.',
+
             'message.required' => 'Please enter your message.',
             'message.string'   => 'The message must be a valid string.',
             'message.max'      => 'The message cannot exceed 1000 characters.',
@@ -48,6 +52,7 @@ class ContactHelper
             $contact          = new Contact();
             $contact->name    = $validatedData['name'];
             $contact->email   = $validatedData['email'] ?? null;
+            $contact->company_name = $validatedData['company_name'] ?? null;
             $contact->phone   = $validatedData['phone'];
             $contact->message = $validatedData['message'];
 
@@ -60,7 +65,7 @@ class ContactHelper
                     {
                         public function build()
                         {
-                            return $this->subject('New Contact Message')
+                            return $this->subject('New Contact Us Message')
                                 ->text('emails.feedback'); // Blade view (optional)
                         }
                     }

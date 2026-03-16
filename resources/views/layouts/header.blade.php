@@ -94,7 +94,7 @@
                             </li>
 
                             <li class="nav-item {{ Route::currentRouteName() == 'contact' ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('contact') }}"> Contact </a>
+                                <a class="nav-link" href="{{ route('contact') }}"> Contact us</a>
                             </li>
                             <li class="nav-item {{ Route::currentRouteName() == 'blog' ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('blog') }}">Blog</a>
@@ -103,7 +103,7 @@
                                 class="nav-item {{ Route::currentRouteName() == 'security_agency_recruitment_form' ? 'active' : '' }}">
                                 {{-- <a class="nav-link" href="{{ route('apply') }}">Apply</a> --}}
                                 <a class="nav-link"
-                                    href="{{ route('security_agency_recruitment_form.create') }}">Apply</a>
+                                    href="{{ route('security_agency_recruitment_form.create') }}">Recruitment</a>
                             </li>
 
                             <li class="nav-item">
