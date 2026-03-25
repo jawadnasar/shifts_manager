@@ -67,6 +67,9 @@
                   <div class="">
                     <input type="text" name="message" id="message" placeholder="Your Message" class="message_input" />
                   </div>
+                  <div class="mt-3 mb-2">
+                    <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+                  </div>
                   <div class="btn-box ">
                     <button type="submit">
                       Send
@@ -145,6 +148,7 @@
         });
     });
 </script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
  
 
   <!-- end team section -->

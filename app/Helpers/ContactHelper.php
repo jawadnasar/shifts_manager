@@ -3,6 +3,7 @@ namespace App\Helpers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 
 class ContactHelper
@@ -17,11 +18,12 @@ class ContactHelper
     {
         // Validation rules and messages
         $rules = [
-            'name'    => ['required', 'string', 'max:255'],
-            'email'   => ['nullable', 'string', 'email', 'max:255'],
-            'company_name' => ['nullable', 'string', 'max:255'],
-            'phone'   => ['required', 'string', 'max:255'],
-            'message' => ['required', 'string', 'max:1000'],
+            'name'               => ['required', 'string', 'max:255'],
+            'email'              => ['nullable', 'string', 'email', 'max:255'],
+            'company_name'       => ['nullable', 'string', 'max:255'],
+            'phone'              => ['required', 'string', 'max:255'],
+            'message'            => ['required', 'string', 'max:1000'],
+            'g-recaptcha-response' => ['required', 'string'],
         ];
 
         $messages = [
@@ -42,10 +44,31 @@ class ContactHelper
             'message.required' => 'Please enter your message.',
             'message.string'   => 'The message must be a valid string.',
             'message.max'      => 'The message cannot exceed 1000 characters.',
+
+            'g-recaptcha-response.required' => 'Please complete the CAPTCHA to prove you are human.',
         ];
 
         // Validate the request data
         $validatedData = $request->validate($rules, $messages);
+
+        /* Server-side reCAPTCHA verification start */
+        $recaptchaSecret = env('RECAPTCHA_SECRET_KEY');
+        $recaptchaResponse = $validatedData['g-recaptcha-response'] ?? null;
+
+        if (!$recaptchaSecret || !$recaptchaResponse) {
+            return ['status' => 'error', 'msg' => 'Captcha configuration is missing.'];
+        }
+
+        $recaptchaResult = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+            'secret' => $recaptchaSecret,
+            'response' => $recaptchaResponse,
+            'remoteip' => $request->ip(),
+        ]);
+
+        if (!$recaptchaResult->successful() || !$recaptchaResult->json('success')) {
+            return ['status' => 'error', 'msg' => 'Captcha verification failed. Please try again.'];
+        }
+        /* Server-side reCAPTCHA verification end */
 
         try {
             // Create a new contact object
