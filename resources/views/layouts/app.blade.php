@@ -22,7 +22,10 @@
     <title>@yield('title', config('app.name')) | {{ env('APP_TITLE_DESCRIPTION') }}</title>
 
     <meta name="keywords"
-        content="security job, security jobs london, security jobs birmingham, home and security, security company UK, SIA security guards, construction site security UK, event security UK, mobile patrol security UK, door supervisor security UK">
+        content="security job, security jobs london, security jobs birmingham, security jobs crawley,
+                security jobs brighton, trk security, trk protectors, security company, security services, security guard jobs, security officer jobs, 
+                home and security, security company UK, SIA security guards, construction site security UK, 
+                event security UK, mobile patrol security UK, door supervisor security UK">
     <meta name="robots" content="home, follow">
     <meta name="author" content="@yield('title', config('app.name'))">
 
