@@ -30,7 +30,7 @@
     <div class="container my-5">
         <div class="row align-items-center mb-3 sing_service_row">
             <div class="col-md-3">
-                <img src="{{ asset('front-theme/images/concierge.png') }}" alt="Reception" class="img-fluid rounded">
+                <img src="{{ asset('front-theme/images/concierge.png') }}?v={{env('APP_VERSION')}}" alt="Reception" class="img-fluid rounded">
             </div>
             <div class="col-md-9">
                 <h2 class="mb-3 blog_category_title">Reception</h2>
@@ -50,7 +50,7 @@
 
         <div class="row align-items-center mb-3 sing_service_row">
             <div class="col-md-3">
-                <img src="{{ asset('front-theme/images/site_security.png') }}" alt="Reception" class="img-fluid rounded">
+                <img src="{{ asset('front-theme/images/site_security.png') }}?v={{env('APP_VERSION')}}" alt="Reception" class="img-fluid rounded">
             </div>
             <div class="col-md-9">
                 <h2 class="mb-3 blog_category_title">Construction Site</h2>
@@ -69,7 +69,7 @@
 
         <div class="row align-items-center mb-3 sing_service_row">
             <div class="col-md-3">
-                <img src="{{ asset('front-theme/images/door_supervisor.png') }}" alt="Reception" class="img-fluid rounded">
+                <img src="{{ asset('front-theme/images/door_supervisor.png') }}?v={{env('APP_VERSION')}}" alt="Reception" class="img-fluid rounded">
             </div>
             <div class="col-md-9">
                 <h2 class="mb-3 blog_category_title">Door Security</h2>
@@ -87,7 +87,7 @@
 
         <div class="row align-items-center mb-3 sing_service_row">
             <div class="col-md-3">
-                <img src="{{ asset('front-theme/images/event_security.png') }}" alt="Reception" class="img-fluid rounded">
+                <img src="{{ asset('front-theme/images/event_security.png') }}?v={{env('APP_VERSION')}}" alt="Reception" class="img-fluid rounded">
             </div>
             <div class="col-md-9">
                 <h2 class="mb-3 blog_category_title">Events Security</h2>
@@ -106,7 +106,7 @@
 
         <div class="row align-items-center mb-3 sing_service_row">
             <div class="col-md-3">
-                <img src="{{ asset('front-theme/images/mobile_patrolling.png') }}" alt="Reception"
+                <img src="{{ asset('front-theme/images/mobile_patrolling.png') }}?v={{env('APP_VERSION')}}" alt="Reception"
                     class="img-fluid rounded">
             </div>
             <div class="col-md-9">
@@ -128,7 +128,7 @@
 
         <div class="row align-items-center mb-3 sing_service_row">
             <div class="col-md-3">
-                <img src="{{ asset('front-theme/images/mall_security.png') }}" alt="Reception" class="img-fluid rounded">
+                <img src="{{ asset('front-theme/images/mall_security.png') }}?v={{env('APP_VERSION')}}" alt="Reception" class="img-fluid rounded">
             </div>
             <div class="col-md-9">
                 <h2 class="mb-3 blog_category_title">Shopping Malls</h2>
