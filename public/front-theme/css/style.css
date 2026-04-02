@@ -370,6 +370,15 @@ a:focus {
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
   margin-top: 45px;
 }
+.service_section .box .img-box {
+  max-width: 340px;
+  margin: 0 auto;
+}
+.service_section .box .img-box img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 .service_section .box .img-box svg {
   width: 75px;
   height: auto;
