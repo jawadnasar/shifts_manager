@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(CountrySeeder::class);
         $this->call(Users_InitialsSeeder::class);
+        $this->call(MakeAccountsGLCodes::class);
     }
 }

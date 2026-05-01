@@ -68,10 +68,10 @@
             <div class="container-fluid">
                 <nav class="navbar navbar-expand-lg custom_nav-container">
                     <a class="navbar-brand" href="index.html">
-                        <span>
+                        <a class="navbar-brand" href="{{ route('home') }}">
                             <img src="{{ asset('front-theme/images/main_logo.png') }}" alt=""
                                 style="width:120px;height:120px;">
-                        </span>
+                        </a>
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

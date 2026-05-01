@@ -59,7 +59,7 @@
                         @endif
 
                         <div class="blog-content mt-3">
-                            {!! $blog->content !!}
+                            {!! $blog->content !!} 
                         </div>
 
                         <hr>
