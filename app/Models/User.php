@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Shift;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -65,6 +66,12 @@ class User extends Authenticatable
     public function relate_user_employment_history()
     {
         return $this->hasMany(User_Employment_History::class);
+    }
+
+    /** Relationship to shifts */
+    public function shifts()
+    {
+        return $this->hasMany(Shift::class);
     }
 
     // Full name

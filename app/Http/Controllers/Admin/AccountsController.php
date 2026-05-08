@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Account;
 use App\Models\GLcode;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AccountsController extends Controller
 {
@@ -45,8 +46,8 @@ class AccountsController extends Controller
         ]);
 
         $data['is_active'] = $request->has('is_active') ? (bool) $request->input('is_active') : true;
-        $data['created_by'] = auth()->id();
-        $data['updated_by'] = auth()->id();
+        $data['created_by'] = Auth::user()->id;
+        $data['updated_by'] = Auth::user()->id;
 
         Account::create($data);
 
@@ -97,7 +98,7 @@ class AccountsController extends Controller
         ]);
 
         $data['is_active'] = $request->has('is_active') ? (bool) $request->input('is_active') : $account->is_active;
-        $data['updated_by'] = auth()->id();
+        $data['updated_by'] = Auth::user()->id;
 
         $account->update($data);
 

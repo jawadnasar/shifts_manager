@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\Users_Info_Controller;
 use App\Http\Controllers\Admin\User_Privileges_Controller;
 use App\Http\Controllers\Admin\AccountsController;
+use App\Http\Controllers\Admin\ShiftsController;
 use App\Http\Controllers\ApplyController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
@@ -92,7 +93,16 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'is_admin'])->group(func
 
 
     /*Accounts*/
-    Route::get('/accounts', [AccountsController::class, 'index'])->name('accounts.index');
+    // Route::get('/accounts', [AccountsController::class, 'index'])->name('accounts.index');
+    Route::resource('/accounts', AccountsController::class, ['as' => 'admin']);
+
+    /*Shifts*/
+    Route::get('/shifts', [ShiftsController::class, 'index'])->name('admin.shifts.index');
+    Route::post('/shifts/clock-in', [ShiftsController::class, 'clockIn'])->name('admin.shifts.clockIn');
+    Route::get('/shifts/{shift}/edit', [ShiftsController::class, 'edit'])->name('admin.shifts.edit');
+    Route::patch('/shifts/{shift}', [ShiftsController::class, 'update'])->name('admin.shifts.update');
+    Route::patch('/shifts/{shift}/clock-out', [ShiftsController::class, 'clockOut'])->name('admin.shifts.clockOut');
+    Route::get('/shifts/{shift}', [ShiftsController::class, 'show'])->name('admin.shifts.show');
 
 });
 

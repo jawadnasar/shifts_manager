@@ -5,9 +5,10 @@
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
+        "php": "^8.4.0",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
+        "nesbot/carbon": "^3.11",
         "spatie/image-optimizer": "^1.8",
         "yajra/laravel-datatables-oracle": "^11.1"
     },
