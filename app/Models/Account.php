@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Account extends Model
 {
     use HasFactory;
-    use SoftDeletes;
+    // use SoftDeletes;
 
     protected $table = 'accounts';
     protected $primaryKey = 'accountid';
@@ -28,7 +28,7 @@ class Account extends Model
         'updated_by',
     ];
 
-    public function glcode()
+    public function account_glcode()
     {
         return $this->belongsTo(GLcode::class, 'actype', 'actype');
     }
