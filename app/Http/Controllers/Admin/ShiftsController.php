@@ -60,11 +60,10 @@ class ShiftsController extends Controller
 
         $accounts = Account::query()
             ->where('is_active', true)
-            ->whereIn('accountid', Shift::query()->whereNotNull('client_id')->select('client_id')->distinct())
             ->orderBy('company')
             ->orderBy('name')
             ->get();
-
+            
         return view('admin.shifts.index', compact('shifts', 'users', 'accounts'));
     }
 

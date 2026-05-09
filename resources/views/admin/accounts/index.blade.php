@@ -27,22 +27,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @php
-                        $typeLabels = [
-                            1 => 'Asset',
-                            2 => 'Liability',
-                            3 => 'Income',
-                            4 => 'Expense',
-                            5 => 'Equity',
-                        ];
-                    @endphp
 
                     @if(isset($accounts) && $accounts->count())
                         @foreach($accounts as $account)
                             <tr>
                                 <td>{{ $loop->iteration + (isset($accounts) && method_exists($accounts, 'currentPage') ? ($accounts->currentPage() - 1) * $accounts->perPage() : 0) }}</td>
                                 <td>{{ $account->name }}</td>
-                                <td>{{ optional($account->glcode)->name ?? $account->actype }}</td>
+                                <td>{{ $account->account_glcode->name }}</td>
                                 <td>{{ $account->company }}</td>
                                 <td>{{ $account->email }}</td>
                                 <td>{{ $account->phone }}</td>
@@ -85,11 +76,11 @@
                             <label for="actype" class="form-label">Account Type <span class="text-danger">*</span></label>
                             <select name="actype" id="actype" class="form-select" required>
                                 <option value="">Select type</option>
-                                <option value="1" {{ old('actype') == '1' ? 'selected' : '' }}>Asset</option>
-                                <option value="2" {{ old('actype') == '2' ? 'selected' : '' }}>Liability</option>
-                                <option value="3" {{ old('actype') == '3' ? 'selected' : '' }}>Income</option>
-                                <option value="4" {{ old('actype') == '4' ? 'selected' : '' }}>Expense</option>
-                                <option value="5" {{ old('actype') == '5' ? 'selected' : '' }}>Equity</option>
+                                @foreach($glcodes ?? [] as $g)
+                                    <option value="{{ $g->actype }}" {{ (string) old('actype') === (string) $g->actype ? 'selected' : '' }}>
+                                        {{ $g->name }}
+                                    </option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="col-md-6">

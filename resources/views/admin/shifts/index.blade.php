@@ -14,7 +14,7 @@
             <div class="row g-3">
                 <div class="col-md-2">
                     <label for="date_from" class="form-label">Date From</label>
-                    <input type="date" name="date_from" id="date_from" class="form-control" value="{{ request('date_from') }}">
+                    <input type="date" name="date_from" id="date_from" class="form-control" value="{{request('date_from') }}">
                 </div>
                 <div class="col-md-2">
                     <label for="date_to" class="form-label">Date To</label>
