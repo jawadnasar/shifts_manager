@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Account;
 use App\Models\Acctran;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -97,6 +98,82 @@ class LedgersController extends Controller
             'ledgers' => $ledgers,
             'dateFrom' => $dateFrom->toDateString(),
             'dateTo' => $dateTo->toDateString(),
+        ]);
+    }
+
+    /** Employee shift pay from ledger (acctran account 42 — Paying User / SFT). */
+    public function employee_salaries(Request $request)
+    {
+        $validated = $request->validate([
+            'date_from' => ['nullable', 'date'],
+            'date_to' => ['nullable', 'date', 'after_or_equal:date_from'],
+            'user_id' => ['nullable', 'integer', 'exists:users,id'],
+        ]);
+
+        $dateFrom = !empty($validated['date_from'])
+            ? Carbon::parse($validated['date_from'])->startOfDay()
+            : now()->startOfMonth();
+        $dateTo = !empty($validated['date_to'])
+            ? Carbon::parse($validated['date_to'])->endOfDay()
+            : now()->endOfDay();
+
+        $dateFromStr = $dateFrom->toDateString();
+        $dateToStr = $dateTo->toDateString();
+
+        $salaryEmployeeAccountId = 42;
+
+        $baseQuery = Acctran::query()
+            ->where('accountid', $salaryEmployeeAccountId)
+            ->where('vtype', 'SFT')
+            ->where('details', 'Paying User')
+            ->whereNotNull('user_id')
+            ->whereBetween('date', [$dateFromStr, $dateToStr])
+            ->when($validated['user_id'] ?? null, function ($q, $userId) {
+                $q->where('user_id', $userId);
+            });
+
+        $grandTotal = (clone $baseQuery)->sum('debit');
+
+        $lines = (clone $baseQuery)
+            ->with('user')
+            ->orderByDesc('date')
+            ->orderByDesc('transid')
+            ->paginate(50)
+            ->withQueryString();
+
+        $perEmployee = DB::table('acctran')
+            ->join('users', 'users.id', '=', 'acctran.user_id')
+            ->where('acctran.accountid', $salaryEmployeeAccountId)
+            ->where('acctran.vtype', 'SFT')
+            ->where('acctran.details', 'Paying User')
+            ->whereNotNull('acctran.user_id')
+            ->whereBetween('acctran.date', [$dateFromStr, $dateToStr])
+            ->when($validated['user_id'] ?? null, function ($q, $userId) {
+                $q->where('acctran.user_id', $userId);
+            })
+            ->selectRaw('users.id as user_id, users.name as employee_name, SUM(acctran.debit) as total_pay, COUNT(*) as shift_count')
+            ->groupBy('users.id', 'users.name')
+            ->orderByDesc('total_pay')
+            ->get();
+
+        $employees = User::query()
+            ->whereIn('id', function ($q) use ($salaryEmployeeAccountId) {
+                $q->select('user_id')
+                    ->from('acctran')
+                    ->where('accountid', $salaryEmployeeAccountId)
+                    ->whereNotNull('user_id')
+                    ->distinct();
+            })
+            ->orderBy('name')
+            ->get();
+
+        return view('admin.ledgers.employee_salaries', [
+            'lines' => $lines,
+            'perEmployee' => $perEmployee,
+            'grandTotal' => $grandTotal,
+            'dateFrom' => $dateFromStr,
+            'dateTo' => $dateToStr,
+            'employees' => $employees,
         ]);
     }
 }

@@ -24,7 +24,7 @@
                     <a href="{{ route('admin.ledgers.ledger') }}" class="nav-item nav-link"><i class="fa fa-user me-2"></i>Ledger</a>
                     <a href="{{ route('admin.ledgers.accounts_summary') }}" class="nav-item nav-link"><i class="fa fa-user me-2"></i>Accounts Summary</a>
                     <a href="{{ route('admin.shifts.index') }}" class="nav-item nav-link"><i class="fa fa-clock me-2"></i>Shifts</a>
-                    <a href="" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Applications</a>
+                    <a href="{{ route('admin.ledgers.employee_salaries') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Salaries</a>
                     <a href="{{ route('templates') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Templates</a>
                     <a href="{{ route('feedbacks') }}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Feedbacks</a>
                     <a href="{{ route('certificates') }}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Certificates</a>

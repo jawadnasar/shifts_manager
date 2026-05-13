@@ -28,6 +28,7 @@ class MakeAccountsGLCodes extends Seeder
             ['actype' => 4, 'name' => 'OTHER CURRENT ASSETS', 'basetype'=>'ASSETS'], 
             ['actype' => 5, 'name' => 'Clients/Customers', 'basetype'=>'ASSETS'],                
             ['actype' => 41, 'name' => 'OTHER LIABILITIES', 'basetype' => 'LIABILITIES'],
+            ['actype' => 42, 'name' => 'Employees', 'basetype' => 'LIABILITIES'],
             ['actype' => 61, 'name' => 'INCOME', 'basetype' => 'INCOME'],
             ['actype' => 81, 'name' => 'ADMINISTRATIVE EXPENSES', 'basetype' => 'INDIRECT/EXPENSES'],
             ['actype' => 91, 'name' => 'SALE PROMOTION EXPENSES', 'basetype' => 'DIRECT/EXPENSES'],

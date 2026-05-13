@@ -22,13 +22,16 @@ return new class extends Migration {
                 WHERE `transid` = NEW.id
                 AND `vtype` = 'SFT';
 
+                /* Debit Started */
+                # Debit to User (Paying User)
+
                 INSERT INTO `acctran`
                 SET
                     `transid` = NEW.id,
                     `vtype` = 'SFT',
                     `user_id` = NEW.user_id,
                     `date` = NEW.shift_date,
-                    `accountid` = 3,
+                    `accountid` = 42,
                     `debit` = NEW.user_rate * NEW.total_hours,
                     `credit` = 0,
                     `details` = 'Paying User',
@@ -36,7 +39,7 @@ return new class extends Migration {
                     `created_at` = NOW(),
                     `updated_at` = NOW();
 
-                IF NEW.client_id IS NOT NULL THEN
+                    # Debit in income account
 
                     INSERT INTO `acctran`
                     SET
@@ -44,13 +47,17 @@ return new class extends Migration {
                         `vtype` = 'SFT',
                         `user_id` = NEW.user_id,
                         `date` = NEW.shift_date,
-                        `accountid` = NEW.client_id,
+                        `accountid` = 1000,
                         `debit` = NEW.total_billed_client - (NEW.user_rate * NEW.total_hours),
                         `credit` = 0,
                         `details` = 'Profit / Client Difference',
                         `actype` = (SELECT `actype` FROM `accounts` WHERE `accountid` = NEW.client_id),
                         `created_at` = NOW(),
                         `updated_at` = NOW();
+                    
+                    /* Debit Ended */
+                    
+                    /* Credit Started */
 
                     INSERT INTO `acctran`
                     SET
@@ -66,7 +73,7 @@ return new class extends Migration {
                         `created_at` = NOW(),
                         `updated_at` = NOW();
 
-                END IF;
+                    /* Credit Ended */
             END
         ");
 
@@ -85,7 +92,7 @@ return new class extends Migration {
                     `vtype` = 'SFT',
                     `user_id` = NEW.user_id,
                     `date` = NEW.shift_date,
-                    `accountid` = 3,
+                    `accountid` = 42,
                     `debit` = NEW.user_rate * NEW.total_hours,
                     `credit` = 0,
                     `details` = 'Paying User',
@@ -101,7 +108,7 @@ return new class extends Migration {
                         `vtype` = 'SFT',
                         `user_id` = NEW.user_id,
                         `date` = NEW.shift_date,
-                        `accountid` = NEW.client_id,
+                        `accountid` = 1000,
                         `debit` = NEW.total_billed_client - (NEW.user_rate * NEW.total_hours),
                         `credit` = 0,
                         `details` = 'Profit / Client Difference',
@@ -227,6 +234,7 @@ return new class extends Migration {
     {
         DB::unprepared('DROP TRIGGER IF EXISTS `trg_shifts_acctran_after_insert`;');
         DB::unprepared('DROP TRIGGER IF EXISTS `trg_shifts_acctran_after_update`;');
+        DB::unprepared('DROP TRIGGER IF EXISTS `trg_shifts_clock_afer_delete`;');
         DB::unprepared('DROP TRIGGER IF EXISTS `trg_shifts_clock_after_insert`;');
         DB::unprepared('DROP TRIGGER IF EXISTS `trg_shifts_clock_after_update`;');
         DB::unprepared('DROP TRIGGER IF EXISTS `trg_shifts_clock_after_delete`;');

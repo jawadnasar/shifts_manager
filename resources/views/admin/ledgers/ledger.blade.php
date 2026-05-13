@@ -13,16 +13,26 @@
                 <div class="row g-3 align-items-end">
 
                     <div class="col-md-3">
-                        <label for="date_from" class="form-label">Date From</label>
-                        <input type="date" name="date_from" id="date_from" class="form-control"
-                            value="{{ request('date_from', $dateFrom) }}">
-                    </div>
+    <label for="date_from" class="form-label">Date From</label>
 
-                    <div class="col-md-3">
-                        <label for="date_to" class="form-label">Date To</label>
-                        <input type="date" name="date_to" id="date_to" class="form-control"
-                            value="{{ request('date_to', $dateTo) }}">
-                    </div>
+    <input
+        type="date"
+        name="date_from"
+        id="date_from"
+        class="form-control"
+        value="{{ request('date_from') ?? now()->toDateString() }}">
+</div>
+
+<div class="col-md-3">
+    <label for="date_to" class="form-label">Date To</label>
+
+    <input
+        type="date"
+        name="date_to"
+        id="date_to"
+        class="form-control"
+        value="{{ request('date_to') ?? now()->toDateString() }}">
+</div>
 
                     <div class="col-md-4">
                         <label for="account_id" class="form-label">Account</label>
