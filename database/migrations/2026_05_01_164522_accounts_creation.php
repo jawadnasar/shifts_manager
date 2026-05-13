@@ -89,6 +89,8 @@ return new class extends Migration
                 $table->text('details')->default('');
                 $table->bigInteger('user_id')->nullable()->unsigned();
                 $table->decimal('amount', 16, 4);
+                 $table->string('cheque_no', 30)->nullable();
+                $table->date('cheque_date')->nullable();
                 $table->bigInteger('created_by')->unsigned();              // Foreign Key
                 $table->bigInteger('updated_by')->unsigned()->nullable();      // Foreign Key
                 $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));

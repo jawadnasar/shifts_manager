@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\EmailSendingController;
 use App\Http\Controllers\Admin\EmailTemplateController;
 use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\LedgersController;
+use App\Http\Controllers\Admin\PaymentsController;
 use App\Http\Controllers\Admin\Users_Info_Controller;
 use App\Http\Controllers\Admin\User_Privileges_Controller;
 use App\Http\Controllers\Admin\AccountsController;
@@ -96,6 +97,8 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'is_admin'])->group(func
     /*Accounts*/
     // Route::get('/accounts', [AccountsController::class, 'index'])->name('accounts.index');
     Route::resource('/accounts', AccountsController::class, ['as' => 'admin']);
+
+    Route::resource('/payments', PaymentsController::class, ['as' => 'admin']);
 
     /*Ledgers*/
     Route::get('/ledgers', [LedgersController::class, 'ledger'])->name('admin.ledgers.ledger');

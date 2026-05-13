@@ -21,6 +21,7 @@
                     <a href="{{ route('dashboard')}}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="{{ route('users_info') }}" class="nav-item nav-link"><i class="fas fa-users me-2"></i>Users</a>
                     <a href="{{ route('admin.accounts.index') }}" class="nav-item nav-link"><i class="fa fa-user me-2"></i>Accounts</a>
+                    <a href="{{ route('admin.payments.index') }}" class="nav-item nav-link"><i class="fa fa-money-bill me-2"></i>Payments</a>
                     <a href="{{ route('admin.ledgers.ledger') }}" class="nav-item nav-link"><i class="fa fa-user me-2"></i>Ledger</a>
                     <a href="{{ route('admin.ledgers.accounts_summary') }}" class="nav-item nav-link"><i class="fa fa-user me-2"></i>Accounts Summary</a>
                     <a href="{{ route('admin.shifts.index') }}" class="nav-item nav-link"><i class="fa fa-clock me-2"></i>Shifts</a>
