@@ -85,7 +85,7 @@
                             <th>Shift ID</th>
                             <th>VType</th>
                             <th>Details</th>
-                            <th class="text-end">Pay (debit)</th>
+                            <th class="text-end">Pay (Credit)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -96,7 +96,7 @@
                                 <td>{{ $line->transid }}</td>
                                 <td><span class="badge bg-secondary">{{ $line->vtype }}</span></td>
                                 <td>{{ $line->details }}</td>
-                                <td class="text-end">{{ number_format((float) $line->debit, 2) }}</td>
+                                <td class="text-end">{{ number_format((float) $line->credit, 2) }}</td>
                             </tr>
                         @empty
                             <tr>

@@ -125,14 +125,15 @@ class LedgersController extends Controller
         $baseQuery = Acctran::query()
             ->where('accountid', $salaryEmployeeAccountId)
             ->where('vtype', 'SFT')
-            ->where('details', 'Paying User')
             ->whereNotNull('user_id')
             ->whereBetween('date', [$dateFromStr, $dateToStr])
             ->when($validated['user_id'] ?? null, function ($q, $userId) {
                 $q->where('user_id', $userId);
             });
 
-        $grandTotal = (clone $baseQuery)->sum('debit');
+            // dd($baseQuery->toSql(), $baseQuery->getBindings());
+
+        $grandTotal = (clone $baseQuery)->sum('credit');
 
         $lines = (clone $baseQuery)
             ->with('user')
@@ -145,13 +146,12 @@ class LedgersController extends Controller
             ->join('users', 'users.id', '=', 'acctran.user_id')
             ->where('acctran.accountid', $salaryEmployeeAccountId)
             ->where('acctran.vtype', 'SFT')
-            ->where('acctran.details', 'Paying User')
             ->whereNotNull('acctran.user_id')
             ->whereBetween('acctran.date', [$dateFromStr, $dateToStr])
             ->when($validated['user_id'] ?? null, function ($q, $userId) {
                 $q->where('acctran.user_id', $userId);
             })
-            ->selectRaw('users.id as user_id, users.name as employee_name, SUM(acctran.debit) as total_pay, COUNT(*) as shift_count')
+            ->selectRaw('users.id as user_id, users.name as employee_name, SUM(acctran.credit) as total_pay, COUNT(*) as shift_count')
             ->groupBy('users.id', 'users.name')
             ->orderByDesc('total_pay')
             ->get();

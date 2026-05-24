@@ -34,7 +34,7 @@ return new class extends Migration {
                     `accountid` = 42,
                     `debit` = 0,
                     `credit` = NEW.user_rate * NEW.total_hours,
-                    `details` = 'Shift Amount for User',
+                    `details` = CONCAT('Shift Amount for ', (SELECT name FROM users WHERE id = NEW.user_id)),
                     `actype` = (SELECT `actype` FROM `accounts` WHERE `accountid` = 3),
                     `created_at` = NOW(),
                     `updated_at` = NOW();
@@ -95,7 +95,7 @@ return new class extends Migration {
                     `accountid` = 42,
                     `debit` = 0,
                     `credit` = NEW.user_rate * NEW.total_hours,
-                    `details` = 'Shift Amount for User',
+                    `details` = CONCAT('Shift Amount for ', (SELECT name FROM users WHERE id = NEW.user_id)),
                     `actype` = (SELECT `actype` FROM `accounts` WHERE `accountid` = 3),
                     `created_at` = NOW(),
                     `updated_at` = NOW();
@@ -234,7 +234,7 @@ return new class extends Migration {
     {
         DB::unprepared('DROP TRIGGER IF EXISTS `trg_shifts_acctran_after_insert`;');
         DB::unprepared('DROP TRIGGER IF EXISTS `trg_shifts_acctran_after_update`;');
-        DB::unprepared('DROP TRIGGER IF EXISTS `trg_shifts_clock_afer_delete`;');
+        DB::unprepared('DROP TRIGGER IF EXISTS `trg_shifts_acctran_after_delete`;');
         DB::unprepared('DROP TRIGGER IF EXISTS `trg_shifts_clock_after_insert`;');
         DB::unprepared('DROP TRIGGER IF EXISTS `trg_shifts_clock_after_update`;');
         DB::unprepared('DROP TRIGGER IF EXISTS `trg_shifts_clock_after_delete`;');
