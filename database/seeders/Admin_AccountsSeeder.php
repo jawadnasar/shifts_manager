@@ -16,8 +16,8 @@ class Admin_AccountsSeeder extends Seeder
         $accounts = [
             [
                 'accountid' => 1000,
-                'name' => 'Income',
-                'actype' => 61,
+                'name' => 'Service Charges',
+                'actype' => 51,
                 'email' => '',
                 'phone' => '',
                 'company' => '',
@@ -39,7 +39,7 @@ class Admin_AccountsSeeder extends Seeder
             [
                 'accountid' => 42,
                 'name' => 'Employees',
-                'actype' => 42,
+                'actype' => 8,
                 'email' => '',
                 'phone' => '',
                 'company' => '',

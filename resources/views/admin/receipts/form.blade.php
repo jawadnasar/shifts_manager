@@ -26,24 +26,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="dbt_accountid" class="form-label">Debit account <span class="text-danger">*</span></label>
-                    <select name="dbt_accountid" id="dbt_accountid" class="form-select @error('dbt_accountid') is-invalid @enderror"
-                        required>
-                        <option value="" disabled {{ old('dbt_accountid', $receipt?->debitac) ? '' : 'selected' }}>Select debit account</option>
-                        @foreach ($accounts as $a)
-                            <option value="{{ $a->accountid }}"
-                                {{ (string) old('dbt_accountid', $receipt?->debitac) === (string) $a->accountid ? 'selected' : '' }}>
-                                {{ $a->name }}
-                            </option>
-                        @endforeach
-                    </select>
-                    @error('dbt_accountid')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <div class="mb-3">
-                    <label for="cdt_accountid" class="form-label">Credit account <span class="text-danger">*</span></label>
+                    <label for="cdt_accountid" class="form-label">Credit account <sub>Who is paying the amount</sub> <span class="text-danger">*</span></label>
                     <select name="cdt_accountid" id="cdt_accountid" class="form-select @error('cdt_accountid') is-invalid @enderror"
                         required>
                         <option value="" disabled {{ old('cdt_accountid', $receipt?->creditac) ? '' : 'selected' }}>Select credit account</option>
@@ -60,6 +43,23 @@
                 </div>
 
                 <div class="mb-3">
+                    <label for="dbt_accountid" class="form-label">Debit account <sub>Who is receiving the amount</sub> <span class="text-danger">*</span></label>
+                    <select name="dbt_accountid" id="dbt_accountid" class="form-select @error('dbt_accountid') is-invalid @enderror"
+                        required>
+                        <option value="" disabled {{ old('dbt_accountid', $receipt?->debitac) ? '' : 'selected' }}>Select debit account</option>
+                        @foreach ($accounts as $a)
+                            <option value="{{ $a->accountid }}"
+                                {{ (string) old('dbt_accountid', $receipt?->debitac) === (string) $a->accountid ? 'selected' : '' }}>
+                                {{ $a->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('dbt_accountid')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-3">
                     <label for="deposit_amount" class="form-label">Amount <span class="text-danger">*</span></label>
                     <input type="number" step="0.0001" min="0" name="deposit_amount" id="deposit_amount"
                         class="form-control @error('deposit_amount') is-invalid @enderror"
@@ -69,7 +69,7 @@
                     @enderror
                 </div>
 
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <label for="user_id" class="form-label">Related user (optional)</label>
                     <select name="user_id" id="user_id" class="form-select @error('user_id') is-invalid @enderror">
                         <option value="">— None —</option>
@@ -83,7 +83,7 @@
                     @error('user_id')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
-                </div>
+                </div> --}}
 
                 <div class="mb-3">
                     <label for="details" class="form-label">Details <span class="text-danger">*</span></label>

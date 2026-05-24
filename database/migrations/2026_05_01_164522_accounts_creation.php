@@ -110,10 +110,10 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('accounts');
-        Schema::dropIfExists('glcodes');
         Schema::dropIfExists('acctran');
         Schema::dropIfExists('receipts');
         Schema::dropIfExists('payments');
+        Schema::dropIfExists('accounts');
+        Schema::dropIfExists('glcodes');
     }
 };

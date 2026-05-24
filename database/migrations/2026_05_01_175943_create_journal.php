@@ -45,4 +45,18 @@ return new class extends Migration
             });
         }
     }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     * 
+     * Note: We are not dropping the journal and jrndata tables here because they are essential for the system and might contain important data. Instead, we can choose to drop them in a separate migration if needed in the future.
+     */ 
+
+    public function down()
+    {
+        Schema::dropIfExists('jrndata');
+        Schema::dropIfExists('journal');
+    }
 };
