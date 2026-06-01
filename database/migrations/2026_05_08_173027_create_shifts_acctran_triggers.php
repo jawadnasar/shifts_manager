@@ -162,7 +162,7 @@ return new class extends Migration {
                 SET
                     `total_hours` = v_total_hours,
                     `total_pay_user` = v_total_hours * `user_rate`,
-                    `total_billed_client` = v_total_hours * `client_rate`
+                    `total_billed_client` = IFNULL(NULLIF(total_billed_client, 0), v_total_hours * client_rate)
                 WHERE `id` = NEW.shift_id;
             END
         ");
@@ -185,7 +185,7 @@ return new class extends Migration {
                 SET
                     `total_hours` = v_total_hours,
                     `total_pay_user` = v_total_hours * `user_rate`,
-                    `total_billed_client` = v_total_hours * `client_rate`
+                    `total_billed_client` = IFNULL(NULLIF(total_billed_client, 0), v_total_hours * client_rate)
                 WHERE `id` = NEW.shift_id;
 
                 IF OLD.shift_id <> NEW.shift_id THEN
@@ -200,7 +200,7 @@ return new class extends Migration {
                     SET
                         `total_hours` = v_old_total_hours,
                         `total_pay_user` = v_old_total_hours * `user_rate`,
-                        `total_billed_client` = v_old_total_hours * `client_rate`
+                        `total_billed_client` = IFNULL(NULLIF(total_billed_client, 0), v_old_total_hours * client_rate)
                     WHERE `id` = OLD.shift_id;
 
                 END IF;
@@ -224,7 +224,7 @@ return new class extends Migration {
                 SET
                     `total_hours` = v_total_hours,
                     `total_pay_user` = v_total_hours * `user_rate`,
-                    `total_billed_client` = v_total_hours * `client_rate`
+                    `total_billed_client` = IFNULL(NULLIF(total_billed_client, 0), v_total_hours * `client_rate`)
                 WHERE `id` = OLD.shift_id;
             END
         ");

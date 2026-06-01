@@ -75,7 +75,7 @@ class ShiftsController extends Controller
             'clock_in_datetime' => 'required|date',
             'clock_out_datetime' => 'nullable|date',
             'user_rate' => 'required|numeric',
-            'client_rate' => 'required|numeric',
+            'client_full_price' => 'required|numeric',
         ]);
 
         $clockIn = Carbon::parse($request->clock_in_datetime);
@@ -88,7 +88,7 @@ class ShiftsController extends Controller
             'user_id' => $request->user_id,
             'client_id' => $request->client_id, // <-- save selected account
             'user_rate' => $request->user_rate,
-            'client_rate' => $request->client_rate,
+            'total_billed_client' => $request->client_full_price,
             'shift_date' => $clockIn->toDateString(),
         ]);
 
@@ -185,7 +185,7 @@ class ShiftsController extends Controller
         $shift->update([
             'total_hours' => $totalHours,
             'total_pay_user' => $totalHours * $shift->user_rate,
-            'total_billed_client' => $totalHours * $shift->client_rate,
+            'client_rate' => $shift->total_billed_client / $totalHours, // Avoid division by zero
         ]);
     }
 

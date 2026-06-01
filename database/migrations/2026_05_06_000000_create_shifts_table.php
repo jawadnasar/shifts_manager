@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->decimal('user_rate', 8, 2); // Hourly pay rate for user
-            $table->decimal('client_rate', 8, 2); // Hourly billing rate to client
+            $table->decimal('client_rate', 8, 2)->nullable(); // Hourly billing rate to client
             $table->unsignedBigInteger('client_id')->nullable(); // Optional client association
             $table->decimal('total_hours', 8, 2)->default(0);
             $table->decimal('total_pay_user', 10, 2)->default(0); // Total pay to user

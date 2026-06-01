@@ -191,8 +191,8 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="client_rate" class="form-label">Client Rate (per hour)</label>
-                        <input type="number" step="0.01" name="client_rate" id="client_rate" class="form-control" required>
+                        <label for="client_rate" class="form-label">Client Rate (Full Price)</label>
+                        <input type="number" step="0.01" name="client_full_price" id="client_full_price" class="form-control" required>
                     </div>
                 </div>
                 <div class="modal-footer">
