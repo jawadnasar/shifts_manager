@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Account;
 use App\Models\Acctran;
+use App\Models\Shift;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -176,4 +177,81 @@ class LedgersController extends Controller
             'employees' => $employees,
         ]);
     }
+
+    /** Client Ledger - Show shifts billed to clients with 20% tax */
+    public function client_ledger(Request $request)
+    {
+        $validated = $request->validate([
+            'date_from' => ['nullable', 'date'],
+            'date_to' => ['nullable', 'date', 'after_or_equal:date_from'],
+            'client_id' => ['nullable', 'integer', 'exists:accounts,accountid'],
+        ]);
+
+        $dateFrom = !empty($validated['date_from'])
+            ? Carbon::parse($validated['date_from'])->startOfDay()
+            : now()->startOfMonth();
+        $dateTo = !empty($validated['date_to'])
+            ? Carbon::parse($validated['date_to'])->endOfDay()
+            : now()->endOfDay();
+
+        $dateFromStr = $dateFrom->toDateString();
+        $dateToStr = $dateTo->toDateString();
+
+        // Tax rate
+        $taxRate = 0.20; // 20%
+
+        // Get shifts data
+        $shiftsQuery = Shift::query()
+            ->with('client', 'user')
+            ->whereBetween('shift_date', [$dateFromStr, $dateToStr])
+            ->when($validated['client_id'] ?? null, function ($q, $clientId) {
+                $q->where('client_id', $clientId);
+            })
+            ->orderBy('shift_date', 'desc')
+            ->orderBy('client_id');
+
+        $shifts = $shiftsQuery->paginate(50)->withQueryString();
+
+        // Get summary grouped by client
+        $clientSummary = Shift::query()
+            ->with('client')
+            ->whereBetween('shift_date', [$dateFromStr, $dateToStr])
+            ->when($validated['client_id'] ?? null, function ($q, $clientId) {
+                $q->where('client_id', $clientId);
+            })
+            ->selectRaw('client_id, COUNT(*) as shift_count, SUM(total_billed_client) as total_billed')
+            ->groupBy('client_id')
+            ->orderByDesc('total_billed')
+            ->get()
+            ->map(function ($item) use ($taxRate) {
+                $item->tax_amount = $item->total_billed * $taxRate;
+                $item->total_with_tax = $item->total_billed + $item->tax_amount;
+                return $item;
+            });
+
+        // Grand totals
+        $grandTotalBilled = $clientSummary->sum('total_billed');
+        $grandTotalTax = $clientSummary->sum('tax_amount');
+        $grandTotalWithTax = $clientSummary->sum('total_with_tax');
+
+        // List of clients for filter
+        $clients = Account::where('is_active', true)
+            ->whereIn('actype', [5]) // Assuming clients have actype of CLT or PAT
+        ->orderBy('name')
+        ->get();
+
+        return view('admin.ledgers.client_ledger', [
+            'shifts' => $shifts,
+            'clientSummary' => $clientSummary,
+            'grandTotalBilled' => $grandTotalBilled,
+            'grandTotalTax' => $grandTotalTax,
+            'grandTotalWithTax' => $grandTotalWithTax,
+            'taxRate' => $taxRate,
+            'dateFrom' => $dateFromStr,
+            'dateTo' => $dateToStr,
+            'clients' => $clients,
+        ]);
+    }
+
+    
 }

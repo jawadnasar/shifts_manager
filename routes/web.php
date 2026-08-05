@@ -105,7 +105,8 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'is_admin'])->group(func
     /*Ledgers*/
     Route::get('/ledgers', [LedgersController::class, 'ledger'])->name('admin.ledgers.ledger');
     Route::get('/ledgers/accounts_summary', [LedgersController::class, 'accounts_summary'])->name('admin.ledgers.accounts_summary');
-    Route::get('/ledgers/employee_salaries', [LedgersController::class, 'employee_salaries'])->name('admin.ledgers.employee_salaries'); 
+    Route::get('/ledgers/employee_salaries', [LedgersController::class, 'employee_salaries'])->name('admin.ledgers.employee_salaries');
+    Route::get('/ledgers/client_ledger', [LedgersController::class, 'client_ledger'])->name('admin.ledgers.client_ledger'); 
 
     /*Shifts*/
     Route::get('/shifts', [ShiftsController::class, 'index'])->name('admin.shifts.index');
