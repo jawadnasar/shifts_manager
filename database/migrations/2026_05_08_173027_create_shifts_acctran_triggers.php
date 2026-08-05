@@ -8,7 +8,7 @@ return new class extends Migration {
     {
         DB::unprepared('DROP TRIGGER IF EXISTS `trg_shifts_acctran_after_insert`;');
         DB::unprepared('DROP TRIGGER IF EXISTS `trg_shifts_acctran_after_update`;');
-        DB::unprepared('DROP TRIGGER IF EXISTS `trg_shifts_clock_after_delete`;');
+        DB::unprepared('DROP TRIGGER IF EXISTS `trg_shifts_acctran_after_delete`;');
         DB::unprepared('DROP TRIGGER IF EXISTS `trg_shifts_clock_after_insert`;');
         DB::unprepared('DROP TRIGGER IF EXISTS `trg_shifts_clock_after_update`;');
         DB::unprepared('DROP TRIGGER IF EXISTS `trg_shifts_clock_after_delete`;');
