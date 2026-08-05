@@ -44,6 +44,7 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('adminth/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('adminth/css/searchable-select.css') }}" rel="stylesheet">
     <script src="{{ asset('adminth/js/jquery-3.4.1.min.js') }}"></script>
     <!-- <link href="{{ asset('adminth/lib/toastr/toastr.min.css') }}" rel="stylesheet" /> -->
     <link href="{{ asset('front-theme/libs/toastr/toastr.min.css') }}" rel="stylesheet" />
@@ -129,6 +130,7 @@
 
     <!-- Template Javascript -->
     <script src="{{ asset('adminth/js/main.js') }}"></script>
+    <script src="{{ asset('adminth/js/searchable-select.js') }}"></script>
     <!-- <script src="{{ asset('adminth/lib/swal/swal.js') }}"></script>
     <script src="{{ asset('adminth/lib/toastr/toastr.min.js') }}"></script> -->
     <script src="{{ asset('front-theme/libs/toastr/toastr.min.js') }}"></script>

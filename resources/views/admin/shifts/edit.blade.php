@@ -15,7 +15,7 @@
             <div class="row g-3">
                 <div class="col-md-6">
                     <label for="user_id" class="form-label">User</label>
-                    <select name="user_id" id="user_id" class="form-select" required>
+                    <select name="user_id" id="user_id" class="form-select" data-searchable data-search-placeholder="Search users..." required>
                         @foreach($users as $user)
                             <option value="{{ $user->id }}" {{ $shift->user_id == $user->id ? 'selected' : '' }}>{{ $user->name }}</option>
                         @endforeach

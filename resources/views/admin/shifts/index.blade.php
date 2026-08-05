@@ -21,8 +21,8 @@
                     <input type="date" name="date_to" id="date_to" class="form-control" value="{{ request('date_to') }}">
                 </div>
                 <div class="col-md-3">
-                    <label for="user_id" class="form-label">User</label>
-                    <select name="user_id" id="user_id" class="form-select">
+                    <label for="user_id_filter" class="form-label">User</label>
+                    <select name="user_id" id="user_id_filter" class="form-select" data-searchable data-search-placeholder="Search users...">
                         <option value="">All Users</option>
                         @foreach($users as $user)
                             <option value="{{ $user->id }}" {{ (string) request('user_id') === (string) $user->id ? 'selected' : '' }}>
@@ -159,8 +159,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="user_id" class="form-label">User</label>
-                        <select name="user_id" id="user_id" class="form-select" required>
+                        <label for="clock_in_user_id" class="form-label">User</label>
+                        <select name="user_id" id="clock_in_user_id" class="form-select" data-searchable data-search-placeholder="Search users..." required>
                             <option value="">Select User</option>
                             @foreach($users as $user)
                                 <option value="{{ $user->id }}">{{ $user->name }}</option>

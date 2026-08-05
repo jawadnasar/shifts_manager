@@ -21,7 +21,7 @@
                     </div>
                     <div class="col-md-4">
                         <label for="user_id" class="form-label">Employee</label>
-                        <select name="user_id" id="user_id" class="form-select">
+                        <select name="user_id" id="user_id" class="form-select" data-searchable data-search-placeholder="Search employees...">
                             <option value="">All employees</option>
                             @foreach ($employees as $employee)
                                 <option value="{{ $employee->id }}"
