@@ -35,7 +35,7 @@ return new class extends Migration {
                     `debit` = 0,
                     `credit` = NEW.user_rate * NEW.total_hours,
                     `details` = CONCAT('Shift Amount for ', (SELECT name FROM users WHERE id = NEW.user_id)),
-                    `actype` = (SELECT `actype` FROM `accounts` WHERE `accountid` = 3),
+                    `actype` = (SELECT `actype` FROM `accounts` WHERE `accountid` =42),
                     `created_at` = NOW(),
                     `updated_at` = NOW();
 
@@ -96,7 +96,7 @@ return new class extends Migration {
                     `debit` = 0,
                     `credit` = NEW.user_rate * NEW.total_hours,
                     `details` = CONCAT('Shift Amount for ', (SELECT name FROM users WHERE id = NEW.user_id)),
-                    `actype` = (SELECT `actype` FROM `accounts` WHERE `accountid` = 3),
+                    `actype` = (SELECT `actype` FROM `accounts` WHERE `accountid` = 42),
                     `created_at` = NOW(),
                     `updated_at` = NOW();
 
