@@ -58,6 +58,7 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'is_admin'])->group(func
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     /*Users Info*/
     Route::get('/users_info', [Users_Info_Controller::class, 'index'])->name('users_info');
+    Route::post('/users_info', [Users_Info_Controller::class, 'store'])->name('admin.users_info.store');
     Route::get('/users_info/{id}', [Users_Info_Controller::class, 'show'])->name('admin.users_info.show');
 
     /*Certificates*/
