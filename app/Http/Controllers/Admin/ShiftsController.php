@@ -126,7 +126,7 @@ class ShiftsController extends Controller
     public function edit($id)
     {
         $shift = Shift::with('user', 'clockEntries')->findOrFail($id);
-        $firstEntry = $shift->clockEntries()->orderBy('clock_in_time')->first();
+        $firstEntry = $shift->clockEntries()->orderBy('clock_in_datetime')->first();
         $users = User::all();
 
         return view('admin.shifts.edit', compact('shift', 'users', 'firstEntry'));
