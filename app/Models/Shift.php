@@ -16,7 +16,7 @@ class Shift extends Model
         'user_id',
         'client_id',
         'user_rate',
-        'client_rate',
+        // 'client_rate',
         'total_hours',
         'total_pay_user',
         'total_billed_client',

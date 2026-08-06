@@ -190,9 +190,9 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="mb-3">
-                        <label for="client_rate" class="form-label">Client Rate (Full Price)</label>
-                        <input type="number" step="0.01" name="client_full_price" id="client_full_price" class="form-control" required>
+                    <div class="mb-3" style="display: none;">
+                        <label for="client_full_price" class="form-label">Client Rate (Full Price)</label>
+                        <input type="number" step="0.01" name="client_full_price" id="client_full_price" value="0" class="form-control">
                     </div>
                 </div>
                 <div class="modal-footer">

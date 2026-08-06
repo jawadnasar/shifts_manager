@@ -25,16 +25,16 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
-    {
-        if (Schema::hasTable('user_details')) {
-            Schema::table('user_details', function (Blueprint $table) {
-                $table->string('bank_name')->nullable(false)->change();
-                $table->string('bank_address')->nullable(false)->change();
-                $table->string('account_holder_name')->nullable(false)->change();
-                $table->string('sort_code')->nullable(false)->change();
-                $table->string('account_number')->nullable(false)->change();
-            });
-        }
-    }
+    // public function down(): void
+    // {
+    //     if (Schema::hasTable('user_details')) {
+    //         Schema::table('user_details', function (Blueprint $table) {
+    //             $table->string('bank_name')->nullable(false)->change();
+    //             $table->string('bank_address')->nullable(false)->change();
+    //             $table->string('account_holder_name')->nullable(false)->change();
+    //             $table->string('sort_code')->nullable(false)->change();
+    //             $table->string('account_number')->nullable(false)->change();
+    //         });
+    //     }
+    // }
 };
